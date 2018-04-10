@@ -37,4 +37,18 @@ class User extends Authenticatable
     public function experiences(){
         return $this->hasMany(Experience::class);
     }
+
+    public function formations(){
+        return $this->belongsToMany(Formation::class, 'formation_user', 'user_id', 'formation_id');
+    }
+
+    public function friends()
+    {
+        return $this->belongsToMany(User::class, 'friends', 'friend_id','user_id');
+    }
+
+    public function allFriends()
+    {
+        return $this->friends()->with('allFriends');
+    }
 }
