@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FormationUser extends Migration
+class UserGroup extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class FormationUser extends Migration
      */
     public function up()
     {
-        Schema::create('formation_user',function (Blueprint $table){
+        Schema::create('user_groups',function (Blueprint $table){
             $table->increments('id');
-            $table->integer('formation_id')->unsigned()->index();
+            $table->integer('group_id')->unsigned()->index();
             $table->integer('user_id')->unsigned()->index();
-            $table->foreign('formation_id')->references('id')->on('formations')->onDelete('cascade');
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class FormationUser extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formation_user');
+        Schema::dropIfExists('user_groups');
     }
 }

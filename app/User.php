@@ -44,11 +44,32 @@ class User extends Authenticatable
 
     public function friends()
     {
-        return $this->belongsToMany(User::class, 'friends', 'friend_id','user_id');
+        return $this->belongsToMany(User::class, 'friends', 'user_id','friend_id');
     }
 
     public function allFriends()
     {
         return $this->friends()->with('allFriends');
     }
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
+
+    public function settings(){
+        return $this->belongsToMany(Setting::class, 'user_settigns', 'user_id', 'setting_id')
+            ->withPivot('value')
+            ->withTimestamps();
+    }
+
+    public function groups(){
+        return $this->belongsToMany(Setting::class, 'user_groups', 'user_id', 'group_id');
+    }
+
+    public function posts() {
+        return $this->belongsToMany(Post::class, 'post_user', 'user_id', 'post_id')
+            ->withPivot('action')
+            ->withTimestamps();
+    }
 }
+
+
