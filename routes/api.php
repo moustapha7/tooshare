@@ -17,6 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('add', function (){
-
+Route::post('add-person', function(Request $request) {
+    dd($request->all());
+    $params = \Illuminate\Support\Facades\Input::get('params');
+    return response()->json([
+        'id' => 1,
+        'name' => $params['updates'][0]['value'],
+        'email' => $params['updates'][1]['value'],
+        'phone' => $params['updates'][2]['value']
+    ]);
 });
