@@ -72,6 +72,19 @@ class User extends Authenticatable implements JWTSubject
             ->withPivot('action')
             ->withTimestamps();
     }
+    /* jwt methodes  */
+
+    //The first method gets the identifier that will be stored in the subject claim of the JWT
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    //allow us to add any custom claims we want added to the JWT
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }
 
 
