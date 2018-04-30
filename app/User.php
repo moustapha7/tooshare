@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
@@ -17,6 +18,7 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name', 'last_name', 'phone', 'email', 'password',
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -70,8 +72,6 @@ class User extends Authenticatable
             ->withPivot('action')
             ->withTimestamps();
     }
-
-
 }
 
 
