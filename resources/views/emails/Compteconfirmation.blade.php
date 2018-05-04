@@ -1,0 +1,1 @@
+Bonjour cher {{$user}} veillez confirmer votre compte en clilquant sur ce lien {{$lien}}

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Mail\Confirmation;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -39,14 +41,18 @@ class AuthController extends Controller
         if($validator->fails()){
             return response()->json($validator->errors());
         }
-
+         $mail_token = str_random(100);
         $user=User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'phone'=>$request->phone,
             'email'=>$request->email,
+            'mail_token'=>$mail_token,
             'password' => bcrypt($request->password),
         ]);
+
+        $url='http://tooshare.com/confirmation?mail_token='.$mail_token.'&email='.$user->email;
+        Mail::to($user->email)->send(new Confirmation($user,$url));
         $token=auth()->login($user);
         return $this->respondWithToken($user,$token);
 
@@ -59,7 +65,7 @@ class AuthController extends Controller
             'password'=> 'required|min:6'
         ]);
         if($validator->fails()){
-            return response()->json($validator->errors());
+            return response()->json($validator->errors()->toJson());
         }
         $credentials = $request->only(['email', 'password']);
 
@@ -68,5 +74,9 @@ class AuthController extends Controller
         }
 
         return $this->respondWithToken(User::find(auth()->id()),$token);
+    }
+    public function CompteConfirmation(Request $request){
+
+        return '';
     }
 }
