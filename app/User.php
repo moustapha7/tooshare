@@ -16,7 +16,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'phone', 'email', 'password',
+        'first_name', 'last_name', 'phone', 'email', 'password','mail_token','confirmed_at','delai_confirmation'
     ];
 
 
@@ -25,6 +25,15 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array
      */
+
+    public function setMail_tokenAttribute($value)
+    {
+        $this->attributes['mail_token'] =$value;
+    }
+    public function setConfirmed_atAttribute($value)
+    {
+        $this->attributes['confirmed_at'] =$value;
+    }
     protected $hidden = [
         'password', 'remember_token',
     ];

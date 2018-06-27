@@ -52,7 +52,7 @@ class PostController extends Controller
     {
        $post= Post::findorfail($id);
 
-       return new PostRessource($post->with('files'));
+       return new PostRessource($post);
     }
 
     /**
@@ -67,7 +67,7 @@ class PostController extends Controller
         $post=Post::findorfail($id);
 
         $post->update($request->all());
-      return new PostRessource($post->with('files'));
+      return new PostRessource($post);
     }
 
     /**
