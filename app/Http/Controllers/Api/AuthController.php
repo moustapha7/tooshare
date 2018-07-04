@@ -31,13 +31,7 @@ class AuthController extends Controller
     }
     public function Register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email|unique:users',
-            'first_name' => 'required',
-            'last_name'=>'required',
-            'password'=> 'required|min:6',
-            'phone'=>'required|alpha_num|unique:users|min:6'
-        ]);
+        $validator = Validator::make($request->all(),User::$rules);
         if($validator->fails()){
             return response()->json($validator->errors());
         }
@@ -47,10 +41,16 @@ class AuthController extends Controller
             'last_name' => $request->last_name,
             'phone'=>$request->phone,
             'email'=>$request->email,
+            'gender'=>$request->gender,
+            'country'=>$request->country,
+            'city'=>$request->city,
+            'birthday'=>$request->birthday,
             'mail_token'=>$mail_token,
             'password' => bcrypt($request->password),
             'delai_confirmation'=>now()->addWeeks(3)
         ]);
+       $user->saveTimline();
+       $user->InitTimelinePosts();
 
         $url='http://localhost:4200/confirmation?mail_token='.$mail_token.'&email='.$user->email.'&password='.$user->password;
         Mail::to($user->email)->send(new Confirmation($user,$url));
@@ -74,7 +74,8 @@ class AuthController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        return $this->respondWithToken(User::find(auth()->id()),$token);
+
+        return $this->respondWithToken(User::find(auth()->id())->with('timeline')->with('posts')->where('id',auth()->id())->get(),$token);
     }
     public function CompteConfirmation(Request $request){
         $user=User::where('email',$request->email)->first();

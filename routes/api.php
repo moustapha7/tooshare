@@ -14,6 +14,10 @@ use Illuminate\Http\Request;
 */
 
 Route::post('confirmation','Api\AuthController@CompteConfirmation');
+Route::post('upload','Api\UserController@uploadImage');
+Route::post('DeleteImage','Api\UserController@DestroyImage');
+Route::post('DemandeFriend','Api\FriendsheapController@DemandeFriend');
+
 
 Route::apiResource('posts', 'Api\PostController');
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFilesTable extends Migration
+class CreateFollowersTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateFilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('followers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('original_name')->nullable();
-            $table->string('file_name')->nullable();
-            $table->string('file_Resize_name')->nullable();
-            $table->integer('post_id')->unsigned()->index()->nullable();
+            $table->integer('follower_id')->unsigned()->index();
+            $table->integer('leader_id')->unsigned()->index();
+            $table->string('status', 50);
             $table->timestamps();
+
         });
     }
 
@@ -30,6 +30,6 @@ class CreateFilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('files');
+        Schema::drop('followers');
     }
 }

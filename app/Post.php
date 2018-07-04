@@ -7,18 +7,54 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-    public $fillable=['content'];
+    public $fillable=['content','description','timeline_id'];
+
+
+
+    public function users_liked()
+    {
+        return $this->belongsToMany('App\User', 'post_likes', 'post_id', 'user_id');
+    }
+
+    public function shares()
+    {
+        return $this->belongsToMany('App\User', 'post_shares', 'post_id', 'user_id');
+    }
+
+    public function notifications_user()
+    {
+        return $this->belongsToMany('App\User', 'post_follows', 'post_id', 'user_id');
+    }
+
+    public function reports()
+    {
+        return $this->belongsToMany('App\User', 'post_reports', 'post_id', 'reporter_id')->withPivot('status');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment')->latest()->where('parent_id', null);
+    }
+
     public function users() {
         return $this->belongsToMany(User::class, 'post_user', 'post_id', 'user_id')
             ->withPivot('action')
             ->withTimestamps();
     }
 
-    public function comments() {
+  /*  public function comments() {
         return $this->hasMany(Comment::class, 'post_id', 'id');
-    }
+    }*/
 
     public function files(){
-        return $this->hasMany(File::class,'post_id');
+        return $this->belongsToMany('App\File','file_post','file_id','post_id')->withTimestamps();
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User','user_id');
+    }
+   public function timeline(){
+        return $this->belongsTo('App\Timeline');
+   }
 }
