@@ -16,8 +16,16 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'phone', 'email', 'password',
+        'first_name', 'last_name', 'phone', 'email', 'password','mail_token','confirmed_at','delai_confirmation','gender','country','city','birthday','last_logged'
     ];
+
+    public static $rules=[
+        'email' => 'required|string|email|unique:users',
+        'first_name' => 'required',
+        'last_name'=>'required',
+        'password'=> 'required|min:6',
+        'phone'=>'required|alpha_num|unique:users|min:6'
+        ];
 
 
     /**
@@ -25,9 +33,48 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array
      */
+
+    public function saveTimline(){
+     $timline=   Timeline::create([
+            'type'=>'user',
+            'username'=>$this->attributes['email'],
+            'name'=>$this->attributes['first_name'],
+            'about'=>'pour le moment je suis pas util peut etre un jour Insha allah '
+        ]);
+     $this->timeline()->associate($timline)->save();
+    }
+
+    public function setMail_tokenAttribute($value)
+    {
+        $this->attributes['mail_token'] =$value;
+    }
+    public function setConfirmed_atAttribute($value)
+    {
+        $this->attributes['confirmed_at'] =$value;
+    }
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function timeline()
+    {
+        return $this->belongsTo('App\Timeline','timeline_id')->with('posts');
+    }
+
+   public function files(){
+       return $this->hasMany(File::class,'user_id');
+   }
+
+    public function followers()
+    {
+        return $this->belongsToMany('App\User', 'followers', 'leader_id', 'follower_id')->withPivot('status')->withTimestamps();
+    }
+
+    public function following()
+    {
+        return $this->belongsToMany('App\User', 'followers', 'follower_id', 'leader_id')->withTimestamps();
+    }
+
 
     public function roles(){
         return $this->belongsToMany(Role::class,'role_user', 'user_id', 'role_id');
@@ -53,9 +100,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->friends()->with('allFriends');
     }
-    public function messages(){
+   /* public function messages(){
         return $this->hasMany(Message::class);
-    }
+    }*/
 
     public function settings(){
         return $this->belongsToMany(Setting::class, 'user_settigns', 'user_id', 'setting_id')
@@ -66,11 +113,37 @@ class User extends Authenticatable implements JWTSubject
     public function groups(){
         return $this->belongsToMany(Setting::class, 'user_groups', 'user_id', 'group_id');
     }
+    public function conversations()
+    {
+        return $this->belongsToMany('App\Conversation', 'conversation_user', 'user_id', 'conversation_id');
+    }
 
-    public function posts() {
+    public function messages()
+    {
+        return $this->conversations()->with('messages');
+    }
+
+    /*public function posts() {
         return $this->belongsToMany(Post::class, 'post_user', 'user_id', 'post_id')
             ->withPivot('action')
             ->withTimestamps();
+    }*/
+
+    public function InitTimelinePosts(){
+        foreach($this->followers as $follower){
+              foreach($follower->posts as $post){
+                  if($post->created_at<=now() && $post->created_at >=now()->addWeeks(3)){
+                      $post->timeline()->associate($this->timeline);
+                  }
+
+              }
+            //$this->timeline()
+        }
+
+
+    }
+    public function posts(){
+        return $this->hasMany('App\Post','user_id');
     }
     /* jwt methodes  */
 
