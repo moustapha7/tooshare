@@ -28,12 +28,12 @@ class Post extends Model
 
     public function reports()
     {
-        return $this->belongsToMany('App\User', 'post_reports', 'post_id', 'reporter_id')->withPivot('status');
+        return $this->belongsToMany('App\User', 'post_reports', 'post_id', 'reporter_id');
     }
 
     public function comments()
     {
-        return $this->hasMany('App\Comment')->latest()->where('parent_id', null);
+        return $this->hasMany('App\Comment','post_id')->latest()->where('parent_id', null);
     }
 
     public function users() {
@@ -52,7 +52,7 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo('App\User');
     }
    public function timeline(){
         return $this->belongsTo('App\Timeline');

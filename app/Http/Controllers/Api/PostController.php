@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Comment;
 use App\File;
 use App\Http\Resources\PostRessource;
+use App\Notifications\PostCommentedNotification;
+use App\Notifications\PostLikedNotification;
+use App\Notifications\PostReporteddNotification;
+use App\Notifications\PostSharedNotification;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
@@ -129,7 +134,70 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-      return  Post::destroy($id);
+
+          Post::destroy($id);
+
+        return response()->json(['message'=>'succes',200]);
 
     }
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function LikePost(Request $request){
+        $post=Post::find($request->post_id);
+        $post->users_liked()->attach($request->user_id);
+        //notified the user posted the post
+        $post->user->notify(new PostLikedNotification($post,User::find($request->user_id)));
+        return response()->json(['message'=>'succes'],200);
+
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function CommentedPost(Request $request){
+        $post=Post::find($request->post_id);
+        $comment= new Comment($request->all());
+        $comment->post()->associate($post);
+        $comment->user()->associate(Auth::user())->save();
+
+        $post->notifications_user()->attach(Auth::user()->id);
+        //notifier les utilisateurs abboner au post dabords
+        foreach($post->notifications_user as $user){
+            if($user->id!=Auth::user()->id){
+                $user->notify(new PostCommentedNotification($post,Auth::user()));
+            }
+
+
+        }
+        $post->user->notify(new PostCommentedNotification($post,Auth::user()));
+        //ensuite notifier l'utilisateur proprietaire du post que son post viens d'etre commnter expeter par lui meme
+
+        return response()->json(['message'=>'succes'],200);
+
+    }
+
+    public function SharePost(Request $request){
+      $post=Post::find($request->post_id);
+      $post->shares->attach(Auth::user()->id);
+      $post->user->notify(new PostSharedNotification($post,Auth::user()));
+
+      return response()->json(['message'=>'succes'],200);
+
+    }
+
+    public  function ReportedPost(Request $request){
+        //recuperer le post qui est a reporter
+        $post=Post::find($request->post_id);
+        $post->reports->attach(Auth::user()->id)->save();
+        $post->user->notify(new PostReporteddNotification($post,Auth::user()));
+
+        return response()->json(['message'=>'succes'],200);
+
+    }
+
 }

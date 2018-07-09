@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
@@ -44,6 +45,7 @@ class User extends Authenticatable implements JWTSubject
      $this->timeline()->associate($timline)->save();
     }
 
+
     public function setMail_tokenAttribute($value)
     {
         $this->attributes['mail_token'] =$value;
@@ -64,6 +66,12 @@ class User extends Authenticatable implements JWTSubject
    public function files(){
        return $this->hasMany(File::class,'user_id');
    }
+
+    public function friendRequests()
+    {
+        return $this->belongsToMany('App\User', 'friend_requests', 'leader_id', 'friend_id')->withTimestamps();
+    }
+
 
     public function followers()
     {
@@ -142,8 +150,10 @@ class User extends Authenticatable implements JWTSubject
 
 
     }
+
+
     public function posts(){
-        return $this->hasMany('App\Post','user_id');
+        return $this->hasMany('App\Post','user_id','id');
     }
     /* jwt methodes  */
 
@@ -158,6 +168,8 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+
 }
 
 
