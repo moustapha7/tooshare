@@ -19,10 +19,14 @@ class UserController extends Controller
     public function __construct()
     {
         $this->photos_path = public_path('/users');
-       // $this->middleware('auth:api');
+         $this->middleware('auth:api');
     }
 
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function uploadImage(Request $request){
            $user=User::find($request->user_id);
               $photos = $request->file('file');
@@ -61,6 +65,10 @@ class UserController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function DestroyImage(Request $request){
        // $filename = $request->id;
         $uploaded_image = File::find($request->id);
@@ -86,5 +94,25 @@ class UserController extends Controller
 
         return  response()->json(['succes'=>'Image Deleted :)'],200);
     }
+
+     public function getUserAllUnreadNotifications(){
+         $notifs= Auth::user()->unreadNotifications;
+         return  response()->json($notifs,200);
+     }
+     public function markUserNotificationasRead(Request $request){
+         Auth::user()->unreadNotifications()->find($request->notificaton_id)->markAsRead();
+         return  response()->json(['message'=>'succes'],200);
+     }
+
+     public function getUserAllPosts(){
+          return response()->json(Auth::user()->posts->paginate(20),200);
+
+     }
+
+     public function getUserAllFriends(){
+         return response()->json(Auth::user()->allFriends,200);
+
+     }
+
 
 }

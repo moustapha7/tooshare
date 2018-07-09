@@ -20,6 +20,12 @@ class AuthController extends Controller
     {
     }
 
+    /**
+     * descripption : return the response with token
+     * @param $data
+     * @param $token
+     * @return \Illuminate\Http\JsonResponse
+     */
     protected function respondWithToken($data, $token)
     {
         return response()->json([
@@ -29,6 +35,11 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);
     }
+
+    /**description : register an user and return it and his timline
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function Register(Request $request)
     {
         $validator = Validator::make($request->all(),User::$rules);
@@ -59,6 +70,11 @@ class AuthController extends Controller
 
     }
 
+    /**
+     * description : Auuthentification methode return the user authenticated
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -77,6 +93,12 @@ class AuthController extends Controller
 
         return $this->respondWithToken(User::find(auth()->id())->with('timeline')->with('posts')->where('id',auth()->id())->get(),$token);
     }
+
+    /**
+     * description : this methode is using for confirmation the user acount and return it
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function CompteConfirmation(Request $request){
         $user=User::where('email',$request->email)->first();
        if($request->get('email')&& $request->get('mail_token')&& $request->get('password')){
