@@ -1,6 +1,7 @@
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://use.fontawesome.com/releases/v5.1.0/css/all.css");
 
 // Variables
 @import "variables";
@@ -12,3 +13,85 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+
+/* Login form */
+.navbar-collapse .loginForm a{
+ color: #fff;
+}
+.navbar-collapse .loginForm input{
+  border: 1px solid #fff;
+  color: #008dd4 !important;
+  border-radius: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 25px;
+  background-color: #ffffff;
+  font-size: small;
+}
+
+.navbar-collapse .loginForm input:focus{
+  border: 2px solid #fff;
+  color: #008dd4 !important;
+}
+
+.navbar-collapse .loginForm button{
+  height: 25px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.btn-login {
+  background-color: #ffffff;
+  color: #008dd4 !important;
+  font-weight: bold;
+}
+
+
+/* End Login Form */
+
+.footer {
+  position: absolute;
+  left:0;
+  bottom: 0;
+  width: 100%;
+  background-color:  #008dd4;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+footer.page-footer .footer-copyright {
+  overflow: hidden;
+  min-height: 50px;
+  max-height: 100%;
+  line-height: normal;
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: #008dd4;
+  color: white;
+}
+footer.page-footer .footer-copyright a{
+  color: white;
+}
+footer.page-footer .container-fluid {
+  width: auto;
+  font-size: x-small;
+}
+
+footer.page-footer .footer-copyright ul  {
+  list-style-type: none;
+  width: auto;
+  margin-top: 10px;
+}
+
+footer.page-footer .footer-copyright ul li  {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+footer.page-footer {
+  margin-top: 0px;
+}
+
