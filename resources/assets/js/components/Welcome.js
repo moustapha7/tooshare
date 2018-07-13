@@ -24,14 +24,16 @@ class Welcome extends Component {
     }
 
     handleSubmit(event) {
-        alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
+       // alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
         event.preventDefault();
+
         axios
             .post('/api/login', {
                 email: this.state.login,
                 password: this.state.password
             })
             .then(response => {
+                //document.windows.href = "/home";
                 console.log('from handle submit', response);
             });
     }
