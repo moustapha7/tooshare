@@ -1,21 +1,19 @@
 require('./bootstrap');
 import React from 'react';
-import { render } from 'react-dom';
+import { render} from 'react-dom';
 import { Router, Route, browserHistory, Link } from 'react-router';
+import {Switch} from 'react-router-dom';
 
 import Home from './components/home/Home';
 import Footer from './components/Footer';
-import Welcome from './components/Welcome';
-import Header from './components/Header';
+import Index from './components/Index';
 
-
-render(<Header />, document.getElementById('header'));
 render(
     <Router history={browserHistory}>
-        <Route path="/" component={Welcome} >
-            <Link to="/home">Home</Link>
-            <Route path="/home" exact component={Home} />
-        </Route>
+        <Switch>
+            <Route  path='/' component={Index}/>
+            <Route path='/home' component={Home}/>
+        </Switch>
     </Router>,
     document.getElementById('tooshareapp')
 );
