@@ -18192,6 +18192,8 @@ var generatePath = function generatePath() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__images_logo_png__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__images_logo_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__images_logo_png__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18199,6 +18201,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -18285,7 +18288,7 @@ var Header = function (_Component) {
                 var name = !error ? 'alert alert-success' : 'alert alert-danger';
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'nav',
-                    { className: 'navbar navbar-expand-lg navbar-dark bg-primary' },
+                    { className: 'navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'container' },
@@ -18393,7 +18396,7 @@ var Header = function (_Component) {
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'nav',
-                    { className: 'navbar navbar-expand-lg navbar-dark bg-primary' },
+                    { className: 'navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'container' },
@@ -18401,7 +18404,8 @@ var Header = function (_Component) {
                             'a',
                             { className: 'navbar-brand', href: '#' },
                             ' ',
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/app/resources/images/tooshare.jpg', alt: 'TOOSHARE LOGO' })
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__images_logo_png___default.a, alt: 'TOOSHARE LOGO', height: '30',
+                                width: 'auto' })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'button',
@@ -18410,7 +18414,7 @@ var Header = function (_Component) {
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'collapse navbar-collapse', id: 'navbarSupportedContent' },
+                            { className: 'mycollapse mynavbar-collapse', id: 'navbarSupportedContent', align: 'right' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { align: 'right' },
@@ -18433,7 +18437,7 @@ var Header = function (_Component) {
                                         { align: 'right', className: 'mdpperdue col-12' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'a',
-                                            { href: '#', className: '' },
+                                            { href: '#', className: 'mdperdu' },
                                             'Vous avez Perdu votre mot de Passe ?'
                                         )
                                     )
@@ -66091,6 +66095,8 @@ var Footer = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Header__ = __webpack_require__(67);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -66110,20 +66116,26 @@ var Welcome = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Welcome.__proto__ || Object.getPrototypeOf(Welcome)).call(this, props));
 
         _this.state = {
-            name: '',
+            first_name: '',
+            last_name: '',
             email: '',
             password: '',
             password_confirmation: ''
         };
 
         _this.handleSubmit = _this.handleSubmit.bind(_this);
+        _this.handleChange = _this.handleChange.bind(_this);
         return _this;
     }
 
     _createClass(Welcome, [{
         key: 'handleChange',
         value: function handleChange(event) {
-            this.setState({ login: event.target.value });
+            // this.setState({login: event.target.value});
+            var target = event.target;
+            var value = target.value;
+            var name = target.name;
+            this.setState(_defineProperty({}, name, value));
         }
     }, {
         key: 'handleSubmit',
@@ -66131,17 +66143,27 @@ var Welcome = function (_Component) {
             var _this2 = this;
 
             event.preventDefault();
-            axios.post('/api/login', {
-                email: this.state.login,
-                password: this.state.password
-            }).then(function (response) {
+            // alert('Prenom: ' + this.state.first_name+ ' Nom: '+ this.state.last_name);
+            var user = {
+                first_name: this.state.first_name,
+                last_name: this.state.last_name,
+                email: this.state.email,
+                password: this.state.password,
+                phone: this.state.phone
+
+            };
+
+            var config = {
+                headers: { 'No-Auth': 'True' }
+            };
+            axios.post('/api/register', user, config).then(function (response) {
                 console.log('from handle submit', response);
                 _this2.setState({ err: false });
                 _this2.props.router.push("home");
             }).catch(function (error) {
                 console.log('from handle error', error);
                 // if(error.code == 401){
-                alert('Login ou Mot de passe incorrect');
+                alert('Erreur lors de l\'inscription');
                 // }
                 _this2.setState({ login: "" });
                 _this2.setState({ password: "" });
@@ -66152,7 +66174,7 @@ var Welcome = function (_Component) {
         key: 'render',
         value: function render() {
             var error = this.state.err;
-            var msg = !error ? 'Registered Successfully' : 'Oops! , Something went wrong.';
+            var msg = !error ? 'Inscrie avec succes' : 'Oops! , Quelque chose s\'est mal passé';
             var name = !error ? 'alert alert-success' : 'alert alert-danger';
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -66165,10 +66187,10 @@ var Welcome = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'row' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-lg-9 col-md-9 col-sm-9 col-xs-12' }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-lg-8 col-md-8 col-sm-8 col-xs-12' }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'col-lg-3 col-md-3 col-sm-3 col-xs-12' },
+                            { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-12' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'p',
                                 { 'class': 'h3 text-center mb-4 inscription' },
@@ -66176,7 +66198,7 @@ var Welcome = function (_Component) {
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
-                                { className: 'col-md-offset-2 col-md-8 col-md-offset-2' },
+                                { className: 'col-md-offset-2 col-md-12 col-md-offset-2' },
                                 error != undefined && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
                                     { className: name, role: 'alert' },
@@ -66185,14 +66207,14 @@ var Welcome = function (_Component) {
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'form',
-                                { className: 'form-horizontal', role: 'form', method: 'POST' },
+                                { className: 'form-horizontal', role: 'form', method: 'POST', onSubmit: this.handleSubmit },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
                                     { className: 'form-group' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-12' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'first_name', type: 'text', className: 'form-control', ref: 'first_name', name: 'first_name', required: true, autoFocus: true, placeholder: 'Prenom' })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'first_name', type: 'text', className: 'form-control', ref: 'first_name', name: 'first_name', required: true, autoFocus: true, placeholder: 'Prenom', onChange: this.handleChange })
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -66201,7 +66223,7 @@ var Welcome = function (_Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-12' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'laste_name', type: 'text', className: 'form-control', ref: 'laste_name', name: 'laste_name', required: true, placeholder: 'Nom' })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'last_name', type: 'text', className: 'form-control', ref: 'last_name', name: 'last_name', required: true, placeholder: 'Nom', onChange: this.handleChange })
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -66210,7 +66232,7 @@ var Welcome = function (_Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-12' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'email', type: 'email', className: 'form-control', ref: 'email', name: 'email', required: true, placeholder: 'Adresse Email' })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'email', type: 'email', className: 'form-control', ref: 'email', name: 'email', required: true, placeholder: 'Adresse Email', onChange: this.handleChange })
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -66219,7 +66241,7 @@ var Welcome = function (_Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-12' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'phone', type: 'phone', className: 'form-control', ref: 'phone', name: 'phone', required: true, placeholder: 'Telephone' })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'phone', type: 'phone', className: 'form-control', ref: 'phone', name: 'phone', required: true, placeholder: 'Telephone', onChange: this.handleChange })
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -66228,7 +66250,7 @@ var Welcome = function (_Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-12' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'password', type: 'password', className: 'form-control', ref: 'password', name: 'password', required: true, placeholder: 'Mot de passe' })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'password', type: 'password', className: 'form-control', ref: 'password', name: 'password', required: true, placeholder: 'Mot de passe', onChange: this.handleChange })
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -66237,12 +66259,12 @@ var Welcome = function (_Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-12' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'password-confirm', type: 'password', className: 'form-control', ref: 'confirm', name: 'password_confirmation', required: true, placeholder: 'Confirmer Mot de passe' })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'password-confirm', type: 'password', className: 'form-control', ref: 'confirm', name: 'password_confirmation', required: true, placeholder: 'Confirmer Mot de passe', onChange: this.handleChange })
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
-                                    { className: 'form-group' },
+                                    { className: 'form-group', align: 'center' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-12 col-md-offset-4' },
@@ -66271,6 +66293,22 @@ var Welcome = function (_Component) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/logo.png?82c8d2bc4ab736b423ce158f1fa0c8c4";
 
 /***/ })
 /******/ ]);

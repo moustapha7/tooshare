@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { ReactDOM, Switch, render} from 'react-dom';
 import { Router, Route, browserHistory, Link, withRouter } from 'react-router';
+import logo from '../../../images/logo.png'
 
 class Header extends Component {
     constructor(props){
@@ -72,7 +73,7 @@ class Header extends Component {
             let name = (!error) ? 'alert alert-success' : 'alert alert-danger' ;
             return (
 
-                <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                <nav className="navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare">
                     <div className="container">
                         <a className="navbar-brand" href="#">Navbar</a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
@@ -120,16 +121,17 @@ class Header extends Component {
 
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                <nav className="navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare">
                     <div className="container">
-                        <a className="navbar-brand" href="#"> <img src="/app/resources/images/tooshare.jpg" alt="TOOSHARE LOGO"/></a>
+                        <a className="navbar-brand" href="#"> <img src={logo} alt="TOOSHARE LOGO" height="30"
+                                                                   width="auto"/></a>
 
 
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
 
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div className="mycollapse mynavbar-collapse" id="navbarSupportedContent" align="right">
                             <div  align="right">
                                 <form className="form-inline my-2 my-lg-0 loginForm pull-right" onSubmit={this.handleSubmit}>
                                     <div className="col-12 " align="right">
@@ -137,7 +139,7 @@ class Header extends Component {
                                         <input className="form-control mr-sm-2" type="password" placeholder="Mote de Passe" aria-label="Mot de passe" value={this.state.password} onChange={this.handleChangePwrd}/>
                                         <button className="btn btn-default my-2 my-sm-0 btn-login" type="submit">Connexion</button>
                                     </div>
-                                    <div align="right" className="mdpperdue col-12"><a href="#" className="">Vous avez Perdu votre mot de Passe ?</a></div>
+                                    <div align="right" className="mdpperdue col-12"><a href="#" className="mdperdu">Vous avez Perdu votre mot de Passe ?</a></div>
                                 </form>
                             </div>
                         </div>
