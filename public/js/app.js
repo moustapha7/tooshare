@@ -18313,7 +18313,7 @@ var Header = function (_Component) {
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'nav',
-                        { className: 'navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare' },
+                        { className: 'navbar mynavbar navbar-expand-lg navbar-dark bg-primar bg-tooshare' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'container' },
@@ -66449,7 +66449,7 @@ var Welcome = function (_Component) {
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
-                                    { className: 'form-group' },
+                                    { className: 'form-group row' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-12' },
@@ -66459,7 +66459,7 @@ var Welcome = function (_Component) {
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
-                                    { className: 'form-group' },
+                                    { className: 'form-group row' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-12' },
@@ -66473,7 +66473,6 @@ var Welcome = function (_Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-6' },
-                                        ' ',
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'div',
                                             { className: 'form-group' },
@@ -66508,7 +66507,7 @@ var Welcome = function (_Component) {
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
-                                    { className: 'row' },
+                                    { className: 'row form-group' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-6' },
@@ -66535,7 +66534,7 @@ var Welcome = function (_Component) {
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
-                                    { className: 'form-group' },
+                                    { className: 'form-group row' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-12' },
@@ -66545,7 +66544,7 @@ var Welcome = function (_Component) {
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
-                                    { className: 'form-group' },
+                                    { className: 'form-group row' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'col-md-12' },
@@ -66561,7 +66560,7 @@ var Welcome = function (_Component) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'button',
                                             { type: 'submit', className: 'btn btn-primary' },
-                                            'Register'
+                                            'Inscription'
                                         )
                                     )
                                 )

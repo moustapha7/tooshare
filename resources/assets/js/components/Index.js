@@ -147,14 +147,14 @@ class Welcome extends Component {
 
 
 
-                                                    <div className="form-group">
+                                                    <div className="form-group row">
                                                         <div className="col-md-12">
                                                             <input id="email" type="text" className="form-control" ref="email" name="email" placeholder="Adresse Email" value={this.state.email} onChange={this.handleChange}/>
                                                             {this.validator.message('email', this.state.email, 'required|email', 'text-danger')}
                                                         </div>
                                                     </div>
 
-                                                    <div className="form-group">
+                                                    <div className="form-group row">
                                                         <div className="col-md-12">
                                                             <input id="phone" type="phone" className="form-control" ref="phone" name="phone"  required  placeholder="Telephone" onChange={this.handleChange}/>
                                                             {this.validator.message('phone', this.state.phone, 'required|phone', 'text-danger')}
@@ -162,11 +162,13 @@ class Welcome extends Component {
                                                     </div>
 
                                                     <div className="row">
-                                                        <div className="col-md-6"> <div className="form-group">
+                                                        <div className="col-md-6">
+                                                            <div className="form-group">
 
                                                             <input id="birthday" type="date" className="form-control" ref="birthday" name="birthday"  required autoFocus placeholder="Date de naissence" onChange={this.handleChange}/>
                                                             {this.validator.message('birthday', this.state.birthday, 'required', 'text-danger')}
-                                                        </div></div>
+                                                        </div>
+                                                        </div>
 
                                                         <div className="col-md-6"> <div className="form-group">
 
@@ -178,8 +180,7 @@ class Welcome extends Component {
                                                         </div></div>
 
                                                     </div>
-                                                       <div className="row">
-
+                                                       <div className="row form-group">
 
                                                            <div className="col-md-6">
                                                                <CountryDropdown
@@ -198,7 +199,7 @@ class Welcome extends Component {
                                                            </div>
                                                        </div>
 
-                                                    <div className="form-group">
+                                                    <div className="form-group row">
                                                         <div className="col-md-12">
                                                             <input id="password" type="password" className="form-control"  ref="password" name="password" required placeholder="Mot de passe" onChange={this.handleChange}/>
                                                             {this.validator.message('password', this.state.password, 'required|min:6', 'text-danger')}
@@ -207,7 +208,7 @@ class Welcome extends Component {
 
 
 
-                                                    <div className="form-group">
+                                                    <div className="form-group row">
                                                         <div className="col-md-12">
                                                             <input id="password-confirm" type="password" className="form-control" ref="confirm" name="password_confirmation"  required placeholder="Confirmer Mot de passe" onChange={this.handleChange}/>
                                                         </div>
@@ -216,7 +217,7 @@ class Welcome extends Component {
                                                     <div className="form-group" align="center">
                                                         <div className="col-md-12 col-md-offset-4">
                                                             <button type="submit" className="btn btn-primary" >
-                                                                Register
+                                                                Inscription
                                                             </button>
                                                         </div>
                                                     </div>
