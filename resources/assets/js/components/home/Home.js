@@ -3,6 +3,12 @@ import { Router, Route, Link } from 'react-router';
 import Header from '../Header';
 
 class Home extends Component {
+
+
+    constructor(props) {
+        super(props)
+    }
+
     render(){
         return (
             <div className="">

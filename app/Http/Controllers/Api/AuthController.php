@@ -33,7 +33,7 @@ class AuthController extends Controller
             'data'=>$data,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60
-        ]);
+        ],200);
     }
 
     /**description : register an user and return it and his timline

@@ -11,7 +11,7 @@ class Footer extends Component {
                         Tooshare © 2018
                     </div>
                     <div className="footer-copyright">
-                        <ul className=" ">
+                        <ul className="">
                             <li className="nav-item active "  ><a href="#" className="">A propos</a></li>
                             <li className="nav-item waves-light"  ><a href="#" className="">Conditions d'utilisation</a></li>
                             <li className="nav-item waves-light"  ><a href="#" className="">Confidentialité</a></li>

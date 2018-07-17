@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { ReactDOM, Switch, render} from 'react-dom';
 import { Router, Route, browserHistory, Link, withRouter } from 'react-router';
 import logo from '../../../images/logo.png'
+import AuthService from "../services/AuthService";
+import SimpleReactValidator from 'simple-react-validator';
 
 class Header extends Component {
     constructor(props){
@@ -10,10 +12,16 @@ class Header extends Component {
             login: '',
             password: ''
         };
-
+        this.Auth=new AuthService();
+        this.validator = new SimpleReactValidator();
         this.handleChangeLogin = this.handleChangeLogin.bind(this);
         this.handleChangePwrd = this.handleChangePwrd.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    componentWillMount(){
+        if(this.Auth.loggedIn()){
+            this.props.router.push("home");
+        }
     }
 
     handleChangeLogin(event) {
@@ -25,10 +33,23 @@ class Header extends Component {
     }
 
     handleSubmit(event) {
-         alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
         event.preventDefault();
+        if( this.validator.allValid() ){
+            alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
+            this.Auth.login(this.state.login,this.state.password).then(res=>{
+                this.props.router.push("home",res);
 
-        axios
+            }).catch(err=>{
+                alert("login ou password incorect :)");
+            })
+        } else {
+            this.validator.showMessages();
+            // rerender to show messages for the first time
+            this.forceUpdate();
+        }
+
+
+       /* axios
             .post('/api/login', {
                 email: this.state.login,
                 password: this.state.password
@@ -47,18 +68,14 @@ class Header extends Component {
                 this.setState({login: ""});
                 this.setState({password: ""});
                 this.setState({err: true});
-            });
+            });*/
     }
 
-    logout(e){
+    handleLogout(e){
         e.preventDefault();
-        axios.post('api/logout')
-            .then(response=> {
-                this.props.history.push('/');
-            })
-            .catch(error=> {
-                console.log(error);
-            });
+        this.Auth.logout();
+        this.props.router.push("/");
+
     }
 
     handleClick(e){
@@ -112,6 +129,7 @@ class Header extends Component {
                                        aria-label="Search"/>
                                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                             </form>
+                            <button className="btn btn-danger" onClick={this.handleLogout.bind(this)}>Logout</button>
                         </div>
                     </div>
                 </nav>
@@ -136,7 +154,10 @@ class Header extends Component {
                                 <form className="form-inline my-2 my-lg-0 loginForm pull-right" onSubmit={this.handleSubmit}>
                                     <div className="col-12 " align="right">
                                         <input className="form-control mr-sm-2" type="text" placeholder="Email" aria-label="Email" value={this.state.login} onChange={this.handleChangeLogin} />
+                                        {this.validator.message('login', this.state.login, 'required|email', 'text-danger')}
+
                                         <input className="form-control mr-sm-2" type="password" placeholder="Mote de Passe" aria-label="Mot de passe" value={this.state.password} onChange={this.handleChangePwrd}/>
+                                        {this.validator.message('password', this.state.password, 'required|min:6', 'text-danger')}
                                         <button className="btn btn-default my-2 my-sm-0 btn-login" type="submit">Connexion</button>
                                     </div>
                                     <div align="right" className="mdpperdue col-12"><a href="#" className="mdperdu">Vous avez Perdu votre mot de Passe ?</a></div>
