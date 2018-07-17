@@ -25,7 +25,7 @@ class Header extends Component {
     }
 
     handleSubmit(event) {
-         alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
+       //  alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
         event.preventDefault();
 
         axios
@@ -72,10 +72,10 @@ class Header extends Component {
             let msg = (!error) ? 'Login Successful' : 'Wrong Credentials' ;
             let name = (!error) ? 'alert alert-success' : 'alert alert-danger' ;
             return (
-
+                <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare">
                     <div className="container">
-                        <a className="navbar-brand" href="#">Navbar</a>
+                       <a className="navbar-brand hidden-md-down" href="#"> <img src={logo} alt="TOOSHARE LOGO" height="30" width="auto"/></a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -85,36 +85,56 @@ class Header extends Component {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item active">
-                                    <Link className="nav-link" to="home"><i className="fas fa-home"></i> <span
+                                    <Link className="nav-link" to="home"><i className="fa fa-home couleur"></i> <span
                                         className="sr-only">(current)</span></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><i className="fas fa-stroopwafel"></i></a>
+                                    <a className="nav-link" href="#"><i className="font-bold fa fa-users"></i></a>
                                 </li>
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Dropdown
-                                    </a>
-                                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a className="dropdown-item" href="#">Action</a>
-                                        <a className="dropdown-item" href="#">Another action</a>
-                                        <div className="dropdown-divider"></div>
-                                        <a className="dropdown-item" href="#">Something else here</a>
-                                    </div>
+                                <li className="nav-item cart-btn">
+                                    <a className="nav-link" href="#"><i className="font-bold fa fa-envelope"></i></a>
+                                    <span className="notifications-badge" color="danger" >+99</span>
+                                </li>
+                                <li className="nav-item cart-btn">
+                                    <a className="nav-link" href="#"><i className="fa fa-folder-open"></i></a>
+                                    <span className="notifications-badge" color="danger" >2</span>
+                                </li>
+                                <logo className="logo ">
+                                    <Link className="logo navbar-brand"  to="/"><strong><img src={logo} height="30" width="auto"/> </strong></Link>
+                                </logo>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#"><i className="fa fa-university"></i></a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link disabled" href="#">Disabled</a>
+                                    <a className="nav-link" href="#"><i className="fa fa-users"></i></a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#"><i className="fa fa-briefcase"></i></a>
                                 </li>
                             </ul>
                             <form className="form-inline my-2 my-lg-0">
-                                <input className="form-control mr-sm-2" type="search" placeholder="Search"
-                                       aria-label="Search"/>
-                                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                <input className="form-control mr-sm-2" type="search" placeholder="Recherche"  aria-label="Search"/>
                             </form>
+                            <ul className="user-profile navbar-nav ">
+                            <li className="nav-item dropdown user-avatar">
+
+                                <a className="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                </a>
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a className="dropdown-item" href="#">Mon Compte</a>
+                                    <a className="dropdown-item" href="#">Paramettre</a>
+                                    <div className="dropdown-divider">Autres</div>
+                                    <a className="dropdown-item" href="#">Deconnexion</a>
+                                </div>
+                            </li>
+                            </ul>
                         </div>
                     </div>
                 </nav>
+                <div class="headerspace"></div>
+                </div>
 
             )
         }
@@ -145,7 +165,7 @@ class Header extends Component {
                         </div>
                     </div>
                 </nav>
-
+                <div class="headerspace"></div>
             </div>
         )
     }

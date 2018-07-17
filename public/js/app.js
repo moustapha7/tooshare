@@ -18241,7 +18241,7 @@ var Header = function (_Component) {
         value: function handleSubmit(event) {
             var _this2 = this;
 
-            alert('Email: ' + this.state.login + ' Password: ' + this.state.password);
+            //  alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
             event.preventDefault();
 
             axios.post('/api/login', {
@@ -18287,107 +18287,171 @@ var Header = function (_Component) {
                 var msg = !error ? 'Login Successful' : 'Wrong Credentials';
                 var name = !error ? 'alert alert-success' : 'alert alert-danger';
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'nav',
-                    { className: 'navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare' },
+                    'div',
+                    null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'container' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'a',
-                            { className: 'navbar-brand', href: '#' },
-                            'Navbar'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'button',
-                            { className: 'navbar-toggler', type: 'button', 'data-toggle': 'collapse',
-                                'data-target': '#navbarSupportedContent', 'aria-controls': 'navbarSupportedContent',
-                                'aria-expanded': 'false', 'aria-label': 'Toggle navigation' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'navbar-toggler-icon' })
-                        ),
+                        'nav',
+                        { className: 'navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'collapse navbar-collapse', id: 'navbarSupportedContent' },
+                            { className: 'container' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'ul',
-                                { className: 'navbar-nav mr-auto' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'li',
-                                    { className: 'nav-item active' },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_2_react_router__["a" /* Link */],
-                                        { className: 'nav-link', to: 'home' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fas fa-home' }),
-                                        ' ',
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'span',
-                                            {
-                                                className: 'sr-only' },
-                                            '(current)'
-                                        )
-                                    )
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'li',
-                                    { className: 'nav-item' },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'a',
-                                        { className: 'nav-link', href: '#' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fas fa-stroopwafel' })
-                                    )
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'li',
-                                    { className: 'nav-item dropdown' },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'a',
-                                        { className: 'nav-link dropdown-toggle', href: '#', id: 'navbarDropdown', role: 'button',
-                                            'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
-                                        'Dropdown'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'div',
-                                        { className: 'dropdown-menu', 'aria-labelledby': 'navbarDropdown' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'a',
-                                            { className: 'dropdown-item', href: '#' },
-                                            'Action'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'a',
-                                            { className: 'dropdown-item', href: '#' },
-                                            'Another action'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'dropdown-divider' }),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'a',
-                                            { className: 'dropdown-item', href: '#' },
-                                            'Something else here'
-                                        )
-                                    )
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'li',
-                                    { className: 'nav-item' },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'a',
-                                        { className: 'nav-link disabled', href: '#' },
-                                        'Disabled'
-                                    )
-                                )
+                                'a',
+                                { className: 'navbar-brand hidden-md-down', href: '#' },
+                                ' ',
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__images_logo_png___default.a, alt: 'TOOSHARE LOGO', height: '30', width: 'auto' })
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'form',
-                                { className: 'form-inline my-2 my-lg-0' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control mr-sm-2', type: 'search', placeholder: 'Search',
-                                    'aria-label': 'Search' }),
+                                'button',
+                                { className: 'navbar-toggler', type: 'button', 'data-toggle': 'collapse',
+                                    'data-target': '#navbarSupportedContent', 'aria-controls': 'navbarSupportedContent',
+                                    'aria-expanded': 'false', 'aria-label': 'Toggle navigation' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'navbar-toggler-icon' })
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'collapse navbar-collapse', id: 'navbarSupportedContent' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'button',
-                                    { className: 'btn btn-outline-success my-2 my-sm-0', type: 'submit' },
-                                    'Search'
+                                    'ul',
+                                    { className: 'navbar-nav mr-auto' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'li',
+                                        { className: 'nav-item active' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            __WEBPACK_IMPORTED_MODULE_2_react_router__["a" /* Link */],
+                                            { className: 'nav-link', to: 'home' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-home couleur' }),
+                                            ' ',
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'span',
+                                                {
+                                                    className: 'sr-only' },
+                                                '(current)'
+                                            )
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'li',
+                                        { className: 'nav-item' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'a',
+                                            { className: 'nav-link', href: '#' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'font-bold fa fa-users' })
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'li',
+                                        { className: 'nav-item cart-btn' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'a',
+                                            { className: 'nav-link', href: '#' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'font-bold fa fa-envelope' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'span',
+                                            { className: 'notifications-badge', color: 'danger' },
+                                            '+99'
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'li',
+                                        { className: 'nav-item cart-btn' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'a',
+                                            { className: 'nav-link', href: '#' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-folder-open' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'span',
+                                            { className: 'notifications-badge', color: 'danger' },
+                                            '2'
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'logo',
+                                        { className: 'logo ' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            __WEBPACK_IMPORTED_MODULE_2_react_router__["a" /* Link */],
+                                            { className: 'logo navbar-brand', to: '/' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'strong',
+                                                null,
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__images_logo_png___default.a, height: '30', width: 'auto' }),
+                                                ' '
+                                            )
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'li',
+                                        { className: 'nav-item' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'a',
+                                            { className: 'nav-link', href: '#' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-university' })
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'li',
+                                        { className: 'nav-item' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'a',
+                                            { className: 'nav-link', href: '#' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-users' })
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'li',
+                                        { className: 'nav-item' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'a',
+                                            { className: 'nav-link', href: '#' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-briefcase' })
+                                        )
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'form',
+                                    { className: 'form-inline my-2 my-lg-0' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control mr-sm-2', type: 'search', placeholder: 'Recherche', 'aria-label': 'Search' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'ul',
+                                    { className: 'user-profile navbar-nav ' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'li',
+                                        { className: 'nav-item dropdown user-avatar' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('a', { className: 'nav-link dropdown-toggle ', href: '#', id: 'navbarDropdown', role: 'button',
+                                            'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'dropdown-menu', 'aria-labelledby': 'navbarDropdown' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'a',
+                                                { className: 'dropdown-item', href: '#' },
+                                                'Mon Compte'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'a',
+                                                { className: 'dropdown-item', href: '#' },
+                                                'Paramettre'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'dropdown-divider' },
+                                                'Autres'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'a',
+                                                { className: 'dropdown-item', href: '#' },
+                                                'Deconnexion'
+                                            )
+                                        )
+                                    )
                                 )
                             )
                         )
-                    )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'headerspace' })
                 );
             }
 
@@ -18445,7 +18509,8 @@ var Header = function (_Component) {
                             )
                         )
                     )
-                )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'headerspace' })
             );
         }
     }]);
@@ -65915,7 +65980,84 @@ var Home = function (_Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: '' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Header__["a" /* default */], { link: 'logout' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Header__["a" /* default */], { link: 'logout' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'container' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'row' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 card card-body bg-faded' },
+                            'Block Gauche'
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'col-lg-6 col-sm-6 col-md-6 col-xs-12 ' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'card card-body bg-faded' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'form',
+                                    { className: 'form-horizontal', role: 'form' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'h5',
+                                        null,
+                                        'Quoi de Neuf a partager ?'
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'button',
+                                        { className: 'btn bg-tooshare pull-right btnpartager', type: 'button' },
+                                        'Partager'
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'ul',
+                                        { className: 'list-inline' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            null,
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'a',
+                                                { href: '' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-upload' })
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            null,
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'a',
+                                                { href: '' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-camera' })
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            null,
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'a',
+                                                { href: '' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker' })
+                                            )
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'mediatoshar' }),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'form-group' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { className: 'form-control', placeholder: 'Mettez a jour votre statut' })
+                                    )
+                                )
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 card card-body bg-faded' },
+                            'Block Droit'
+                        )
+                    )
+                )
             );
         }
     }]);
@@ -66187,13 +66329,21 @@ var Welcome = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'row' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-lg-8 col-md-8 col-sm-8 col-xs-12' }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'col-lg-8 col-md-8 col-sm-8 col-xs-12' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* Link */],
+                                { to: '/home' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-home' })
+                            )
+                        ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-12' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'p',
-                                { 'class': 'h3 text-center mb-4 inscription' },
+                                { className: 'h3 text-center mb-4 inscription' },
                                 'Inscription'
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(

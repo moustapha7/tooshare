@@ -75,9 +75,9 @@ class Welcome extends Component {
                 <div className="lheight"></div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12"></div>
+                        <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12"><Link to="/home"><i className="fa fa-home"></i></Link></div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                            <p class="h3 text-center mb-4 inscription">Inscription</p>
+                                            <p className="h3 text-center mb-4 inscription">Inscription</p>
                                                 <div className="col-md-offset-2 col-md-12 col-md-offset-2">
                                                     {error != undefined && <div className={name} role="alert">{msg}</div>}
                                                 </div>
