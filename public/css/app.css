@@ -10417,13 +10417,17 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.lheight {
+  height: 20px;
+}
+
 /* Login form */
 
-.navbar-collapse .loginForm a {
+.mynavbar-collapse .loginForm a {
   color: #fff;
 }
 
-.navbar-collapse .loginForm input {
+.mynavbar-collapse .loginForm input {
   border: 1px solid #fff;
   color: #008dd4 !important;
   border-radius: 2px;
@@ -10434,12 +10438,12 @@ a.text-dark:focus {
   font-size: small;
 }
 
-.navbar-collapse .loginForm input:focus {
+.mynavbar-collapse .loginForm input:focus {
   border: 2px solid #fff;
   color: #008dd4 !important;
 }
 
-.navbar-collapse .loginForm button {
+.mynavbar-collapse .loginForm button {
   height: 25px;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -10449,6 +10453,10 @@ a.text-dark:focus {
   background-color: #ffffff;
   color: #008dd4 !important;
   font-weight: bold;
+}
+
+.mdperdu {
+  font-size: small;
 }
 
 /* End Login Form */
@@ -10498,5 +10506,9 @@ footer.page-footer .footer-copyright ul li {
 
 footer.page-footer {
   margin-top: 0px;
+}
+
+.bg-tooshare {
+  background-color: #008dd4 !important;
 }
 

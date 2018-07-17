@@ -8,6 +8,7 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body>
+<!-- <div id="header"></div> -->
 <div id="tooshareapp"></div>
 <div class="footer" id="footer"></div>
 <script src="{{asset('js/app.js')}}" ></script>
