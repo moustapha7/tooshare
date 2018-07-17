@@ -133,7 +133,7 @@ class Header extends Component {
                         </div>
                     </div>
                 </nav>
-                <div class="headerspace"></div>
+                <div className="headerspace"></div>
                 </div>
 
             )
@@ -165,7 +165,7 @@ class Header extends Component {
                         </div>
                     </div>
                 </nav>
-                <div class="headerspace"></div>
+                <div className="headerspace"></div>
             </div>
         )
     }

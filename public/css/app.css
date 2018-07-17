@@ -10468,14 +10468,15 @@ a.text-dark:focus {
 /* End Login Form */
 
 .footer {
-  position: absolute;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: #008dd4;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding-top: 4px;
+  margin-top: 15px;
 }
 
 footer.page-footer .footer-copyright {
@@ -10562,6 +10563,10 @@ footer.page-footer {
   background-color: #008dd4 !important;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: white !important;
+}
+
 /* HEADER ++*/
 
 .user-profile li {
@@ -10616,6 +10621,31 @@ footer.page-footer {
   color: #008dd4 !important;
 }
 
+.list-inline-post {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.list-inline-post li {
+  padding-right: 15px !important;
+}
+
+.list-inline-post .fa {
+  font-size: 20px;
+}
+
+.coeur {
+  color: #d40010 !important;
+}
+
+.card-foote {
+  border-top: 1px solid #e4e8ea;
+  padding-top: 5px;
+}
+
 .navbar {
   padding: 0px !important;
 }
@@ -10634,6 +10664,51 @@ footer.page-footer {
   height: 100px;
   width: 100%;
 }
+
+.espace {
+  margin-top: 4px;
+}
+
+.useravatar {
+  border-radius: 100%;
+  margin-right: 4px;
+}
+
+.userposthearder a {
+  text-decoration: none;
+}
+
+.undecorate a {
+  text-decoration: none;
+}
+
+.commentaire {
+  padding-left: 20px;
+}
+
+.commentaire .form-control {
+  display: inline-block;
+  width: 80% !important;
+}
+
+.nopadding {
+  padding: 1px !important;
+}
+
+/* SIDEBAR GAUCHE */
+
+.usersidebar {
+  height: 50px;
+  border-bottom: 1px solid #e4e8ea;
+}
+
+.usersidebarAvatar {
+  position: relative;
+  top: -30px;
+  right: 25px;
+}
+
+/* SIDEBAR GAUCHE */
 
 /* AND PÖST TIMELINE STYLE */
 
