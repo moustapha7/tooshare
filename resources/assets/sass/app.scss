@@ -16,7 +16,9 @@
 .lheight{
   height: 20px;
 }
-
+.headerspace{
+  margin-top: 20px;
+}
 /* Login form */
 .mynavbar-collapse .loginForm a{
  color: #fff;
@@ -57,14 +59,15 @@
 /* End Login Form */
 
 .footer {
-  position: absolute;
+  position: relative;
   left:0;
   bottom: 0;
   width: 100%;
   background-color:  #008dd4;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding-top: 4px;
+  margin-top: 15px;
 }
 
 footer.page-footer .footer-copyright {
@@ -104,3 +107,169 @@ footer.page-footer {
 .bg-tooshare {
   background-color: #008dd4 !important;
 }
+
+/* HEADER STYLE */
+
+.navbar-nav{
+  font-size: x-large;
+}
+.navbar-nav li{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.notifications-badge {
+  background-color: red;
+  position: absolute;
+  top: 10px;
+  right: 17px;
+  border-radius: 0%;
+  font-size: xx-small;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 1px;
+  padding-right: 1px;
+  color: #ffffff;
+  font-weight: bold;
+  max-width: 16px;
+  width: 16px;
+  text-align: center;
+}
+
+.cart-btn {
+  position: relative;
+  top:0px;
+  right: 0px;
+  overflow: visible!important;
+}
+
+.couleur{
+  color: #070424;
+}
+
+.bg-tooshare {
+  background-color: #008dd4 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgb(255, 255, 255) !important;
+}
+
+/* HEADER ++*/
+.user-profile li{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.user-profile .user-avatar{
+  font-size: 40px;
+}
+.user-profile .notification{
+  font-size: 25px;
+}
+.user-profile  .nav-item .nav-link {
+  padding: 0;
+}
+
+.logo{
+  margin: 0px;
+}
+
+.hidden-md-down{
+  display: none;
+}
+/* HEADER ++*/
+/* HEADER STYLE */
+
+/* POST TIMELINE STYLE */
+.padd{
+  padding:14px;
+}
+.list-inline{
+  display: inline-flex;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.list-inline li{
+  padding-right: 15px !important;
+}
+
+.list-inline li .fa{
+  font-size: 25px;
+  color: #008dd4 !important;
+}
+.list-inline-post{
+  display: inline-flex;
+  list-style-type: none;
+  padding-left: 20px;
+}
+.list-inline-post li{
+  padding-right: 15px !important;
+}
+.list-inline-post .fa{
+  font-size: 20px;
+}
+.coeur{
+  color: #d40010 !important;
+}
+.card-foote{
+  border-top: 1px solid #e4e8ea;
+  padding-top: 5px;
+}
+.navbar {
+  padding: 0px !important;
+}
+
+.btnpartager{
+  height: auto;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #ffffff !important;
+}
+.mediatoshare{
+  max-height: 100px;
+  height: 100px;
+  width: 100%;
+}
+
+.espace{
+  margin-top: 4px;
+}
+.useravatar{
+  border-radius: 100%;
+  margin-right: 4px;
+}
+.userposthearder a{
+  text-decoration: none;
+}
+.undecorate a{
+  text-decoration: none;
+}
+.commentaire{
+  padding-left: 20px;
+}
+.commentaire .form-control {
+  display: inline-block;
+  width: 80% !important;
+}
+.nopadding {
+  padding: 1px !important;
+}
+
+/* SIDEBAR GAUCHE */
+.usersidebar{
+  height: 50px;
+  border-bottom: 1px solid #e4e8ea;
+}
+
+.usersidebarAvatar{
+  position: relative;
+  top: -30px;
+  right: 25px;
+}
+
+
+/* SIDEBAR GAUCHE */
+/* AND PÖST TIMELINE STYLE */
