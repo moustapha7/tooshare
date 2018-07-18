@@ -90,7 +90,7 @@ class Header extends Component {
             let name = (!error) ? 'alert alert-success' : 'alert alert-danger' ;
             return (
                 <div>
-                <nav className="navbar mynavbar navbar-expand-lg navbar-dark bg-primar bg-tooshare">
+                <nav className="navbar mynavbar navbar-expand-lg navbar-dark bg-primar bg-tooshare fixed-top">
                     <div className="container">
                        <a className="navbar-brand hidden-md-down" href="#"> <img src={logo} alt="TOOSHARE LOGO" height="30" width="auto"/></a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
@@ -159,7 +159,7 @@ class Header extends Component {
 
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare">
+                <nav className="navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare fixed-top">
                     <div className="container">
                         <a className="navbar-brand" href="#"> <img src={logo} alt="TOOSHARE LOGO" height="30"
                                                                    width="auto"/></a>
