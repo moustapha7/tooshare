@@ -9,7 +9,6 @@ import TimeLine from './TimeLine'
 
 class Home extends Component {
 
-
     constructor(props) {
         super(props)
     }
@@ -33,6 +32,9 @@ class Home extends Component {
                         </div>
                         <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding">
                             <SideBarDroit />
+
+
+
                         </div>
                     </div>
                 </div>
