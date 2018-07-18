@@ -235,7 +235,7 @@ class HomeChat extends Component {
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
 
                             </div>
