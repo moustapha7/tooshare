@@ -6,40 +6,52 @@ import SideBarDroit from './SideBarDroit'
 import PostForm from './PostForm'
 import AgrationRx from './AgrationRx'
 import TimeLine from './TimeLine'
+import AuthService from "../../services/AuthService";
 
 class Home extends Component {
 
     constructor(props) {
-        super(props);
-        console.log(this.props.location.query);
-        console.log(this.props.location.query);
-        alert(this.props.navigation.getParam);
+        super(props)
+        this.Auth=new AuthService();
         this.state = {
-            user:this.props.navigation.getParam
-        
+            user: {}
         }
-       // alert(this.props.location.query);
+    }
+
+    componentWillMount(){
+        if(this.Auth.loggedIn()){
+            // this.props.router.push("/");
+            this.Auth.getUserinfo().then(res=>{
+                this.setState({user: res});
+                console.log("Home "+ res.phone);
+            }).catch(err=>{
+                alert("Resolver "+ err);
+            })
+        }
     }
 
     render(){
+        if (this.state.user) {
+            console.log("Home "+ this.state.user.email);
+        }
         return (
             <div className="">
                 <Header link="logout"/>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding">
-                            <SideBarGauche/>
+                            <SideBarGauche User={this.state.user}/>
                         </div>
                         <div className="col-lg-6 col-sm-6 col-md-6 col-xs-12 nopadding">
-                            <PostForm />
+                            <PostForm User={this.state.user}/>
                             <AgrationRx />
                             <div className=" espace">
                                 <h5>Votre fil d'actualité</h5>
                             </div>
-                            <TimeLine />
+                            <TimeLine User={this.state.user}/>
                         </div>
                         <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding">
-                            <SideBarDroit />
+                            <SideBarDroit User={this.state.user}/>
 
 
 

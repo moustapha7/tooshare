@@ -7,14 +7,16 @@ export default class SideBarGauche extends Component {
         super(props)
     }
     render() {
+        const user=this.props.User
+        console.log("oh",user)
         return (
             <div>
-            <div className="card card-body bg-faded">
+            <div className="card card-body bg-faded ">
                 <div className="usersidebar"></div>
                 <div className="row">
                     <div className="col-lg-9 col-sm-9 col-md-9 col-xs-9 undecorated">
                         <span className="username">
-                            <a href="" className="">Moussa Diatta <br /> Etudiant 23 ans</a>
+                            <a href="" className="">{user.first_name} {user.last_name} <br /> Etudiant 23 ans</a>
 
                         </span>
                     </div>
