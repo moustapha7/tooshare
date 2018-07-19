@@ -6,6 +6,7 @@ export default class AuthService {
         this.fetch = this.fetch.bind(this) // React binding stuff
         this.login = this.login.bind(this)
         this.getProfile = this.getProfile.bind(this)
+        this.getUserinfo = this.getUserinfo.bind(this)
     }
 
     login(email, password) {
@@ -32,11 +33,38 @@ export default class AuthService {
                 this.setToken(res.access_token) // Setting the token in localStorage
                 return Promise.resolve(res.data);
             }else {
+                console.log(res);
                 alert('errr')
             }
 
         })
     }
+    getUserinfo(){
+        return this.fetch(`${this.domain}/user`, {
+            method: 'POST',
+        }).then(res => {
+            console.log("AuthServices: "+res.email)
+            return Promise.resolve(res);
+        })
+    }
+
+   /* async userInfo() {
+        try {
+            let response = await fetch(`${this.domain}/user`, {
+                method: 'GET',
+                headers: {
+                    Authorization: 'Bearer '+ this.getToken(),
+                },
+            });
+            let responseJson = await response.json();
+            if(responseJson !== null) {
+                console.log('Got user info: ' + responseJson.id +responseJson.email +responseJson.phone );
+                return responseJson
+            }
+        } catch (error) {
+            console.log('Error in retrieving userinfo from Auth0: ' + error.message);
+        }
+    } */
 
     loggedIn(){
         // Checks if there is a saved token and it's still valid

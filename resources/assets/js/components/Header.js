@@ -37,8 +37,7 @@ class Header extends Component {
         if( this.validator.allValid() ){
             alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
             this.Auth.login(this.state.login,this.state.password).then(res=>{
-                this.props.router.push("home",res);
-
+                this.props.router.push("home", res);
             }).catch(err=>{
                 alert("login ou password incorect :)");
             })
@@ -47,28 +46,6 @@ class Header extends Component {
             // rerender to show messages for the first time
             this.forceUpdate();
         }
-
-
-       /* axios
-            .post('/api/login', {
-                email: this.state.login,
-                password: this.state.password
-            })
-            .then(response => {
-                console.log('from handle submit', response);
-                this.setState({err: false});
-                this.props.router.push("home") ;
-
-            })
-            .catch(error=> {
-                console.log('from handle error', error);
-               // if(error.code == 401){
-                    alert('Login ou Mot de passe incorrect');
-               // }
-                this.setState({login: ""});
-                this.setState({password: ""});
-                this.setState({err: true});
-            });*/
     }
 
     handleLogout(e){
@@ -90,7 +67,7 @@ class Header extends Component {
             let name = (!error) ? 'alert alert-success' : 'alert alert-danger' ;
             return (
                 <div>
-                <nav className="navbar mynavbar navbar-expand-lg navbar-dark bg-primar bg-tooshare">
+                <nav className="navbar mynavbar navbar-expand-lg navbar-dark bg-primar bg-tooshare fixed-top">
                     <div className="container">
                        <a className="navbar-brand hidden-md-down" href="#"> <img src={logo} alt="TOOSHARE LOGO" height="30" width="auto"/></a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
@@ -159,7 +136,7 @@ class Header extends Component {
 
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare">
+                <nav className="navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare fixed-top">
                     <div className="container">
                         <a className="navbar-brand" href="#"> <img src={logo} alt="TOOSHARE LOGO" height="30"
                                                                    width="auto"/></a>

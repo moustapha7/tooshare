@@ -86,27 +86,6 @@ class Welcome extends Component {
         }
         // alert('Prenom: ' + this.state.first_name+ ' Nom: '+ this.state.last_name);
 
-        /*const config= {
-            headers: {'No-Auth': 'True'}
-        }
-        axios
-            .post('/api/register', user, config)
-            .then(response => {
-                console.log('from handle submit', response);
-                this.setState({err: false});
-                this.props.router.push("home") ;
-
-            })
-            .catch(error=> {
-                console.log('from handle error', error);
-                // if(error.code == 401){
-                alert('Erreur lors de l\'inscription');
-                // }
-                this.setState({login: ""});
-                this.setState({password: ""});
-                this.setState({err: true});
-            });
-*/
     }
 
     render(){
@@ -120,7 +99,10 @@ class Welcome extends Component {
                 <div className="lheight"></div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12"><Link to="/home"><i className="fa fa-home"></i>Acceuil</Link></div>
+                        <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                            <Link to="/home"><i className="fa fa-home"></i>Acceuil</Link>
+                            <Link to="/chat"><i className="fa fa-chat"></i>Messages</Link>
+                        </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                             <p className="h3 text-center mb-4 inscription">Inscription</p>
                                                 <div className="col-md-offset-2 col-md-12 col-md-offset-2">
