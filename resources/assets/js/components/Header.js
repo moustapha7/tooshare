@@ -157,7 +157,7 @@ class Header extends Component {
                                         <input className="form-control mr-sm-2" type="text" placeholder="Email" aria-label="Email" value={this.state.login} onChange={this.handleChangeLogin} />
                                         {this.validator.message('login', this.state.login, 'required|email', 'text-danger')}
 
-                                        <input className="form-control mr-sm-2" type="password" placeholder="Mote de Passe" aria-label="Mot de passe" value={this.state.password} onChange={this.handleChangePwrd}/>
+                                        <input className="form-control mr-sm-2" type="password" placeholder="Mot de Passe" aria-label="Mot de passe" value={this.state.password} onChange={this.handleChangePwrd}/>
                                         {this.validator.message('password', this.state.password, 'required|min:6', 'text-danger')}
                                         <button className="btn btn-default my-2 my-sm-0 btn-login" type="submit">Connexion</button>
                                     </div>
