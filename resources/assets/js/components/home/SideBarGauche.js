@@ -11,7 +11,7 @@ export default class SideBarGauche extends Component {
         console.log("oh",user)
         return (
             <div>
-            <div className="card card-body bg-faded">
+            <div className="card card-body bg-faded ">
                 <div className="usersidebar"></div>
                 <div className="row">
                     <div className="col-lg-9 col-sm-9 col-md-9 col-xs-9 undecorated">

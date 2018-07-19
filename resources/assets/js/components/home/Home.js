@@ -6,31 +6,33 @@ import SideBarDroit from './SideBarDroit'
 import PostForm from './PostForm'
 import AgrationRx from './AgrationRx'
 import TimeLine from './TimeLine'
+import AuthService from "../../services/AuthService";
 
 class Home extends Component {
 
     constructor(props) {
-        super(props);
+        super(props)
+        this.Auth=new AuthService();
         this.state = {
-            user :{
-                first_name : "Haby",
-                last_name:"Thiam",
-                email: "Haby@gmail.com",
-                phone: "772789809",
-                country:"Senegal",
-                city:"Dakar",
-                birthday:"25/09/1993",
-                gender:"femme",
-              }
-          }
-       // console.log(this.props.location.query);
-       // alert(this.props.location.query);
+            user: {}
+        }
+    }
+
+    componentWillMount(){
+        if(this.Auth.loggedIn()){
+            // this.props.router.push("/");
+            this.Auth.getUserinfo().then(res=>{
+                this.setState({user: res});
+                console.log("Home "+ res.phone);
+            }).catch(err=>{
+                alert("Resolver "+ err);
+            })
+        }
     }
 
     render(){
-        if(this.props.params)
-        {
-          console.log("ok",this.props.params.dataUser)
+        if (this.state.user) {
+            console.log("Home "+ this.state.user.email);
         }
         return (
             <div className="">

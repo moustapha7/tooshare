@@ -31,3 +31,9 @@ Route::post('login', 'Api\AuthController@login');
 Route::get('users',function (){
     return \App\User::all()->jsonSerialize();
 });
+
+Route::group(['prefix' => 'user'], function() {
+    Route::post('/', function() {
+        return response()->json(request()->user());
+    });
+});

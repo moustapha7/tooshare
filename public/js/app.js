@@ -18270,26 +18270,6 @@ var Header = function (_Component) {
                 // rerender to show messages for the first time
                 this.forceUpdate();
             }
-
-            /* axios
-                 .post('/api/login', {
-                     email: this.state.login,
-                     password: this.state.password
-                 })
-                 .then(response => {
-                     console.log('from handle submit', response);
-                     this.setState({err: false});
-                     this.props.router.push("home") ;
-                   })
-                 .catch(error=> {
-                     console.log('from handle error', error);
-                    // if(error.code == 401){
-                         alert('Login ou Mot de passe incorrect');
-                    // }
-                     this.setState({login: ""});
-                     this.setState({password: ""});
-                     this.setState({err: true});
-                 });*/
         }
     }, {
         key: 'handleLogout',
@@ -18316,7 +18296,7 @@ var Header = function (_Component) {
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'nav',
-                        { className: 'navbar mynavbar navbar-expand-lg navbar-dark bg-primar bg-tooshare' },
+                        { className: 'navbar mynavbar navbar-expand-lg navbar-dark bg-primar bg-tooshare fixed-top' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'container' },
@@ -18490,7 +18470,7 @@ var Header = function (_Component) {
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'nav',
-                    { className: 'navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare' },
+                    { className: 'navbar navbar-expand-lg navbar-dark bg-primar bg-tooshare fixed-top' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'container' },
@@ -18576,6 +18556,7 @@ var AuthService = function () {
         this.fetch = this.fetch.bind(this); // React binding stuff
         this.login = this.login.bind(this);
         this.getProfile = this.getProfile.bind(this);
+        this.getUserinfo = this.getUserinfo.bind(this);
     }
 
     _createClass(AuthService, [{
@@ -18609,10 +18590,40 @@ var AuthService = function () {
                     _this2.setToken(res.access_token); // Setting the token in localStorage
                     return Promise.resolve(res.data);
                 } else {
+                    console.log(res);
                     alert('errr');
                 }
             });
         }
+    }, {
+        key: 'getUserinfo',
+        value: function getUserinfo() {
+            return this.fetch(this.domain + '/user', {
+                method: 'POST'
+            }).then(function (res) {
+                console.log("AuthServices: " + res.email);
+                return Promise.resolve(res);
+            });
+        }
+
+        /* async userInfo() {
+             try {
+                 let response = await fetch(`${this.domain}/user`, {
+                     method: 'GET',
+                     headers: {
+                         Authorization: 'Bearer '+ this.getToken(),
+                     },
+                 });
+                 let responseJson = await response.json();
+                 if(responseJson !== null) {
+                     console.log('Got user info: ' + responseJson.id +responseJson.email +responseJson.phone );
+                     return responseJson
+                 }
+             } catch (error) {
+                 console.log('Error in retrieving userinfo from Auth0: ' + error.message);
+             }
+         } */
+
     }, {
         key: 'loggedIn',
         value: function loggedIn() {
@@ -18746,7 +18757,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_home_Home__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Footer__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Index__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_chat_HomeChat__ = __webpack_require__(181);
 __webpack_require__(73);
+
 
 
 
@@ -18763,7 +18776,8 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
         __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["a" /* Switch */],
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/', component: __WEBPACK_IMPORTED_MODULE_6__components_Index__["a" /* default */] }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/home', component: __WEBPACK_IMPORTED_MODULE_4__components_home_Home__["a" /* default */] })
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/home', component: __WEBPACK_IMPORTED_MODULE_4__components_home_Home__["a" /* default */] }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/chat', component: __WEBPACK_IMPORTED_MODULE_7__components_chat_HomeChat__["a" /* default */] })
     )
 ), document.getElementById('tooshareapp'));
 Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Footer__["a" /* default */], null), document.getElementById('footer'));
@@ -66161,6 +66175,7 @@ var withRouter = function withRouter(Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__PostForm__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__AgrationRx__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__TimeLine__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_AuthService__ = __webpack_require__(68);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66168,6 +66183,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -66186,27 +66202,33 @@ var Home = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 
+        _this.Auth = new __WEBPACK_IMPORTED_MODULE_8__services_AuthService__["a" /* default */]();
         _this.state = {
-            user: {
-                first_name: "Haby",
-                last_name: "Thiam",
-                email: "Haby@gmail.com",
-                phone: "772789809",
-                country: "Senegal",
-                city: "Dakar",
-                birthday: "25/09/1993",
-                gender: "femme"
-            }
-            // console.log(this.props.location.query);
-            // alert(this.props.location.query);
-        };return _this;
+            user: {}
+        };
+        return _this;
     }
 
     _createClass(Home, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            if (this.Auth.loggedIn()) {
+                // this.props.router.push("/");
+                this.Auth.getUserinfo().then(function (res) {
+                    _this2.setState({ user: res });
+                    console.log("Home " + res.phone);
+                }).catch(function (err) {
+                    alert("Resolver " + err);
+                });
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
-            if (this.props.params) {
-                console.log("ok", this.props.params.dataUser);
+            if (this.state.user) {
+                console.log("Home " + this.state.user.email);
             }
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -66418,7 +66440,7 @@ var SideBarGauche = function (_Component) {
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'card card-body bg-faded' },
+                    { className: 'card card-body bg-faded ' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'usersidebar' }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
@@ -67188,27 +67210,6 @@ var Welcome = function (_Component) {
                 this.forceUpdate();
             }
             // alert('Prenom: ' + this.state.first_name+ ' Nom: '+ this.state.last_name);
-
-            /*const config= {
-                headers: {'No-Auth': 'True'}
-            }
-            axios
-                .post('/api/register', user, config)
-                .then(response => {
-                    console.log('from handle submit', response);
-                    this.setState({err: false});
-                    this.props.router.push("home") ;
-                  })
-                .catch(error=> {
-                    console.log('from handle error', error);
-                    // if(error.code == 401){
-                    alert('Erreur lors de l\'inscription');
-                    // }
-                    this.setState({login: ""});
-                    this.setState({password: ""});
-                    this.setState({err: true});
-                });
-            */
         }
     }, {
         key: 'render',
@@ -67241,6 +67242,12 @@ var Welcome = function (_Component) {
                                 { to: '/home' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-home' }),
                                 'Acceuil'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* Link */],
+                                { to: '/chat' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-chat' }),
+                                'Messages'
                             )
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -67825,6 +67832,697 @@ module.exports = exports["default"];
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Header__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_SideBarGauche__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_SideBarDroit__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ChatForm__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ChatUserList__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ChatMessage__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__images_defaultuserimage_png__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__images_defaultuserimage_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__images_defaultuserimage_png__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+
+
+var HomeChat = function (_Component) {
+    _inherits(HomeChat, _Component);
+
+    function HomeChat(props) {
+        _classCallCheck(this, HomeChat);
+
+        return _possibleConstructorReturn(this, (HomeChat.__proto__ || Object.getPrototypeOf(HomeChat)).call(this, props));
+    }
+
+    _createClass(HomeChat, [{
+        key: 'render',
+        value: function render() {
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: '' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Header__["a" /* default */], { link: 'logout' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'container chathome' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'row' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'col-lg-12 nopadding' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'containerchat clearfix' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'people-list card  bg-faded nopadding', id: 'people-list' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'card-header' },
+                                        'Messagerie'
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'ul',
+                                        { className: 'list card-body' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            { className: 'clearfix' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg', alt: 'avatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'about' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'name' },
+                                                    'Vincent Porter'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'status' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                                    ' online'
+                                                )
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            { className: 'clearfix' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_02.jpg', alt: 'avatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'about' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'name' },
+                                                    'Aiden Chavez'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'status' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle offline' }),
+                                                    ' left 7 mins ago'
+                                                )
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            { className: 'clearfix' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg', alt: 'avatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'about' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'name' },
+                                                    'Mike Thomas'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'status' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                                    ' online'
+                                                )
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            { className: 'clearfix' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_04.jpg', alt: 'avatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'about' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'name' },
+                                                    'Erica Hughes'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'status' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                                    ' online'
+                                                )
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            { className: 'clearfix' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_05.jpg', alt: 'avatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'about' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'name' },
+                                                    'Ginger Johnston'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'status' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                                    ' online'
+                                                )
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            { className: 'clearfix' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_06.jpg', alt: 'avatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'about' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'name' },
+                                                    'Tracy Carpenter'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'status' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle offline' }),
+                                                    ' left 30 mins ago'
+                                                )
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            { className: 'clearfix' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_07.jpg', alt: 'avatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'about' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'name' },
+                                                    'Christian Kelly'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'status' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle offline' }),
+                                                    ' left 10 hours ago'
+                                                )
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            { className: 'clearfix' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_08.jpg', alt: 'avatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'about' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'name' },
+                                                    'Monica Ward'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'status' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                                    ' online'
+                                                )
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            { className: 'clearfix' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_09.jpg', alt: 'avatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'about' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'name' },
+                                                    'Dean Henry'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'status' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle offline' }),
+                                                    ' offline since Oct 28'
+                                                )
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'li',
+                                            { className: 'clearfix' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_10.jpg', alt: 'avatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'about' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'name' },
+                                                    'Peyton Mckinney'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'status' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                                    ' online'
+                                                )
+                                            )
+                                        )
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'chat' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'chat-header clearfix' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg', alt: 'avatar' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'chat-about' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'chat-with' },
+                                                'Chat with Vincent Porter'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'chat-num-messages' },
+                                                'already 1 902 messages'
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-star' })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'chat-history' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'ul',
+                                            null,
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'li',
+                                                { className: 'clearfix' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'message-data align-right' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'span',
+                                                        { className: 'message-data-time' },
+                                                        '10:10 AM, Today'
+                                                    ),
+                                                    ' \xA0 \xA0',
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'span',
+                                                        { className: 'message-data-name' },
+                                                        'Olia'
+                                                    ),
+                                                    ' ',
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle me' })
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'message other-message float-right' },
+                                                    'Hi Vincent, how are you? How is the project coming along?'
+                                                )
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'li',
+                                                null,
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'message-data' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'span',
+                                                        { className: 'message-data-name' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                                        ' Vincent'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'span',
+                                                        { className: 'message-data-time' },
+                                                        '10:12 AM, Today'
+                                                    )
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'message my-message' },
+                                                    'Are we meeting today? Project has been already finished and I have results to show you.'
+                                                )
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'li',
+                                                { className: 'clearfix' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'message-data align-right' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'span',
+                                                        { className: 'message-data-time' },
+                                                        '10:14 AM, Today'
+                                                    ),
+                                                    ' \xA0 \xA0',
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'span',
+                                                        { className: 'message-data-name' },
+                                                        'Olia'
+                                                    ),
+                                                    ' ',
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle me' })
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'message other-message float-right' },
+                                                    'Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last phase of the project?'
+                                                )
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'li',
+                                                null,
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'message-data' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'span',
+                                                        { className: 'message-data-name' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                                        ' Vincent'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'span',
+                                                        { className: 'message-data-time' },
+                                                        '10:20 AM, Today'
+                                                    )
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'message my-message' },
+                                                    'Actually everything was fine. I\'m very excited to show this to our team.'
+                                                )
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'li',
+                                                null,
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'message-data' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'span',
+                                                        { className: 'message-data-name' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                                        ' Vincent'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'span',
+                                                        { className: 'message-data-time' },
+                                                        '10:31 AM, Today'
+                                                    )
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online', style: { color: '#AED2A6' } }),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online', style: { color: '#DAE9DA' } })
+                                            )
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'chat-message clearfix' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { name: 'message-to-send', id: 'message-to-send', placeholder: 'Type your message', rows: '2' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-file' }),
+                                        ' \xA0\xA0\xA0',
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-camera-retro' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'button',
+                                            null,
+                                            'Envoyer'
+                                        )
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'people-detail', id: 'people-detail' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'card card-body bg-faded ' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'userchatavatar' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg', alt: 'avatar', width: 70, className: 'useravatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'userinfo' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'span',
+                                                    { className: 'userchatname' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { href: '', className: '' },
+                                                        'Moussa Diatta'
+                                                    )
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'span',
+                                                    { className: 'userchatprofile' },
+                                                    'Technocal Manager'
+                                                )
+                                            )
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'userfileshared' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'h4',
+                                                { className: 'card-header' },
+                                                'Fichier Partager'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: '' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'ul',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'li',
+                                                        null,
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { href: '', className: '' },
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-file-pdf' }),
+                                                            ' Programmation c++'
+                                                        )
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'li',
+                                                        null,
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { href: '', className: '' },
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-file-pdf' }),
+                                                            ' Programmation c++'
+                                                        )
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'li',
+                                                        null,
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { href: '', className: '' },
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-file-pdf' }),
+                                                            ' Programmation c++'
+                                                        )
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'li',
+                                                        null,
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { href: '', className: '' },
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-file-pdf' }),
+                                                            ' Programmation c++'
+                                                        )
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'li',
+                                                        null,
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { href: '', className: '' },
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-file-pdf' }),
+                                                            ' Programmation c++'
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return HomeChat;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (HomeChat);
+
+/***/ }),
+/* 182 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(5);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var ChatForm = function (_Component) {
+    _inherits(ChatForm, _Component);
+
+    function ChatForm(props) {
+        _classCallCheck(this, ChatForm);
+
+        return _possibleConstructorReturn(this, (ChatForm.__proto__ || Object.getPrototypeOf(ChatForm)).call(this, props));
+    }
+
+    _createClass(ChatForm, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: '' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'container' })
+            );
+        }
+    }]);
+
+    return ChatForm;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* unused harmony default export */ var _unused_webpack_default_export = (ChatForm);
+
+/***/ }),
+/* 183 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(5);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var ChatUserList = function (_Component) {
+    _inherits(ChatUserList, _Component);
+
+    function ChatUserList(props) {
+        _classCallCheck(this, ChatUserList);
+
+        return _possibleConstructorReturn(this, (ChatUserList.__proto__ || Object.getPrototypeOf(ChatUserList)).call(this, props));
+    }
+
+    _createClass(ChatUserList, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: '' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'container' })
+            );
+        }
+    }]);
+
+    return ChatUserList;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* unused harmony default export */ var _unused_webpack_default_export = (ChatUserList);
+
+/***/ }),
+/* 184 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(5);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var ChatMessage = function (_Component) {
+    _inherits(ChatMessage, _Component);
+
+    function ChatMessage(props) {
+        _classCallCheck(this, ChatMessage);
+
+        return _possibleConstructorReturn(this, (ChatMessage.__proto__ || Object.getPrototypeOf(ChatMessage)).call(this, props));
+    }
+
+    _createClass(ChatMessage, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: '' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'container' })
+            );
+        }
+    }]);
+
+    return ChatMessage;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* unused harmony default export */ var _unused_webpack_default_export = (ChatMessage);
 
 /***/ })
 /******/ ]);
