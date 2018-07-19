@@ -18258,7 +18258,10 @@ var Header = function (_Component) {
             if (this.validator.allValid()) {
                 alert('Email: ' + this.state.login + ' Password: ' + this.state.password);
                 this.Auth.login(this.state.login, this.state.password).then(function (res) {
-                    _this2.props.router.push("home", res);
+                    var dataUser = res;
+                    _this2.props.router.push("home", dataUser);
+                    // alert(res);
+                    console.log(dataUser);
                 }).catch(function (err) {
                     alert("login ou password incorect :)");
                 });
@@ -39860,7 +39863,7 @@ module.exports = function(module) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.1): Index.js
+   * Bootstrap (v4.1.1): index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -66181,12 +66184,30 @@ var Home = function (_Component) {
     function Home(props) {
         _classCallCheck(this, Home);
 
-        return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+
+        _this.state = {
+            user: {
+                first_name: "Haby",
+                last_name: "Thiam",
+                email: "Haby@gmail.com",
+                phone: "772789809",
+                country: "Senegal",
+                city: "Dakar",
+                birthday: "25/09/1993",
+                gender: "femme"
+            }
+            // console.log(this.props.location.query);
+            // alert(this.props.location.query);
+        };return _this;
     }
 
     _createClass(Home, [{
         key: 'render',
         value: function render() {
+            if (this.props.params) {
+                console.log("ok", this.props.params.dataUser);
+            }
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: '' },
@@ -66200,12 +66221,12 @@ var Home = function (_Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__SideBarGauche__["a" /* default */], null)
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__SideBarGauche__["a" /* default */], { User: this.state.user })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'col-lg-6 col-sm-6 col-md-6 col-xs-12 nopadding' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__PostForm__["a" /* default */], null),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__PostForm__["a" /* default */], { User: this.state.user }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__AgrationRx__["a" /* default */], null),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
@@ -66216,12 +66237,12 @@ var Home = function (_Component) {
                                     'Votre fil d\'actualit\xE9'
                                 )
                             ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__TimeLine__["a" /* default */], null)
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__TimeLine__["a" /* default */], { User: this.state.user })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__SideBarDroit__["a" /* default */], null)
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__SideBarDroit__["a" /* default */], { User: this.state.user })
                         )
                     )
                 )
@@ -66381,15 +66402,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var SideBarGauche = function (_Component) {
     _inherits(SideBarGauche, _Component);
 
-    function SideBarGauche() {
+    function SideBarGauche(props) {
         _classCallCheck(this, SideBarGauche);
 
-        return _possibleConstructorReturn(this, (SideBarGauche.__proto__ || Object.getPrototypeOf(SideBarGauche)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (SideBarGauche.__proto__ || Object.getPrototypeOf(SideBarGauche)).call(this, props));
     }
 
     _createClass(SideBarGauche, [{
         key: 'render',
         value: function render() {
+            var user = this.props.User;
+            console.log("oh", user);
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -66409,7 +66432,10 @@ var SideBarGauche = function (_Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'a',
                                     { href: '', className: '' },
-                                    'Moussa Diatta ',
+                                    user.first_name,
+                                    ' ',
+                                    user.last_name,
+                                    ' ',
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
                                     ' Etudiant 23 ans'
                                 )
@@ -66553,6 +66579,7 @@ var SideBarDroit = function (_Component) {
     _createClass(SideBarDroit, [{
         key: 'render',
         value: function render() {
+            var user = this.props.User;
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'card card-body bg-faded' },
@@ -66597,6 +66624,7 @@ var PostForm = function (_Component) {
     _createClass(PostForm, [{
         key: 'render',
         value: function render() {
+            var user = this.props.User;
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'card card-body bg-faded' },
@@ -66691,6 +66719,7 @@ var AgrationRx = function (_Component) {
     _createClass(AgrationRx, [{
         key: 'render',
         value: function render() {
+            var user = this.props.User;
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'card card-body bg-fade espace' },
@@ -66780,6 +66809,7 @@ var TimeLine = function (_Component) {
     _createClass(TimeLine, [{
         key: 'render',
         value: function render() {
+            var user = this.props.User;
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'card card-body bg-fade espace' },
@@ -66799,7 +66829,10 @@ var TimeLine = function (_Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'span',
                                     { className: 'username' },
-                                    'Moussa Diatta'
+                                    user.first_name,
+                                    ' ',
+                                    user.last_name,
+                                    ' '
                                 )
                             )
                         ),

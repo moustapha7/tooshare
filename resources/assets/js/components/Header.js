@@ -37,9 +37,10 @@ class Header extends Component {
         if( this.validator.allValid() ){
             alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
             this.Auth.login(this.state.login,this.state.password).then(res=>{
-                this.props.router.push("home",res);
-                alert(res);
-                console.log(res);
+                const dataUser=res;
+                this.props.router.push("home",dataUser);
+               // alert(res);
+                console.log(dataUser);
 
             }).catch(err=>{
                 alert("login ou password incorect :)");
