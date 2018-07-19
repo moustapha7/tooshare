@@ -3,6 +3,9 @@ import { Router, Route, Link } from 'react-router';
 import defaultUser from '../../../../images/defaultuserimage.png'
 
 export default class SideBarGauche extends Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
         return (
             <div>

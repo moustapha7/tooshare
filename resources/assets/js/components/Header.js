@@ -38,6 +38,8 @@ class Header extends Component {
             alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
             this.Auth.login(this.state.login,this.state.password).then(res=>{
                 this.props.router.push("home",res);
+                alert(res);
+                console.log(res);
 
             }).catch(err=>{
                 alert("login ou password incorect :)");

@@ -10,7 +10,15 @@ import TimeLine from './TimeLine'
 class Home extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
+        console.log(this.props.location.query);
+        console.log(this.props.location.query);
+        alert(this.props.navigation.getParam);
+        this.state = {
+            user:this.props.navigation.getParam
+        
+        }
+       // alert(this.props.location.query);
     }
 
     render(){
