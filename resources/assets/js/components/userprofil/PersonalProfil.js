@@ -34,7 +34,7 @@ class PersonalProfil extends Component {
             console.log("Home "+ this.state.user.email);
         }
         return (
-            <div className="">
+            <div className="user-profil">
                 <Header link="logout"/>
                 <div className="container">
                     <div className="row">
