@@ -18774,9 +18774,13 @@ var SideBarGauche = function (_Component) {
     _createClass(SideBarGauche, [{
         key: 'render',
         value: function render() {
-            var linkto = "/profil/" + this.props.User.id + "/edit";
-            var user = this.props.User;
-            console.log("oh", user);
+            var userID = null;
+            if (this.props.User) {
+                var _user = this.props.User;
+                this.userID = this.props.User.id;
+                console.log("oh", _user);
+            }
+            var linkto = "/profil/" + userID + "/edit";
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -18794,8 +18798,8 @@ var SideBarGauche = function (_Component) {
                                 'span',
                                 { className: 'username' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'a',
-                                    { href: '', className: '' },
+                                    __WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* Link */],
+                                    { to: '/home', className: '' },
                                     user.first_name,
                                     ' ',
                                     user.last_name,
@@ -19044,7 +19048,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
         __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["a" /* Switch */],
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/', component: __WEBPACK_IMPORTED_MODULE_6__components_Index__["a" /* default */] }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/home', component: __WEBPACK_IMPORTED_MODULE_4__components_home_Home__["a" /* default */] }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { exact: true, path: '/home', component: __WEBPACK_IMPORTED_MODULE_4__components_home_Home__["a" /* default */] }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/chat', component: __WEBPACK_IMPORTED_MODULE_7__components_chat_HomeChat__["a" /* default */] }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/profil/:userid/:mode', component: __WEBPACK_IMPORTED_MODULE_8__components_userprofil_PersonalProfil__["a" /* default */] })
     )
@@ -66492,6 +66496,11 @@ var Home = function (_Component) {
                     alert("Resolver " + err);
                 });
             }
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            this.state.user = null;
         }
     }, {
         key: 'render',
