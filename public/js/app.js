@@ -19008,7 +19008,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Footer__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Index__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_chat_HomeChat__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_userprofil_PersonalProfil__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_userprofil_PersonalProfil__ = __webpack_require__(185);
 __webpack_require__(75);
 
 
@@ -68562,20 +68562,7 @@ var ChatMessage = function (_Component) {
 /* 182 */,
 /* 183 */,
 /* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */
+/* 185 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68584,8 +68571,8 @@ var ChatMessage = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Header__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_SideBarGauche__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__UserProfilInfo__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Barner__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__UserProfilInfo__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Barner__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_AuthService__ = __webpack_require__(40);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -68681,7 +68668,7 @@ var PersonalProfil = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (PersonalProfil);
 
 /***/ }),
-/* 199 */
+/* 186 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68690,13 +68677,23 @@ var PersonalProfil = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Formation__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Competence__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Certification__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__CentreInteret__ = __webpack_require__(192);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
 
 
 
@@ -68734,7 +68731,7 @@ var SideBarGauche = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'a',
                                 { className: 'nav-item nav-link active', href: '#p1', 'data-toggle': 'tab' },
-                                'Formation)'
+                                'Formation'
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'a',
@@ -68758,161 +68755,159 @@ var SideBarGauche = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'tab-pane fade show active', id: 'p1' },
-                                ' Renseigner les champs suivant vos Formation',
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
-                                    { className: 'row' },
+                                    { 'class': 'card card-cascade narrower' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'ul',
-                                        null,
+                                        'div',
+                                        { 'class': 'view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            null,
-                                            ' Formation 1'
+                                            'a',
+                                            { 'class': 'white-text mx-3' },
+                                            'Liste de Vos Formations'
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
+                                            'div',
                                             null,
-                                            ' Formation 2'
-                                        ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'button',
+                                                { type: 'button', 'class': 'btn btn-outline-white btn-rounded btn-sm px-2' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { 'class': 'fa fa-pencil mt-0' })
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'button',
+                                                { type: 'button', 'class': 'btn btn-outline-white btn-rounded btn-sm px-2' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { 'class': 'fa fa-remove mt-0' })
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'button',
+                                                { type: 'button', 'class': 'btn btn-outline-white btn-rounded btn-sm px-2' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { 'class': 'fa fa-info-circle mt-0' })
+                                            )
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'px-4' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            null,
-                                            ' Formation 3'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            null,
-                                            ' Formation 4'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            null,
-                                            ' Formation 5'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            null,
-                                            ' Formation 7'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            null,
-                                            ' Formation 8'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            null,
-                                            ' Formation 9'
+                                            'div',
+                                            { 'class': 'table-wrapper' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'table',
+                                                { 'class': 'table table-hover mb-0' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'thead',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'tr',
+                                                        null,
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'th',
+                                                            null,
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', _defineProperty({ 'class': 'form-check-label', 'for': 'checkbox' }, 'class', 'mr-2 label-table'))
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'th',
+                                                            { 'class': 'th-lg' },
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                                'a',
+                                                                null,
+                                                                'Nom de la Formation'
+                                                            )
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'th',
+                                                            { 'class': 'th-lg' },
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                                'a',
+                                                                null,
+                                                                'Description de la Formation'
+                                                            )
+                                                        )
+                                                    )
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'tbody',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'tr',
+                                                        null,
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'th',
+                                                            { scope: 'row' },
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { 'class': 'form-check-input', type: 'checkbox', id: 'checkbox1' }),
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', _defineProperty({ 'class': 'form-check-label', 'for': 'checkbox1' }, 'class', 'label-table'))
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'td',
+                                                            null,
+                                                            'Informatique'
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'td',
+                                                            null,
+                                                            'JEE - PHP - LARAVEL- ANGULAR'
+                                                        )
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'tr',
+                                                        null,
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'th',
+                                                            { scope: 'row' },
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { 'class': 'form-check-input', type: 'checkbox', id: 'checkbox2' }),
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', _defineProperty({ 'class': 'form-check-label', 'for': 'checkbox2' }, 'class', 'label-table'))
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'td',
+                                                            null,
+                                                            'BASE DE DONNEES'
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'td',
+                                                            null,
+                                                            'MYSQL - SQLSERVER - POSTGRES'
+                                                        )
+                                                    )
+                                                )
+                                            )
                                         )
                                     )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Formation__["a" /* default */], null)
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'tab-pane fade', id: 'p2' },
-                                'Renseigner Vos Comp\xE9tences Dans les champs',
+                                'Liste de vos Comp\xE9tences',
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'ul',
-                                    null,
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Comp\xE9tence 1'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Comp\xE9tence 2'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Comp\xE9tence 3'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        ' Comp\xE9tence 4'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Comp\xE9tence 5'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Comp\xE9tence 6'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Comp\xE9tence 7'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Comp\xE9tence 8'
-                                    )
+                                    'div',
+                                    { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Competence__["a" /* default */], null)
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'tab-pane fade', id: 'p3' },
-                                'Lister Vos Dif\xE9rentes Certification',
+                                'Liste de vos Certifications',
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'ul',
-                                    null,
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Certification 1'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Certification 2'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Certification 3'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        ' Certification 4'
-                                    )
+                                    'div',
+                                    { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Certification__["a" /* default */], null)
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'tab-pane fade', id: 'p4' },
-                                'Quelles Sont Vos differents Centre D\'Interet',
+                                'Liste de vos Centres D\'Interets',
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'ul',
-                                    null,
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Centred\'Interet 1'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Centred\'Interet 2'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        'Centred\'Interet 3'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'li',
-                                        null,
-                                        ' Centred\'Interet 4'
-                                    )
+                                    'div',
+                                    { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__CentreInteret__["a" /* default */], null)
                                 )
                             )
                         )
@@ -68928,14 +68923,14 @@ var SideBarGauche = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (SideBarGauche);
 
 /***/ }),
-/* 200 */
+/* 187 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_barnerProfil_jpg__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_barnerProfil_jpg__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_barnerProfil_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__images_barnerProfil_jpg__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -68987,10 +68982,488 @@ var Barner = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (Barner);
 
 /***/ }),
-/* 201 */
+/* 188 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/barnerProfil.jpg?016475b56300edf09bec6a2ca3b4c6de";
+
+/***/ }),
+/* 189 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(4);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var SideBarDroit = function (_Component) {
+    _inherits(SideBarDroit, _Component);
+
+    function SideBarDroit() {
+        _classCallCheck(this, SideBarDroit);
+
+        return _possibleConstructorReturn(this, (SideBarDroit.__proto__ || Object.getPrototypeOf(SideBarDroit)).apply(this, arguments));
+    }
+
+    _createClass(SideBarDroit, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { 'class': 'modal fade', id: 'modalContactForm', tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel', 'aria-hidden': 'true' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { 'class': 'modal-dialog', role: 'document' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { 'class': 'modal-content' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-header text-center' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'h4',
+                                        { 'class': 'modal-title w-100 font-weight-bold' },
+                                        'Ajouter Une Nouvelle Formation'
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'button',
+                                        { type: 'button', 'class': 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'span',
+                                            { 'aria-hidden': 'true' },
+                                            '\xD7'
+                                        )
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-body mx-3' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'md-form mb-5' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form32' },
+                                            'Nom de la Formation'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'form32', 'class': 'form-control validate' })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'md-form' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form8' },
+                                            'Description de la Formation'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { type: 'text', id: 'form8', 'class': 'md-textarea form-control', rows: '4' })
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-footer d-flex justify-content-center' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'button',
+                                        { 'class': 'btn btn-primary' },
+                                        'Enregister',
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { 'class': 'fa fa-paper-plane-o ml-1' })
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { 'class': 'text-center' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'a',
+                            { href: '', 'class': 'btn btn-primary', 'data-toggle': 'modal', 'data-target': '#modalContactForm' },
+                            'Ajouter Une Formation'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SideBarDroit;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (SideBarDroit);
+
+/***/ }),
+/* 190 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(4);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var SideBarDroit = function (_Component) {
+    _inherits(SideBarDroit, _Component);
+
+    function SideBarDroit() {
+        _classCallCheck(this, SideBarDroit);
+
+        return _possibleConstructorReturn(this, (SideBarDroit.__proto__ || Object.getPrototypeOf(SideBarDroit)).apply(this, arguments));
+    }
+
+    _createClass(SideBarDroit, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { 'class': 'modal fade', id: 'modalLoginForm', tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel', 'aria-hidden': 'true' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { 'class': 'modal-dialog', role: 'document' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { 'class': 'modal-content' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-header text-center' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'h4',
+                                        { 'class': 'modal-title w-100 font-weight-bold' },
+                                        'Ajouter Une Nouvelle Comp\xE9tence'
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'button',
+                                        { type: 'button', 'class': 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'span',
+                                            { 'aria-hidden': 'true' },
+                                            '\xD7'
+                                        )
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-body mx-3' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'md-form mb-5' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form32' },
+                                            'Nom de la Comp\xE9tence'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'form32', 'class': 'form-control validate' })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'md-form' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form8' },
+                                            'Description de la Comp\xE9tence'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { type: 'text', id: 'form8', 'class': 'md-textarea form-control', rows: '4' })
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-footer d-flex justify-content-center' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'button',
+                                        { 'class': 'btn btn-primary' },
+                                        'Enregistrer'
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { 'class': 'text-center' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'a',
+                            { href: '', 'class': 'btn btn-primary', 'data-toggle': 'modal', 'data-target': '#modalLoginForm' },
+                            'Ajouter Une Comp\xE9tence'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SideBarDroit;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (SideBarDroit);
+
+/***/ }),
+/* 191 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(4);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var SideBarDroit = function (_Component) {
+    _inherits(SideBarDroit, _Component);
+
+    function SideBarDroit() {
+        _classCallCheck(this, SideBarDroit);
+
+        return _possibleConstructorReturn(this, (SideBarDroit.__proto__ || Object.getPrototypeOf(SideBarDroit)).apply(this, arguments));
+    }
+
+    _createClass(SideBarDroit, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { 'class': 'modal fade', id: 'modalRegisterForm', tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel', 'aria-hidden': 'true' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { 'class': 'modal-dialog', role: 'document' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { 'class': 'modal-content' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-header text-center' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'h4',
+                                        { 'class': 'modal-title w-100 font-weight-bold' },
+                                        'Ajouter Une Nouvelle Certification'
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'button',
+                                        { type: 'button', 'class': 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'span',
+                                            { 'aria-hidden': 'true' },
+                                            '\xD7'
+                                        )
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-body mx-3' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'md-form mb-5' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form32' },
+                                            'Nom de la Certification'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'form32', 'class': 'form-control validate' })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'md-form' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form8' },
+                                            'Description de la Certification'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { type: 'text', id: 'form8', 'class': 'md-textarea form-control', rows: '4' })
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-footer d-flex justify-content-center' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'button',
+                                        { 'class': 'btn btn-primary' },
+                                        'Enregistrer'
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { 'class': 'text-center' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'a',
+                            { href: '', 'class': 'btn btn-primary', 'data-toggle': 'modal', 'data-target': '#modalRegisterForm' },
+                            'Ajouter Une Certification'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SideBarDroit;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (SideBarDroit);
+
+/***/ }),
+/* 192 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(4);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var SideBarDroit = function (_Component) {
+    _inherits(SideBarDroit, _Component);
+
+    function SideBarDroit() {
+        _classCallCheck(this, SideBarDroit);
+
+        return _possibleConstructorReturn(this, (SideBarDroit.__proto__ || Object.getPrototypeOf(SideBarDroit)).apply(this, arguments));
+    }
+
+    _createClass(SideBarDroit, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { 'class': 'modal fade', id: 'modalSubscriptionForm', tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel', 'aria-hidden': 'true' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { 'class': 'modal-dialog', role: 'document' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { 'class': 'modal-content' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-header text-center' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'h4',
+                                        { 'class': 'modal-title w-100 font-weight-bold' },
+                                        'Nouveau Centre d\'Interet'
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'button',
+                                        { type: 'button', 'class': 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'span',
+                                            { 'aria-hidden': 'true' },
+                                            '\xD7'
+                                        )
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-body mx-3' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'md-form mb-5' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form32' },
+                                            'Nom du Centre d\'Interet'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'form32', 'class': 'form-control validate' })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'md-form' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form8' },
+                                            'Description du Centre d\'Interet'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { type: 'text', id: 'form8', 'class': 'md-textarea form-control', rows: '4' })
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'modal-footer d-flex justify-content-center' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'button',
+                                        { 'class': 'btn btn-primary' },
+                                        'Enregistrer',
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { 'class': 'fa fa-paper-plane-o ml-1' })
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { 'class': 'text-center' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'a',
+                            { href: '', 'class': 'btn btn-primary', 'data-toggle': 'modal', 'data-target': '#modalSubscriptionForm' },
+                            'Ajouter Un Centre d\'Interet'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SideBarDroit;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (SideBarDroit);
 
 /***/ })
 /******/ ]);
