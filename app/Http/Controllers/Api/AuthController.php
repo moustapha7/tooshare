@@ -63,7 +63,7 @@ class AuthController extends Controller
        $user->saveTimline();
        $user->InitTimelinePosts();
 
-        $url='http://localhost:4200/confirmation?mail_token='.$mail_token.'&email='.$user->email.'&password='.$user->password;
+        $url='http://localhost:8000/confirmation?mail_token='.$mail_token.'&email='.$user->email.'&password='.$user->password;
         Mail::to($user->email)->send(new Confirmation($user,$url));
         $token=auth()->login($user);
         return $this->respondWithToken($user,$token);

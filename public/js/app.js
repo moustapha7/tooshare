@@ -3144,26 +3144,6 @@ var Header = function (_Component) {
                 // rerender to show messages for the first time
                 this.forceUpdate();
             }
-
-            /* axios
-                 .post('/api/login', {
-                     email: this.state.login,
-                     password: this.state.password
-                 })
-                 .then(response => {
-                     console.log('from handle submit', response);
-                     this.setState({err: false});
-                     this.props.router.push("home") ;
-                   })
-                 .catch(error=> {
-                     console.log('from handle error', error);
-                    // if(error.code == 401){
-                         alert('Login ou Mot de passe incorrect');
-                    // }
-                     this.setState({login: ""});
-                     this.setState({password: ""});
-                     this.setState({err: true});
-                 });*/
         }
     }, {
         key: 'handleLogout',
@@ -18579,6 +18559,7 @@ var AuthService = function () {
         this.fetch = this.fetch.bind(this); // React binding stuff
         this.login = this.login.bind(this);
         this.getProfile = this.getProfile.bind(this);
+        this.getUserinfo = this.getUserinfo.bind(this);
     }
 
     _createClass(AuthService, [{
@@ -18612,10 +18593,40 @@ var AuthService = function () {
                     _this2.setToken(res.access_token); // Setting the token in localStorage
                     return Promise.resolve(res.data);
                 } else {
+                    console.log(res);
                     alert('errr');
                 }
             });
         }
+    }, {
+        key: 'getUserinfo',
+        value: function getUserinfo() {
+            return this.fetch(this.domain + '/user', {
+                method: 'POST'
+            }).then(function (res) {
+                console.log("AuthServices: " + res.email);
+                return Promise.resolve(res);
+            });
+        }
+
+        /* async userInfo() {
+             try {
+                 let response = await fetch(`${this.domain}/user`, {
+                     method: 'GET',
+                     headers: {
+                         Authorization: 'Bearer '+ this.getToken(),
+                     },
+                 });
+                 let responseJson = await response.json();
+                 if(responseJson !== null) {
+                     console.log('Got user info: ' + responseJson.id +responseJson.email +responseJson.phone );
+                     return responseJson
+                 }
+             } catch (error) {
+                 console.log('Error in retrieving userinfo from Auth0: ' + error.message);
+             }
+         } */
+
     }, {
         key: 'loggedIn',
         value: function loggedIn() {
@@ -66371,6 +66382,7 @@ var withRouter = function withRouter(Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__PostForm__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__AgrationRx__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__TimeLine__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_AuthService__ = __webpack_require__(69);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66388,18 +66400,43 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var Home = function (_Component) {
     _inherits(Home, _Component);
 
     function Home(props) {
         _classCallCheck(this, Home);
 
-        return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+
+        _this.Auth = new __WEBPACK_IMPORTED_MODULE_8__services_AuthService__["a" /* default */]();
+        _this.state = {
+            user: {}
+        };
+        return _this;
     }
 
     _createClass(Home, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            if (this.Auth.loggedIn()) {
+                // this.props.router.push("/");
+                this.Auth.getUserinfo().then(function (res) {
+                    _this2.setState({ user: res });
+                    console.log("Home " + res.phone);
+                }).catch(function (err) {
+                    alert("Resolver " + err);
+                });
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
+            if (this.state.user) {
+                console.log("Home " + this.state.user.email);
+            }
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: '' },
@@ -67158,27 +67195,6 @@ var Welcome = function (_Component) {
                 this.forceUpdate();
             }
             // alert('Prenom: ' + this.state.first_name+ ' Nom: '+ this.state.last_name);
-
-            /*const config= {
-                headers: {'No-Auth': 'True'}
-            }
-            axios
-                .post('/api/register', user, config)
-                .then(response => {
-                    console.log('from handle submit', response);
-                    this.setState({err: false});
-                    this.props.router.push("home") ;
-                  })
-                .catch(error=> {
-                    console.log('from handle error', error);
-                    // if(error.code == 401){
-                    alert('Erreur lors de l\'inscription');
-                    // }
-                    this.setState({login: ""});
-                    this.setState({password: ""});
-                    this.setState({err: true});
-                });
-            */
         }
     }, {
         key: 'render',
