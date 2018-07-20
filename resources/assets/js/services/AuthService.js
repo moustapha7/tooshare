@@ -3,9 +3,14 @@ export default class AuthService {
     // Initializing important variables
     constructor(domain) {
         this.domain = domain || 'http://localhost:8000/api' // API server domain
+        this.state={
+            data :[]
+        }
         this.fetch = this.fetch.bind(this) // React binding stuff
         this.login = this.login.bind(this)
         this.getProfile = this.getProfile.bind(this)
+        this.Auth=this.Auth.bind(this)
+
     }
 
     login(email, password) {
@@ -18,7 +23,10 @@ export default class AuthService {
             })
         }).then(res => {
             this.setToken(res.access_token) // Setting the token in localStorage
+           // console.log(res);
+            this.state.data=res;
             return Promise.resolve(res.data);
+
         })
     }
 
@@ -75,7 +83,7 @@ export default class AuthService {
 
     getProfile(){
         // Using jwt-decode npm package to decode the token
-        return decode(this.getToken());
+        return  Promise.resolve(this.state.data);
     }
 
 

@@ -31,6 +31,10 @@ class PostController extends Controller
         $this->photos_path = public_path('/posts');
     }
 
+    public function index(){
+        return response()->json(Auth::user()->posts,200);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -39,9 +43,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $user=User::find($request->user_id);
-         $post=Post::create($request->all());
-         $post->user()->associate($user)->save();
+       // $user=Auth::user();
+         $post=new Post($request->all());
+         $post->user()->associate(Auth::user())->save();
         if($request->hasFile('file')){
 
             $files = $request->file('file');
@@ -92,7 +96,7 @@ class PostController extends Controller
         }
 
 
-         return response()->json($post->with('user')->with('files')->get()->where('id',$post->id));
+         return response()->json($post->with('user')->with('files')->with('users_liked')->get()->where('id',$post->id));
     }
 
     /**
@@ -105,7 +109,7 @@ class PostController extends Controller
     {
        $post= Post::findorfail($id);
 
-     return response()->json($post->with('user')->with('files')->get()->where('id',$post->id));
+     return response()->json($post->with('user')->with('files')->with('files')->get()->where('id',$post->id));
     }
 
     /**
@@ -147,10 +151,15 @@ class PostController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function LikePost(Request $request){
+
         $post=Post::find($request->post_id);
-        $post->users_liked()->attach($request->user_id);
+        $user_id=Auth::user()->id;
+        $post->users_liked()->sync($user_id);
         //notified the user posted the post
-        $post->user->notify(new PostLikedNotification($post,User::find($request->user_id)));
+       if(Auth::user()->id!=$post->user_id){
+        $post->user->notify(new PostLikedNotification($post,Auth::user()));
+       } 
+     
         return response()->json(['message'=>'succes'],200);
 
     }
@@ -165,7 +174,7 @@ class PostController extends Controller
         $comment->post()->associate($post);
         $comment->user()->associate(Auth::user())->save();
 
-        $post->notifications_user()->attach(Auth::user()->id);
+        $post->notifications_user()->sync(Auth::user()->id);
         //notifier les utilisateurs abboner au post dabords
         foreach($post->notifications_user as $user){
             if($user->id!=Auth::user()->id){

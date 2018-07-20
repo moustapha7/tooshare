@@ -18,11 +18,11 @@ class Header extends Component {
         this.handleChangePwrd = this.handleChangePwrd.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    componentWillMount(){
+   /* componentWillMount(){
         if(this.Auth.loggedIn()){
             this.props.router.push("home");
         }
-    }
+    }*/
 
     handleChangeLogin(event) {
         this.setState({login: event.target.value});
@@ -37,10 +37,9 @@ class Header extends Component {
         if( this.validator.allValid() ){
             alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
             this.Auth.login(this.state.login,this.state.password).then(res=>{
-                this.props.router.push("home",res);
-
+                this.props.router.push("home");
             }).catch(err=>{
-                alert("login ou password incorect :)");
+                alert(err);
             })
         } else {
             this.validator.showMessages();

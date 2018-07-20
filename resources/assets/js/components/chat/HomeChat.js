@@ -7,14 +7,21 @@ import ChatFomr from './ChatForm'
 import ChatUserList from './ChatUserList'
 import ChatMessage from './ChatMessage'
 import defaultUser from '../../../../images/defaultuserimage.png'
+import AuthService from "../../services/AuthService";
+import WithAuth from "../../services/WithAuth";
 
 class HomeChat extends Component {
 
 
     constructor(props) {
         super(props)
+        this.Auth=new AuthService()
     }
-
+    /*componentWillMount(){
+        if(!this.Auth.loggedIn()){
+            this.props.router.push("/");
+        }
+    }*/
     render(){
 
         return (
@@ -249,4 +256,4 @@ class HomeChat extends Component {
         )
     }
 }
-export default HomeChat;
+export default WithAuth(HomeChat);

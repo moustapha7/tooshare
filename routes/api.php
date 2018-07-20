@@ -19,7 +19,7 @@ Route::post('DeleteImage','Api\UserController@DestroyImage');
 Route::post('DemandeFriend','Api\FriendsheapController@DemandeFriend');
 Route::post('DemandeTraited','Api\FriendsheapController@DemandeTraited');
 Route::get  ('User/Notifications','Api\UserController@getUserAllUnreadNotifications');
-
+Route::get('timeline','Api\TimelineController@getUserTimeline');
 
 
 Route::apiResource('posts', 'Api\PostController');

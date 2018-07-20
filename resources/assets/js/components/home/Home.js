@@ -6,16 +6,26 @@ import SideBarDroit from './SideBarDroit'
 import PostForm from './PostForm'
 import AgrationRx from './AgrationRx'
 import TimeLine from './TimeLine'
+import AuthService from '../../services/AuthService'
+import WithAuth from "../../services/WithAuth";
 
 class Home extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
+        this.Auth=new AuthService();
+
     }
+    componentWillMount(){
+        /*if(!this.Auth.loggedIn()){
+              this.props.router.push("/");*/
+                console.log(this.props.user);
+        }
 
     render(){
         return (
             <div className="">
+
                 <Header link="logout"/>
                 <div className="container">
                     <div className="row">
@@ -31,16 +41,18 @@ class Home extends Component {
                             <TimeLine />
                         </div>
                         <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed">
-                            <SideBarDroit />
+                            <SideBarDroit user={this.props.user} />
 
 
 
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
         )
     }
 }
-export default Home;
+export default WithAuth(Home);
