@@ -4,7 +4,6 @@ import Header from '../Header';
 import SideBarGauche from '../home/SideBarGauche'
 import UserProfilInfo from './UserProfilInfo'
 import Barner from './Barner'
-
 import AuthService from "../../services/AuthService";
 
 class PersonalProfil extends Component {
@@ -18,15 +17,7 @@ class PersonalProfil extends Component {
     }
 
     componentWillMount(){
-        if(this.Auth.loggedIn()){
-            // this.props.router.push("/");
-            this.Auth.getUserinfo().then(res=>{
-                this.setState({user: res});
-                console.log("Home "+ res.phone);
-            }).catch(err=>{
-                alert("Resolver "+ err);
-            })
-        }
+
     }
 
     render(){

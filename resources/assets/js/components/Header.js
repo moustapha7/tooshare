@@ -20,7 +20,7 @@ class Header extends Component {
     }
     componentWillMount(){
         if(this.Auth.loggedIn()){
-            this.props.router.push("home");
+           // this.props.router.push("home");
         }
     }
 
@@ -79,14 +79,14 @@ class Header extends Component {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item active">
-                                    <Link className="nav-link" to="home"><i className="fa fa-home couleur"></i> <span
+                                    <Link className="nav-link" to="/home"><i className="fa fa-home couleur"></i> <span
                                         className="sr-only">(current)</span></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><i className="font-bold fa fa-users"></i></a>
+                                    <Link className="nav-link" to="home"><i className="font-bold fa fa-users"></i></Link>
                                 </li>
                                 <li className="nav-item cart-btn">
-                                    <a className="nav-link" href="#"><i className="font-bold fa fa-envelope"></i></a>
+                                    <Link className="nav-link" to="/chat"><i className="font-bold fa fa-envelope"></i></Link>
                                     <span className="notifications-badge" color="danger" >+99</span>
                                 </li>
                                 <li className="nav-item cart-btn">

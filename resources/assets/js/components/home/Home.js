@@ -31,9 +31,7 @@ class Home extends Component {
     }
 
     render(){
-        if (this.state.user) {
-            console.log("Home "+ this.state.user.email);
-        }
+
         return (
             <div className="">
                 <Header link="logout"/>

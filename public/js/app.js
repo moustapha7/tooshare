@@ -3113,7 +3113,7 @@ var Header = function (_Component) {
         key: 'componentWillMount',
         value: function componentWillMount() {
             if (this.Auth.loggedIn()) {
-                this.props.router.push("home");
+                // this.props.router.push("home");
             }
         }
     }, {
@@ -3198,7 +3198,7 @@ var Header = function (_Component) {
                                         { className: 'nav-item active' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             __WEBPACK_IMPORTED_MODULE_2_react_router__["a" /* Link */],
-                                            { className: 'nav-link', to: 'home' },
+                                            { className: 'nav-link', to: '/home' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-home couleur' }),
                                             ' ',
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -3213,8 +3213,8 @@ var Header = function (_Component) {
                                         'li',
                                         { className: 'nav-item' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'a',
-                                            { className: 'nav-link', href: '#' },
+                                            __WEBPACK_IMPORTED_MODULE_2_react_router__["a" /* Link */],
+                                            { className: 'nav-link', to: 'home' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'font-bold fa fa-users' })
                                         )
                                     ),
@@ -3222,8 +3222,8 @@ var Header = function (_Component) {
                                         'li',
                                         { className: 'nav-item cart-btn' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'a',
-                                            { className: 'nav-link', href: '#' },
+                                            __WEBPACK_IMPORTED_MODULE_2_react_router__["a" /* Link */],
+                                            { className: 'nav-link', to: '/chat' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'font-bold fa fa-envelope' })
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -18741,6 +18741,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_AuthService__ = __webpack_require__(40);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18753,18 +18754,24 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var SideBarGauche = function (_Component) {
     _inherits(SideBarGauche, _Component);
 
-    function SideBarGauche() {
+    function SideBarGauche(props) {
         _classCallCheck(this, SideBarGauche);
 
-        return _possibleConstructorReturn(this, (SideBarGauche.__proto__ || Object.getPrototypeOf(SideBarGauche)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (SideBarGauche.__proto__ || Object.getPrototypeOf(SideBarGauche)).call(this, props));
+
+        _this.Auth = new __WEBPACK_IMPORTED_MODULE_3__services_AuthService__["a" /* default */]();
+
+        return _this;
     }
 
     _createClass(SideBarGauche, [{
         key: 'render',
         value: function render() {
+            var linkto = "/profil/" + this.props.User.id + "/edit";
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -18782,8 +18789,8 @@ var SideBarGauche = function (_Component) {
                                 'span',
                                 { className: 'username' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'a',
-                                    { href: '', className: '' },
+                                    __WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* Link */],
+                                    { to: '/profil', className: '' },
                                     'Moussa Diatta ',
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
                                     ' Etudiant 23 ans'
@@ -18794,8 +18801,8 @@ var SideBarGauche = function (_Component) {
                             'div',
                             { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-3 usersidebarAvatar' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'a',
-                                { href: '#', className: '' },
+                                __WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* Link */],
+                                { to: linkto, className: '' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default.a, alt: 'Avatar', width: 70, className: 'useravatar' })
                             )
                         )
@@ -19030,7 +19037,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/', component: __WEBPACK_IMPORTED_MODULE_6__components_Index__["a" /* default */] }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/home', component: __WEBPACK_IMPORTED_MODULE_4__components_home_Home__["a" /* default */] }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/chat', component: __WEBPACK_IMPORTED_MODULE_7__components_chat_HomeChat__["a" /* default */] }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/profil', component: __WEBPACK_IMPORTED_MODULE_8__components_userprofil_PersonalProfil__["a" /* default */] })
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: '/profil/:userid/:mode', component: __WEBPACK_IMPORTED_MODULE_8__components_userprofil_PersonalProfil__["a" /* default */] })
     )
 ), document.getElementById('tooshareapp'));
 Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Footer__["a" /* default */], null), document.getElementById('footer'));
@@ -66480,9 +66487,7 @@ var Home = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            if (this.state.user) {
-                console.log("Home " + this.state.user.email);
-            }
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: '' },
@@ -68603,7 +68608,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
 var PersonalProfil = function (_Component) {
     _inherits(PersonalProfil, _Component);
 
@@ -68621,19 +68625,7 @@ var PersonalProfil = function (_Component) {
 
     _createClass(PersonalProfil, [{
         key: 'componentWillMount',
-        value: function componentWillMount() {
-            var _this2 = this;
-
-            if (this.Auth.loggedIn()) {
-                // this.props.router.push("/");
-                this.Auth.getUserinfo().then(function (res) {
-                    _this2.setState({ user: res });
-                    console.log("Home " + res.phone);
-                }).catch(function (err) {
-                    alert("Resolver " + err);
-                });
-            }
-        }
+        value: function componentWillMount() {}
     }, {
         key: 'render',
         value: function render() {
