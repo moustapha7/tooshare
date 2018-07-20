@@ -3,7 +3,6 @@ import { Router, Route, Link } from 'react-router';
 
 export default class PostForm extends Component {
     render() {
-        const user=this.props.User
         return (
             <div className="card card-body bg-faded">
                 <form className="form-horizontal" role="form">
