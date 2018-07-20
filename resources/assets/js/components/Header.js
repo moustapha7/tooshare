@@ -37,7 +37,11 @@ class Header extends Component {
         if( this.validator.allValid() ){
             alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
             this.Auth.login(this.state.login,this.state.password).then(res=>{
-                this.props.router.push("home", res);
+                const dataUser=res;
+                this.props.router.push("home",dataUser);
+               // alert(res);
+                console.log(dataUser);
+
             }).catch(err=>{
                 alert("login ou password incorect :)");
             })
@@ -153,7 +157,7 @@ class Header extends Component {
                                         <input className="form-control mr-sm-2" type="text" placeholder="Email" aria-label="Email" value={this.state.login} onChange={this.handleChangeLogin} />
                                         {this.validator.message('login', this.state.login, 'required|email', 'text-danger')}
 
-                                        <input className="form-control mr-sm-2" type="password" placeholder="Mote de Passe" aria-label="Mot de passe" value={this.state.password} onChange={this.handleChangePwrd}/>
+                                        <input className="form-control mr-sm-2" type="password" placeholder="Mot de Passe" aria-label="Mot de passe" value={this.state.password} onChange={this.handleChangePwrd}/>
                                         {this.validator.message('password', this.state.password, 'required|min:6', 'text-danger')}
                                         <button className="btn btn-default my-2 my-sm-0 btn-login" type="submit">Connexion</button>
                                     </div>

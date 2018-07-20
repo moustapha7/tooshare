@@ -4,6 +4,7 @@ import defaultUser from '../../../../images/defaultuserimage.png'
 
 export default class TimeLine extends Component {
     render() {
+        const user=this.props.User
         return (
             <div className="card card-body bg-fade espace">
                 <div className="card-heade">
@@ -11,7 +12,7 @@ export default class TimeLine extends Component {
                                         <span>
                                             <a href="#" className="">
                                                 <img src={defaultUser} alt="Avatar" width={45} className="useravatar"/>
-                                                <span className="username">Moussa Diatta</span>
+                                                <span className="username">{user.first_name} {user.last_name} </span>
                                             </a>
                                         </span>
                         <span className="pull-right"><i className="fa fa-cogs"></i></span>
