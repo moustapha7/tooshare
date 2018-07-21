@@ -60,6 +60,8 @@ export default class PostForm extends Component {
     }
 
         render() {
+    render() {
+        const user=this.props.User
         return (
             <div className="card card-body bg-faded">
                 <form className="form-horizontal"  role="form" encType="multipart/form-data" method="POST" onSubmit={this.handleSubmit}>

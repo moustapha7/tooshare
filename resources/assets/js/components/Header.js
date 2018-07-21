@@ -37,7 +37,11 @@ class Header extends Component {
         if( this.validator.allValid() ){
             alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
             this.Auth.login(this.state.login,this.state.password).then(res=>{
-                this.props.router.push("home");
+                const dataUser=res;
+                this.props.router.push("home",dataUser);
+               // alert(res);
+                console.log(dataUser);
+
             }).catch(err=>{
                 alert(err);
             })
@@ -46,28 +50,6 @@ class Header extends Component {
             // rerender to show messages for the first time
             this.forceUpdate();
         }
-
-
-       /* axios
-            .post('/api/login', {
-                email: this.state.login,
-                password: this.state.password
-            })
-            .then(response => {
-                console.log('from handle submit', response);
-                this.setState({err: false});
-                this.props.router.push("home") ;
-
-            })
-            .catch(error=> {
-                console.log('from handle error', error);
-               // if(error.code == 401){
-                    alert('Login ou Mot de passe incorrect');
-               // }
-                this.setState({login: ""});
-                this.setState({password: ""});
-                this.setState({err: true});
-            });*/
     }
 
     handleLogout(e){
@@ -175,7 +157,7 @@ class Header extends Component {
                                         <input className="form-control mr-sm-2" type="text" placeholder="Email" aria-label="Email" value={this.state.login} onChange={this.handleChangeLogin} />
                                         {this.validator.message('login', this.state.login, 'required|email', 'text-danger')}
 
-                                        <input className="form-control mr-sm-2" type="password" placeholder="Mote de Passe" aria-label="Mot de passe" value={this.state.password} onChange={this.handleChangePwrd}/>
+                                        <input className="form-control mr-sm-2" type="password" placeholder="Mot de Passe" aria-label="Mot de passe" value={this.state.password} onChange={this.handleChangePwrd}/>
                                         {this.validator.message('password', this.state.password, 'required|min:6', 'text-danger')}
                                         <button className="btn btn-default my-2 my-sm-0 btn-login" type="submit">Connexion</button>
                                     </div>

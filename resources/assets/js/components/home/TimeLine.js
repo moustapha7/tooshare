@@ -112,6 +112,7 @@ export default class TimeLine extends Component {
 
 
     render() {
+        const user=this.props.User
         return (
             <div className="container">
 
