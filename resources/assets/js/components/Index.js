@@ -100,11 +100,9 @@ class Welcome extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                            <Link to="/home"><i className="fa fa-home"></i>Acceuil   /</Link>
-                            <Link to="/chat"><i className="fa fa-chat"></i>Messages   /</Link>
-                            <Link to="/userProfil"><i className="fa fa-chat"></i>userProfil  /</Link>
-                            <Link to="/userProfilProf"><i className="fa fa-chat"></i>userProfilProf  /</Link>
-                            <Link to="/CvEtudiant"><i className="fa fa-chat"></i>CvEtudiant  /</Link>
+                            <Link to="/home"><i className="fa fa-home"></i>Acceuil /</Link>
+                            <Link to="/chat"><i className="fa fa-chat"></i>Messages /</Link>
+                            <Link to="/profil"><i className="fa fa-chat"></i>Profil</Link>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                             <p className="h3 text-center mb-4 inscription">Inscription</p>

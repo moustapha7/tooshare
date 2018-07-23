@@ -11026,3 +11026,22 @@ footer.page-footer {
 
 /* END CHAT CSS */
 
+/* USER PROFIL CSS */
+
+.user-profil .barner {
+  height: 350px;
+  background-size: cover;
+}
+
+.user-profil .barner .btn-changer {
+  position: absolute;
+  bottom: 2px;
+  right: 5px;
+  height: 35px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 2px;
+}
+
+/* END USER PROFIL CSS */
+

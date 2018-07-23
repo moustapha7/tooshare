@@ -8,9 +8,7 @@ import Home from './components/home/Home';
 import Footer from './components/Footer';
 import Index from './components/Index';
 import HomeChat from './components/chat/HomeChat';
-import userProfilHome from './components/userProfil/userProfilHome';
-import userProfilProfHome from './components/userProfilProf/userProfilProfHome';
-import CvEtudiantHome from './components/CvEtudiant/CvEtudiantHome';
+import PersonalProfil from './components/userprofil/PersonalProfil';
 
 render(
     <Router history={browserHistory}>
@@ -18,9 +16,7 @@ render(
             <Route  path='/' component={Index}/>
             <Route path='/home' component={Home}/>
             <Route path='/chat' component={HomeChat}/>
-            <Route path='/userProfil' component={userProfilHome}/>
-            <Route path='/userProfilProf' component={userProfilProfHome}/>
-            <Route path='/CvEtudiant' component={CvEtudiantHome}/>
+            <Route path='/profil' component={PersonalProfil}/>
         </Switch>
     </Router>,
     document.getElementById('tooshareapp')
