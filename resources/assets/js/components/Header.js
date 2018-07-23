@@ -18,11 +18,11 @@ class Header extends Component {
         this.handleChangePwrd = this.handleChangePwrd.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    componentWillMount(){
+   /* componentWillMount(){
         if(this.Auth.loggedIn()){
            // this.props.router.push("home");
         }
-    }
+    }*/
 
     handleChangeLogin(event) {
         this.setState({login: event.target.value});
@@ -43,7 +43,7 @@ class Header extends Component {
                 console.log(dataUser);
 
             }).catch(err=>{
-                alert("login ou password incorect :)");
+                alert(err);
             })
         } else {
             this.validator.showMessages();

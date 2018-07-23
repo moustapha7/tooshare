@@ -29,7 +29,7 @@ class Timeline extends Model
 
     public function posts()
     {
-        return $this->hasMany('App\Post','timeline_id');
+        return $this->hasMany('App\Post');
     }
 
     public function user()

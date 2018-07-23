@@ -6,7 +6,8 @@ import SideBarDroit from './SideBarDroit'
 import PostForm from './PostForm'
 import AgrationRx from './AgrationRx'
 import TimeLine from './TimeLine'
-import AuthService from "../../services/AuthService";
+import AuthService from '../../services/AuthService'
+import WithAuth from "../../services/WithAuth";
 
 class Home extends Component {
 
@@ -17,6 +18,11 @@ class Home extends Component {
             user: {}
         }
     }
+    componentWillMount(){
+        /*if(!this.Auth.loggedIn()){
+              this.props.router.push("/");*/
+                console.log(this.props.user);
+        }
 
     componentWillMount(){
         if(this.Auth.loggedIn()){
@@ -38,6 +44,7 @@ class Home extends Component {
 
         return (
             <div className="">
+
                 <Header link="logout"/>
                 <div className="container">
                     <div className="row">
@@ -57,9 +64,11 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
         )
     }
 }
-export default Home;
+export default WithAuth(Home);
