@@ -21,9 +21,9 @@ export default class SideBarGauche extends Component {
                         </span>
                     </div>
                     <div className="col-lg-3 col-sm-3 col-md-3 col-xs-3 usersidebarAvatar">
-                        <a href="#" className="">
+                    <Link to="/profil" >
                             <img src={defaultUser} alt="Avatar" width={70} className="useravatar"/>
-                        </a>
+                    </Link>
                     </div>
                 </div>
                 <div className="row bordertop">

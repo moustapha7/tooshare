@@ -18802,8 +18802,8 @@ var SideBarGauche = function (_Component) {
                             'div',
                             { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-3 usersidebarAvatar' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'a',
-                                { href: '#', className: '' },
+                                __WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* Link */],
+                                { to: '/profil' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default.a, alt: 'Avatar', width: 70, className: 'useravatar' })
                             )
                         )
@@ -68644,17 +68644,24 @@ var PersonalProfil = function (_Component) {
                 this.Auth.getUserinfo().then(function (res) {
                     _this2.setState({ user: res });
                     console.log("Home " + res.phone);
+                    console.log("okkkkkkk ");
                 }).catch(function (err) {
                     alert("Resolver " + err);
                 });
             }
         }
     }, {
+        key: 'componentWillUnMount',
+        value: function componentWillUnMount() {
+            this.state.user = {};
+        }
+    }, {
         key: 'render',
         value: function render() {
             if (this.state.user) {
-                console.log("Home " + this.state.user.email);
+                console.log("Home**** " + this.state.user.email);
             }
+            console.log("kooooo ");
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'user-profil' },
@@ -68677,7 +68684,7 @@ var PersonalProfil = function (_Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__home_SideBarGauche__["a" /* default */], null)
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__home_SideBarGauche__["a" /* default */], { User: this.state.user })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
