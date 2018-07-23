@@ -25,7 +25,7 @@ export default class SideBarGauche extends Component {
                     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Certif. <br /> 2</div>
                     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Vue <br /> 10</div>
                     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Autres <br /> 0</div>
-                    <button type="button" class="btn btn-info">Devenir Professeur</button>
+                    <button type="button" className="btn btn-info">Devenir Professeur</button>
                 </div>
 
             </div>
@@ -40,14 +40,14 @@ export default class SideBarGauche extends Component {
                             <li><a href=""><i className="fa fa-cog"></i> Mes Amis</a></li>
                             <li><a href=""><i className="fa fa-cog"></i> Mon CV</a></li>
                             <li><a href=""><i className="fa fa-cog"></i> Paramettre</a></li>
-                            <li class="nav-item dropdown">
-                               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mes Structures</a>
-                               <div class="dropdown-menu">
-                               <a class="dropdown-item" href="#">Entreprises</a>
-                               <a class="dropdown-item" href="#">Universites</a>
+                            <li className="nav-item dropdown">
+                               <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mes Structures</a>
+                               <div className="dropdown-menu">
+                               <a className="dropdown-item" href="#">Entreprises</a>
+                               <a className="dropdown-item" href="#">Universites</a>
                                 </div>
                             </li>
-                            <button type="button" class="btn btn-info">Gerer vos Structures</button>
+                            <button type="button" className="btn btn-info">Gerer vos Structures</button>
                         </ul>
 
 

@@ -28,7 +28,6 @@ export default class TimeLine extends Component {
         }
          axios.get('/api/timeline',config).then(response=>{
            $this.setState({
-              
                data : response.data
              })
              console.log(response);
@@ -114,11 +113,11 @@ export default class TimeLine extends Component {
     render() {
         const user=this.props.User
         return (
-            <div className="container">
+            <div className="">
 
 
             {this.state.data.map((post,i)=>
-                <div className="card card-body bg-fade espace"  key={i}>
+                <div className="card card-body bg-fade espace "  key={i}>
 
                     <div className="card-heade">
                         <div className="userposthearder">

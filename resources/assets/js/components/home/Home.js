@@ -18,11 +18,6 @@ class Home extends Component {
             user: {}
         }
     }
-    componentWillMount(){
-        /*if(!this.Auth.loggedIn()){
-              this.props.router.push("/");*/
-                console.log(this.props.user);
-        }
 
     componentWillMount(){
         if(this.Auth.loggedIn()){

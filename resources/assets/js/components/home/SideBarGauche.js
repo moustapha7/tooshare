@@ -19,7 +19,7 @@ export default class SideBarGauche extends Component {
             this.userID = this.props.User.id;
             console.log("oh",user)
         }
-        const linkto = "/profil/" + userID + "/edit";
+        const linkto = "/profil/" + this.props.User.id + "/edit";
         return (
             <div>
             <div className="card card-body bg-faded ">
@@ -27,7 +27,7 @@ export default class SideBarGauche extends Component {
                 <div className="row">
                     <div className="col-lg-9 col-sm-9 col-md-9 col-xs-9 undecorated">
                         <span className="username">
-                            <Link to="/home" className="">{user.first_name} {user.last_name} <br /> Etudiant 23 ans</Link>
+                            <Link to="/home" className="">{this.props.User.first_name} {this.props.User.last_name} <br /> Etudiant 23 ans</Link>
 
                         </span>
                     </div>

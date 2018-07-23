@@ -59,7 +59,6 @@ export default class PostForm extends Component {
          })
     }
 
-        render() {
     render() {
         const user=this.props.User
         return (
