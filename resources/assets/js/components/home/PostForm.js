@@ -59,7 +59,7 @@ export default class PostForm extends Component {
          })
     }
 
-        render() {
+        
     render() {
         const user=this.props.User
         return (
@@ -80,6 +80,6 @@ export default class PostForm extends Component {
                     </div>
                 </form>
             </div>
-        );
+        )
     }
 }
