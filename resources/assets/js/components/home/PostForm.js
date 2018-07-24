@@ -91,7 +91,7 @@ export default class PostForm extends Component {
                 </form>
 
             </div>
-                <TimeLine User={this.props.User} interval={10000}/>
+                <TimeLine User={this.props.User} interval={10000} content={this.state.content}/>
             </div>
         );
     }

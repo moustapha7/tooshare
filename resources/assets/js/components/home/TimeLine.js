@@ -9,7 +9,8 @@ export default class TimeLine extends Component {
         super();
         this.state={
             data: [],
-            content : ''
+            content : '',
+
         }
 
         this.Auth= new AuthService();
@@ -54,9 +55,6 @@ export default class TimeLine extends Component {
                   'Content-Type': 'multipart/form-data'
         }
     }
-
-    
-   
          axios.post('/api/likedPost',formdata,config).then(response=>{
             console.log(response);
         
@@ -67,7 +65,6 @@ export default class TimeLine extends Component {
 
     }
 
-  
     handleKeyPress(post,event){
 
         event.preventDefault;

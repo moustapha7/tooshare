@@ -66911,7 +66911,7 @@ var PostForm = function (_Component) {
                         )
                     )
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__TimeLine__["a" /* default */], { User: this.props.User, interval: 10000 })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__TimeLine__["a" /* default */], { User: this.props.User, interval: 10000, content: this.state.content })
             );
         }
     }]);
@@ -67045,6 +67045,7 @@ var TimeLine = function (_Component) {
         _this.state = {
             data: [],
             content: ''
+
         };
 
         _this.Auth = new __WEBPACK_IMPORTED_MODULE_3__services_AuthService__["a" /* default */]();
@@ -67098,7 +67099,6 @@ var TimeLine = function (_Component) {
                     'Content-Type': 'multipart/form-data'
                 }
             };
-
             axios.post('/api/likedPost', formdata, config).then(function (response) {
                 console.log(response);
             }).catch(function (err) {
