@@ -20,55 +20,47 @@ export default class SideBarGauche extends Component {
                             <a className="nav-item nav-link" href="#p4" data-toggle="tab">Centre d'Interet</a>
                         </nav>
                         <div className="tab-content">
-                            <div className="tab-pane fade show active" id="p1"> 
-
-
-
-
-
-
-
+                            <div className="tab-pane fade show active" id="p1">
                             
-                            <div class="card card-cascade narrower">
+                            <div className="card card-cascade narrower">
 
-                                
-                                <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+                                <div className="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
 
-                                    <a  class="white-text mx-3">Liste de Vos Formations</a>
+                                    <a  className="white-text mx-3">Liste de Vos Formations</a>
 
                                     <div>
-                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                            <i class="fa fa-pencil mt-0"></i>
+                                        <button type="button" className="btn btn-outline-white btn-rounded btn-sm px-2">
+                                            <i className="fa fa-pencil mt-0"></i>
                                         </button>
-                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                            <i class="fa fa-remove mt-0"></i>
+                                        <button type="button" className="btn btn-outline-white btn-rounded btn-sm px-2">
+                                            <i className="fa fa-remove mt-0"></i>
                                         </button>
-                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                            <i class="fa fa-info-circle mt-0"></i>
+                                        <button type="button" className="btn btn-outline-white btn-rounded btn-sm px-2">
+                                            <i className="fa fa-info-circle mt-0"></i>
                                         </button>
                                     </div>
 
                                 </div>
 
-                                <div class="px-4">
+                                <div className="px-4">
 
-                                    <div class="table-wrapper">
+                                    <div className="table-wrapper">
                                         
-                                        <table class="table table-hover mb-0">
+                                        <table className="table table-hover mb-0">
 
                                             
                                             <thead>
                                                 <tr>
                                                     <th>
                                                         
-                                                        <label class="form-check-label" for="checkbox" class="mr-2 label-table"></label>
+                                                        <label className="form-check-label mr-2 label-table" for="checkbox" ></label>
                                                     </th>
-                                                    <th class="th-lg">
+                                                    <th className="th-lg">
                                                         <a>Nom de la Formation
                                                         </a>
                                                     </th>
-                                                    <th class="th-lg">
+                                                    <th className="th-lg">
                                                         <a >Description de la Formation
                                                         </a>
                                                     </th>
@@ -80,16 +72,16 @@ export default class SideBarGauche extends Component {
                                             <tbody>
                                                 <tr>
                                                     <th scope="row">
-                                                        <input class="form-check-input" type="checkbox" id="checkbox1"/>
-                                                        <label class="form-check-label" for="checkbox1" class="label-table"></label>
+                                                        <input className="form-check-input" type="checkbox" id="checkbox1"/>
+                                                        <label className="form-check-label label-table" for="checkbox1"></label>
                                                     </th>
                                                     <td>Informatique</td>
                                                     <td>JEE - PHP - LARAVEL- ANGULAR</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">
-                                                        <input class="form-check-input" type="checkbox" id="checkbox2"/>
-                                                        <label class="form-check-label" for="checkbox2" class="label-table"></label>
+                                                        <input className="form-check-input" type="checkbox" id="checkbox2"/>
+                                                        <label className="form-check-label label-table" for="checkbox2"></label>
                                                     </th>
                                                     <td>BASE DE DONNEES</td>
                                                     <td>MYSQL - SQLSERVER - POSTGRES</td>

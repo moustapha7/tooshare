@@ -6,6 +6,7 @@ export default class SideBarDroit extends Component {
         const user=this.props.User
         return (
             <div className="card card-body bg-faded">
+                <p> </p>
                 SideBarDroit
             </div>
         );

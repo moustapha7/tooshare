@@ -14,9 +14,9 @@ render(
     <Router history={browserHistory}>
         <Switch>
             <Route  path='/' component={Index}/>
-            <Route path='/home' component={Home}/>
+            <Route exact path='/home' component={Home}/>
             <Route path='/chat' component={HomeChat}/>
-            <Route path='/profil' component={PersonalProfil}/>
+            <Route path='/profil/:userid/:mode' component={PersonalProfil}/>
         </Switch>
     </Router>,
     document.getElementById('tooshareapp')

@@ -25,7 +25,7 @@ Route::post('DeleteFriendSheap','Api\FriendsheapController@DeleteFriendSheap');
 Route::get('follow','Api\FriendsheapController@Follow');
 
 Route::get  ('User/Notifications','Api\UserController@getUserAllUnreadNotifications');
-
+Route::get('timeline','Api\TimelineController@getUserTimeline');
 
 
 Route::apiResource('posts', 'Api\PostController');
