@@ -22,6 +22,21 @@ class UserController extends Controller
          $this->middleware('auth:api');
     }
 
+    public function updateParamGen(Request $request) {
+        $user = User::where('id', $request->id)->first();
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->gender = $request->gender;
+        $user->country = $request->country;
+        $user->city = $request->city;
+        $user->birthday = $request->birthday;
+        $user->save();
+
+        return response()->json($user, 201);
+    }
+
 
     /**
      * @param Request $request
