@@ -29,7 +29,9 @@ class UserParametre extends Component {
             })
         }
     }
-
+    componentWillUnmount () {
+        this.state.user = null;
+        }
     render(){
         if (this.state.user) {
             console.log("Home "+ this.state.user.email);
@@ -43,16 +45,16 @@ class UserParametre extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 nopadding" >
-                            <ParBarner />
+                            <ParBarner User={this.state.user}/>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed ">
-                            <MenuParametre/>
+                            <MenuParametre User={this.state.user}/>
                         </div>
                         <div className="col-lg-9 col-sm-9 col-md-9 col-xs-12 nopadding ">
-                            <InfoGeneral />
-                          <infoPrive />
+                            <InfoGeneral User={this.state.user}/>
+                          <infoPrive User={this.state.user} />
                         </div>
 
                     </div>

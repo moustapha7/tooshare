@@ -4,6 +4,12 @@ import defaultUser from '../../../../images/defaultuserimage.png'
 
 export default class MenuParametre extends Component {
     render() {
+        const userID = null;
+        if(this.props.User){
+            const user=this.props.User
+            this.userID = this.props.User.id;
+            console.log("oh",user)
+        }
         return (
             <div>
             <div className="card card-body bg-faded ">
@@ -11,7 +17,7 @@ export default class MenuParametre extends Component {
                 <div className="row">
                     <div className="col-lg-9 col-sm-9 col-md-9 col-xs-9 undecorated">
                         <span className="username">
-                            <a href="" className="">Abdou Akim AIDARA <br /> Etudiant 29 ans</a>
+                            <a href="" className="">{this.props.User.first_name} {this.props.User.last_name}<br /> Etudiant 29 ans</a>
 
                         </span>
                     </div>
