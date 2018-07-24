@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Router, Route, Link } from 'react-router';
 import defaultUser from '../../../../images/defaultuserimage.png'
 import AuthService from '../../services/AuthService';
+import AgrationRx from './AgrationRx'
 export default class TimeLine extends Component {
-
 
     constructor() {
         super();
@@ -17,23 +17,27 @@ export default class TimeLine extends Component {
         this.handleChangeComment=this.handleChangeComment.bind(this);
         this.handleCommented_post=this.handleCommented_post.bind(this);
         this.handleKeyPress=this.handleKeyPress.bind(this);
-
+        this.loadCommentsFromServer=this.loadCommentsFromServer.bind(this);
     }
-    componentWillMount(){
-         let $this=this;
-         const config= {
+    loadCommentsFromServer(){
+        let $this=this;
+        const config= {
             headers: {
-                      'Authorization': 'Bearer ' + this.Auth.getToken()
+                'Authorization': 'Bearer' + this.Auth.getToken()
             }
         }
-         axios.get('/api/timeline',config).then(response=>{
-           $this.setState({
-               data : response.data
-             })
-             console.log(response);
-         }).catch(err=>{
-             console.log(err);
-         })
+        axios.get('/api/timeline',config).then(response=>{
+            $this.setState({
+                data : response.data
+            })
+            console.log(response);
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
+    componentDidMount(){
+        this.loadCommentsFromServer();
+        setInterval(this.loadCommentsFromServer, this.props.interval);
     }
     handleChangeComment(event) {
         this.setState({content: event.target.value});
@@ -79,9 +83,6 @@ export default class TimeLine extends Component {
                           'Content-Type': 'multipart/form-data'
                 }
             }
-        
-            
-           
                  axios.post('/api/CommentedPost',formdata,config).then(response=>{
                     console.log(response);
                 
@@ -114,8 +115,10 @@ export default class TimeLine extends Component {
         const user=this.props.User
         return (
             <div className="">
-
-
+                <AgrationRx />
+                <div className=" espace">
+                    <h5>Votre fil d'actualité</h5>
+                </div>
             {this.state.data.map((post,i)=>
                 <div className="card card-body bg-fade espace "  key={i}>
 
@@ -138,10 +141,6 @@ export default class TimeLine extends Component {
                           <div className="container">
                             <img src={'http://localhost:8000/posts/'+file.file_Resize_name}/>
                           </div>
-                        
-                       
-                       
-                          
                     )} 
                     
                     </div>
@@ -152,8 +151,6 @@ export default class TimeLine extends Component {
                             <li><a href="">0 <i className="fa fa-share-alt-square"></i></a></li>
                         </ul>
                         <div className="commentaire">
-
-
 
                             <div className="contenucommentaire">
                                 {post.comments.map((comment)=>
@@ -166,10 +163,9 @@ export default class TimeLine extends Component {
                                     )}
 
                             </div>
-                           
-                                            <span>
+                            <span>
                                                 <img src={defaultUser} alt="Avatar" width={35} className="useravatar"/>
-                                                <input type="text"  name="content" onKeyPress={this.handleKeyPress.bind(this,post)}  value={this.state.content} onChange={this.handleChangeComment}  className="form-control"placeholder="Commentaire" />
+                                                <input type="text"  name="content" onKeyPress={this.handleKeyPress.bind(this,post)}   onChange={this.handleChangeComment}  className="form-control"placeholder="Commentaire" />
                                             </span>
                         
                         </div>
