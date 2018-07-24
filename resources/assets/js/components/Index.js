@@ -102,7 +102,8 @@ class Welcome extends Component {
                         <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                             <Link to="/home"><i className="fa fa-home"></i>Acceuil /</Link>
                             <Link to="/chat"><i className="fa fa-chat"></i>Messages /</Link>
-                            <Link to="/profil"><i className="fa fa-chat"></i>Profil</Link>
+                            <Link to="/profil"><i className="fa fa-chat"></i>Profil/</Link>
+                            <Link to="/parametre"><i className="fa fa-chat"></i>parametre</Link>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                             <p className="h3 text-center mb-4 inscription">Inscription</p>

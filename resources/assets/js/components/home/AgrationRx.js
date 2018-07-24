@@ -3,6 +3,7 @@ import { Router, Route, Link } from 'react-router';
 
 export default class AgrationRx extends Component {
     render() {
+        const user=this.props.User
         return (
             <div className="card card-body bg-fade espace">
                 <h5>Quoi de 9 ailleur ?</h5>

@@ -33,7 +33,7 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->hasMany('App\Comment','post_id')->latest()->where('parent_id', null);
+        return $this->hasMany('App\Comment','post_id')->with('user')->latest()->where('parent_id', null)->with('user');
     }
 
     public function users() {
@@ -47,14 +47,14 @@ class Post extends Model
     }*/
 
     public function files(){
-        return $this->belongsToMany('App\File','file_post','file_id','post_id')->withTimestamps();
+        return $this->belongsToMany('App\File','file_post','post_id','file_id');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User','user_id');
     }
    public function timeline(){
-        return $this->belongsTo('App\Timeline');
+        return $this->belongsTo('App\Timeline','timeline_id');
    }
 }

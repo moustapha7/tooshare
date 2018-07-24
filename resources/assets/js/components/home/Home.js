@@ -6,7 +6,8 @@ import SideBarDroit from './SideBarDroit'
 import PostForm from './PostForm'
 import AgrationRx from './AgrationRx'
 import TimeLine from './TimeLine'
-import AuthService from "../../services/AuthService";
+import AuthService from '../../services/AuthService'
+import WithAuth from "../../services/WithAuth";
 
 class Home extends Component {
 
@@ -17,6 +18,11 @@ class Home extends Component {
             user: {}
         }
     }
+    componentWillMount(){
+        /*if(!this.Auth.loggedIn()){
+              this.props.router.push("/");*/
+                console.log(this.props.user);
+        }
 
     componentWillMount(){
         if(this.Auth.loggedIn()){
@@ -36,31 +42,34 @@ class Home extends Component {
         }
         return (
             <div className="">
+
                 <Header link="logout"/>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed">
-                            <SideBarGauche/>
+                        <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding">
+                            <SideBarGauche User={this.state.user}/>
                         </div>
-                        <div className="col-lg-6 col-sm-6 col-md-6 col-xs-12 nopadding ">
-                            <PostForm />
+                        <div className="col-lg-6 col-sm-6 col-md-6 col-xs-12 nopadding">
+                            <PostForm User={this.state.user}/>
                             <AgrationRx />
                             <div className=" espace">
                                 <h5>Votre fil d'actualité</h5>
                             </div>
-                            <TimeLine />
+                            <TimeLine User={this.state.user}/>
                         </div>
-                        <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed">
-                            <SideBarDroit />
+                        <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding">
+                            <SideBarDroit User={this.state.user}/>
 
 
 
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
         )
     }
 }
-export default Home;
+export default WithAuth(Home);
