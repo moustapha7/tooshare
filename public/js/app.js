@@ -66467,10 +66467,8 @@ var withRouter = function withRouter(Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__SideBarGauche__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SideBarDroit__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__PostForm__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__PostForm___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__PostForm__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__AgrationRx__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__TimeLine__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__TimeLine___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__TimeLine__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_AuthService__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_WithAuth__ = __webpack_require__(198);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -66556,7 +66554,7 @@ var Home = function (_Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'col-lg-6 col-sm-6 col-md-6 col-xs-12 nopadding' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__PostForm__["default"], { User: this.state.user })
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__PostForm__["a" /* default */], { User: this.state.user })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
@@ -66698,9 +66696,174 @@ module.exports = typeof window !== 'undefined' && window.atob && window.atob.bin
 
 /***/ }),
 /* 170 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed: D:/HELIX/tooshare/resources/assets/js/components/home/PostForm.js: Duplicate declaration \"AuthService\"\n\n\u001b[0m \u001b[90m 3 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mAuthService\u001b[39m from \u001b[32m\"../../services/AuthService\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mTimeLine\u001b[39m from \u001b[32m'./TimeLine'\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mAuthService\u001b[39m from \u001b[32m\"../../services/AuthService\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   | \u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 | \u001b[39m\n \u001b[90m 7 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m \u001b[36mclass\u001b[39m \u001b[33mPostForm\u001b[39m \u001b[36mextends\u001b[39m \u001b[33mComponent\u001b[39m {\n \u001b[90m 8 | \u001b[39m\u001b[0m\n");
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_AuthService__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__TimeLine__ = __webpack_require__(172);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var PostForm = function (_Component) {
+    _inherits(PostForm, _Component);
+
+    function PostForm(props) {
+        _classCallCheck(this, PostForm);
+
+        var _this = _possibleConstructorReturn(this, (PostForm.__proto__ || Object.getPrototypeOf(PostForm)).call(this, props));
+
+        _this.state = {
+            file: null,
+            content: ''
+        };
+        _this.Auth = new __WEBPACK_IMPORTED_MODULE_2__services_AuthService__["a" /* default */]();
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleSubmit = _this.handleSubmit.bind(_this);
+        _this.handleShowMediatoshare = _this.handleShowMediatoshare.bind(_this);
+
+        _this.mystyle = ['mediatoshare'];
+        return _this;
+    }
+
+    _createClass(PostForm, [{
+        key: 'handleShowMediatoshare',
+        value: function handleShowMediatoshare(event) {
+            event.preventDefault();
+            this.mystyle.push('show');
+            //  alert(this.mystyle);
+        }
+    }, {
+        key: 'handleChange',
+        value: function handleChange(event) {
+            // this.setState({login: event.target.value});
+            var target = event.target;
+            var value = target.value;
+            var name = target.name;
+            this.setState(_defineProperty({}, name, value));
+        }
+    }, {
+        key: 'handleSubmit',
+        value: function handleSubmit(event) {
+            event.preventDefault();
+            var data = {
+                file: this.state.file,
+                content: this.state.content
+            };
+
+            data.file = document.querySelector('#file');
+            var formdata = new FormData();
+
+            formdata.append('content', data.content);
+
+            for (var pas = 0; pas < data.file.files.length; pas++) {
+                formdata.append('file[]', data.file.files[pas]);
+            }
+
+            // console.log(formdata.values());
+            var config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.Auth.getToken(),
+                    'Content-Type': 'multipart/form-data'
+                }
+                //headers['Authorization'] = 'Bearer ' + this.Auth.getToken()
+
+            };axios.post('api/posts', formdata, config).then(function (res) {
+                console.log(res);
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var user = this.props.User;
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'card card-body bg-faded' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'form',
+                        { className: 'form-horizontal', role: 'form', encType: 'multipart/form-data', method: 'POST', onSubmit: this.handleSubmit },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'h5',
+                            null,
+                            'Quoi de Neuf a partager ?'
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'button',
+                            { className: 'btn bg-tooshare pull-right btnpartager', type: 'submit' },
+                            'Partager'
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'ul',
+                            { className: 'list-inline' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'li',
+                                null,
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'a',
+                                    { href: '' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-upload' })
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'li',
+                                null,
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'a',
+                                    { href: '', onClick: this.handleShowMediatoshare },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-camera' })
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'li',
+                                null,
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'a',
+                                    { href: '' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker' })
+                                )
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: this.mystyle.join(' ') },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { htmlFor: 'file', className: 'medialabel' }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'file', type: 'file', name: 'file', onChange: this.handleChange, multiple: true })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'form-group' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { className: 'form-control', placeholder: 'Mettez a jour votre statut', name: 'content', onChange: this.handleChange })
+                        )
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__TimeLine__["a" /* default */], { User: this.props.User, interval: 10000 })
+            );
+        }
+    }]);
+
+    return PostForm;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (PostForm);
 
 /***/ }),
 /* 171 */
@@ -67070,7 +67233,7 @@ var TimeLine = function (_Component) {
     return TimeLine;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (TimeLine);
+/* harmony default export */ __webpack_exports__["a"] = (TimeLine);
 
 /***/ }),
 /* 173 */
@@ -67387,7 +67550,7 @@ var Welcome = function (_Component) {
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* Link */],
-                                { to: '/profil' },
+                                { to: '/profil/mode/user' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-chat' }),
                                 'Profil/'
                             ),
@@ -68876,25 +69039,6 @@ var SideBarGauche = function (_Component) {
                                             'a',
                                             { className: 'white-text mx-3' },
                                             'Liste de Vos Formations'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'div',
-                                            null,
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'button',
-                                                { type: 'button', className: 'btn btn-outline-white btn-rounded btn-sm px-2' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-pencil mt-0' })
-                                            ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'button',
-                                                { type: 'button', className: 'btn btn-outline-white btn-rounded btn-sm px-2' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-remove mt-0' })
-                                            ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'button',
-                                                { type: 'button', className: 'btn btn-outline-white btn-rounded btn-sm px-2' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-info-circle mt-0' })
-                                            )
                                         )
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -68934,6 +69078,15 @@ var SideBarGauche = function (_Component) {
                                                                 null,
                                                                 'Description de la Formation'
                                                             )
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'th',
+                                                            { className: 'th-lg' },
+                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                                'a',
+                                                                null,
+                                                                'Action'
+                                                            )
                                                         )
                                                     )
                                                 ),
@@ -68946,7 +69099,6 @@ var SideBarGauche = function (_Component) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'th',
                                                             { scope: 'row' },
-                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-check-input', type: 'checkbox', id: 'checkbox1' }),
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { className: 'form-check-label label-table', htmlFor: 'checkbox1' })
                                                         ),
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -68958,6 +69110,16 @@ var SideBarGauche = function (_Component) {
                                                             'td',
                                                             null,
                                                             'JEE - PHP - LARAVEL- ANGULAR'
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { 'class': 'btn btn-success', href: '' },
+                                                            'Update'
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { 'class': 'btn btn-danger', href: '' },
+                                                            'Delete'
                                                         )
                                                     ),
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -68966,7 +69128,6 @@ var SideBarGauche = function (_Component) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'th',
                                                             { scope: 'row' },
-                                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-check-input', type: 'checkbox', id: 'checkbox2' }),
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { className: 'form-check-label label-table', htmlFor: 'checkbox2' })
                                                         ),
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -68978,6 +69139,16 @@ var SideBarGauche = function (_Component) {
                                                             'td',
                                                             null,
                                                             'MYSQL - SQLSERVER - POSTGRES'
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { 'class': 'btn btn-success', href: '' },
+                                                            'Update'
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { 'class': 'btn btn-danger', href: '' },
+                                                            'Delete'
                                                         )
                                                     )
                                                 )
@@ -68997,6 +69168,120 @@ var SideBarGauche = function (_Component) {
                                 'Liste de vos Comp\xE9tences',
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
+                                    { className: 'px-4' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'table-wrapper' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'table',
+                                            { className: 'table table-hover mb-0' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'thead',
+                                                null,
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'tr',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        null,
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { className: 'form-check-label mr-2 label-table', htmlFor: 'checkbox' })
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { className: 'th-lg' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            null,
+                                                            'Nom de la Competence'
+                                                        )
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { className: 'th-lg' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            null,
+                                                            'Description de la Competence'
+                                                        )
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { className: 'th-lg' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            null,
+                                                            'Action'
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'tbody',
+                                                null,
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'tr',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { scope: 'row' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { className: 'form-check-label label-table', htmlFor: 'checkbox1' })
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'Front End'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'Angular 5, React Native'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'tr',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { scope: 'row' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { className: 'form-check-label label-table', htmlFor: 'checkbox2' })
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'Back End'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'LARAVEL'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
                                     { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Competence__["a" /* default */], null)
                                 )
@@ -69007,6 +69292,120 @@ var SideBarGauche = function (_Component) {
                                 'Liste de vos Certifications',
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
+                                    { className: 'px-4' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'table-wrapper' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'table',
+                                            { className: 'table table-hover mb-0' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'thead',
+                                                null,
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'tr',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        null,
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { className: 'form-check-label mr-2 label-table', htmlFor: 'checkbox' })
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { className: 'th-lg' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            null,
+                                                            'Nom de la Certification'
+                                                        )
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { className: 'th-lg' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            null,
+                                                            'Description de la Certification'
+                                                        )
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { className: 'th-lg' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            null,
+                                                            'Action'
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'tbody',
+                                                null,
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'tr',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { scope: 'row' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { className: 'form-check-label label-table', htmlFor: 'checkbox1' })
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'ISO 9001'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'Assurance qualit\xE9  et  Controle qualit\xE9'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'tr',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { scope: 'row' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { className: 'form-check-label label-table', htmlFor: 'checkbox2' })
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'Certification Office'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'Cat\xE9gorie B1'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
                                     { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Certification__["a" /* default */], null)
                                 )
@@ -69015,6 +69414,120 @@ var SideBarGauche = function (_Component) {
                                 'div',
                                 { className: 'tab-pane fade', id: 'p4' },
                                 'Liste de vos Centres D\'Interets',
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'px-4' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'table-wrapper' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'table',
+                                            { className: 'table table-hover mb-0' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'thead',
+                                                null,
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'tr',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        null,
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { className: 'form-check-label mr-2 label-table', htmlFor: 'checkbox' })
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { className: 'th-lg' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            null,
+                                                            'Nom du Centre d\'Interet'
+                                                        )
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { className: 'th-lg' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            null,
+                                                            'Description du Centre d\'Interet'
+                                                        )
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { className: 'th-lg' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            null,
+                                                            'Action'
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'tbody',
+                                                null,
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'tr',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { scope: 'row' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { className: 'form-check-label label-table', htmlFor: 'checkbox1' })
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'Mouvement Syndical'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'Vice Pr\xE9sident du Syndicat des travaileur de helix'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'tr',
+                                                    null,
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'th',
+                                                        { scope: 'row' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { className: 'form-check-label label-table', htmlFor: 'checkbox2' })
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'Mouvement Associative'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'td',
+                                                        null,
+                                                        'Pr\xE9sident des jeune de Mermoz'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { 'class': 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
                                     { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed' },

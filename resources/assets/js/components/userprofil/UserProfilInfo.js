@@ -28,20 +28,7 @@ export default class SideBarGauche extends Component {
 
 
                                     <a  className="white-text mx-3">Liste de Vos Formations</a>
-
-                                    <div>
-                                        <button type="button" className="btn btn-outline-white btn-rounded btn-sm px-2">
-                                            <i className="fa fa-pencil mt-0"></i>
-                                        </button>
-                                        <button type="button" className="btn btn-outline-white btn-rounded btn-sm px-2">
-                                            <i className="fa fa-remove mt-0"></i>
-                                        </button>
-                                        <button type="button" className="btn btn-outline-white btn-rounded btn-sm px-2">
-                                            <i className="fa fa-info-circle mt-0"></i>
-                                        </button>
                                     </div>
-
-                                </div>
 
                                 <div className="px-4">
 
@@ -64,6 +51,10 @@ export default class SideBarGauche extends Component {
                                                         <a >Description de la Formation
                                                         </a>
                                                     </th>
+                                                    <th className="th-lg">
+                                                        <a >Action
+                                                        </a>
+                                                    </th>
                                                     
                                                     
                                                 </tr>
@@ -72,19 +63,23 @@ export default class SideBarGauche extends Component {
                                             <tbody>
                                                 <tr>
                                                     <th scope="row">
-                                                        <input className="form-check-input" type="checkbox" id="checkbox1"/>
                                                         <label className="form-check-label label-table" htmlFor="checkbox1"></label>
                                                     </th>
                                                     <td>Informatique</td>
                                                     <td>JEE - PHP - LARAVEL- ANGULAR</td>
+                                                    <a class="btn btn-success" href="">Update</a>
+                                                  <a class="btn btn-danger" href="">Delete</a>
+
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">
-                                                        <input className="form-check-input" type="checkbox" id="checkbox2"/>
                                                         <label className="form-check-label label-table" htmlFor="checkbox2"></label>
                                                     </th>
                                                     <td>BASE DE DONNEES</td>
                                                     <td>MYSQL - SQLSERVER - POSTGRES</td>
+                                                    <a class="btn btn-success" href="">Update</a>
+                                                    <a class="btn btn-danger" href="">Delete</a>
+
                                                 </tr>
                                                 
                                             </tbody>
@@ -107,6 +102,72 @@ export default class SideBarGauche extends Component {
                             <div className="tab-pane fade" id="p2">Liste de vos Compétences
 
 
+
+
+                                <div className="px-4">
+
+<div className="table-wrapper">
+    
+    <table className="table table-hover mb-0">
+
+        
+        <thead>
+            <tr>
+                <th>
+                    
+                    <label className="form-check-label mr-2 label-table" htmlFor="checkbox" ></label>
+                </th>
+                <th className="th-lg">
+                    <a>Nom de la Competence
+                    </a>
+                </th>
+                <th className="th-lg">
+                    <a >Description de la Competence
+                    </a>
+                    
+                </th>
+                <th className="th-lg">
+                    <a >Action
+                    </a>
+                </th>
+                
+                
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <th scope="row">
+                    <label className="form-check-label label-table" htmlFor="checkbox1"></label>
+                    
+                </th>
+                <td>Front End</td>
+                <td>Angular 5, React Native</td>
+                <a class="btn btn-success" href="">Update</a>
+                <a class="btn btn-danger" href="">Delete</a>
+
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label className="form-check-label label-table" htmlFor="checkbox2"></label>
+                </th>
+                <td>Back End</td>
+                <td>LARAVEL</td>
+                <a class="btn btn-success" href="">Update</a>
+                <a class="btn btn-danger" href="">Delete</a>
+
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+
+
+
+
                                 
 
 
@@ -118,11 +179,134 @@ export default class SideBarGauche extends Component {
 
                             </div>
                             <div className="tab-pane fade" id="p3">Liste de vos Certifications
+
+<div className="px-4">
+
+<div className="table-wrapper">
+    
+    <table className="table table-hover mb-0">
+
+        
+        <thead>
+            <tr>
+                <th>
+                    
+                    <label className="form-check-label mr-2 label-table" htmlFor="checkbox" ></label>
+                </th>
+                <th className="th-lg">
+                    <a>Nom de la Certification
+                    </a>
+                </th>
+                <th className="th-lg">
+                    <a >Description de la Certification
+                    </a>
+                </th>
+                <th className="th-lg">
+                    <a >Action
+                    </a>
+                </th>
+                
+                
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <th scope="row">
+                    <label className="form-check-label label-table" htmlFor="checkbox1"></label>
+                </th>
+                <td>ISO 9001</td>
+                <td>Assurance qualité  et  Controle qualité</td>
+                <a class="btn btn-success" href="">Update</a>
+                <a class="btn btn-danger" href="">Delete</a>
+
+                
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label className="form-check-label label-table" htmlFor="checkbox2"></label>
+                </th>
+                <td>Certification Office</td>
+                <td>Catégorie B1</td>
+                <a class="btn btn-success" href="">Update</a>
+                <a class="btn btn-danger" href="">Delete</a>
+
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+
                             <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed">
                                     <Certification/>
                                 </div>
                             </div>
                             <div className="tab-pane fade" id="p4">Liste de vos Centres D'Interets
+
+
+<div className="px-4">
+
+<div className="table-wrapper">
+    
+    <table className="table table-hover mb-0">
+
+        
+        <thead>
+            <tr>
+                <th>
+                    
+                    <label className="form-check-label mr-2 label-table" htmlFor="checkbox" ></label>
+                </th>
+                <th className="th-lg">
+                    <a>Nom du Centre d'Interet
+                    </a>
+                </th>
+                <th className="th-lg">
+                    <a >Description du Centre d'Interet
+                    </a>
+                </th>
+                <th className="th-lg">
+                    <a >Action
+                    </a>
+                </th>
+                
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <th scope="row">
+                   
+                    <label className="form-check-label label-table" htmlFor="checkbox1"></label>
+                </th>
+                <td>Mouvement Syndical</td>
+                <td>Vice Président du Syndicat des travaileur de helix</td>
+                <a class="btn btn-success" href="">Update</a>
+                <a class="btn btn-danger" href="">Delete</a>
+
+            </tr>
+            <tr>
+                <th scope="row">
+                  
+                    <label className="form-check-label label-table" htmlFor="checkbox2"></label>
+                </th>
+                <td>Mouvement Associative</td>
+                <td>Président des jeune de Mermoz</td>
+                <a class="btn btn-success" href="">Update</a>
+                <a class="btn btn-danger" href="">Delete</a>
+
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+
 
                                 <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed">
                                     <CentreInteret/>
