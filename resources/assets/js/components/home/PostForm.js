@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, Link } from 'react-router';
 import AuthService from "../../services/AuthService";
 import TimeLine from './TimeLine'
+import AuthService from "../../services/AuthService";
 
 export default class PostForm extends Component {
 

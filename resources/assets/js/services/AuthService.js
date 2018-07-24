@@ -27,6 +27,7 @@ export default class AuthService {
            // console.log(res);
             this.state.data=res;
             return Promise.resolve(res.data);
+
         })
     }
 
