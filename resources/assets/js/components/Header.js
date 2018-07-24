@@ -35,7 +35,7 @@ class Header extends Component {
     handleSubmit(event) {
         event.preventDefault();
         if( this.validator.allValid() ){
-            alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
+           // alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
             this.Auth.login(this.state.login,this.state.password).then(res=>{
                 const dataUser=res;
                 this.props.router.push("home",dataUser);
@@ -87,7 +87,7 @@ class Header extends Component {
                                         className="sr-only">(current)</span></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="home"><i className="font-bold fa fa-users"></i></Link>
+                                    <Link className="nav-link" to="/allUsers"><i className="font-bold fa fa-users"></i></Link>
                                 </li>
                                 <li className="nav-item cart-btn">
                                     <Link className="nav-link" to="/chat"><i className="font-bold fa fa-envelope"></i></Link>

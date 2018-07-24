@@ -54,7 +54,7 @@ export default class SideBarGauche extends Component {
                                                 <tr>
                                                     <th>
                                                         
-                                                        <label className="form-check-label mr-2 label-table" for="checkbox" ></label>
+                                                        <label className="form-check-label mr-2 label-table" htmlFor="checkbox" ></label>
                                                     </th>
                                                     <th className="th-lg">
                                                         <a>Nom de la Formation
@@ -73,7 +73,7 @@ export default class SideBarGauche extends Component {
                                                 <tr>
                                                     <th scope="row">
                                                         <input className="form-check-input" type="checkbox" id="checkbox1"/>
-                                                        <label className="form-check-label label-table" for="checkbox1"></label>
+                                                        <label className="form-check-label label-table" htmlFor="checkbox1"></label>
                                                     </th>
                                                     <td>Informatique</td>
                                                     <td>JEE - PHP - LARAVEL- ANGULAR</td>
@@ -81,7 +81,7 @@ export default class SideBarGauche extends Component {
                                                 <tr>
                                                     <th scope="row">
                                                         <input className="form-check-input" type="checkbox" id="checkbox2"/>
-                                                        <label className="form-check-label label-table" for="checkbox2"></label>
+                                                        <label className="form-check-label label-table" htmlFor="checkbox2"></label>
                                                     </th>
                                                     <td>BASE DE DONNEES</td>
                                                     <td>MYSQL - SQLSERVER - POSTGRES</td>
