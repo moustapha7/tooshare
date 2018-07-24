@@ -11,39 +11,39 @@ export default class SideBarDroit extends Component {
 
 
 
-<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Ajouter Une Nouvelle Certification</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div className="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div className="modal-dialog" role="document">
+        <div className="modal-content">
+            <div className="modal-header text-center">
+                <h4 className="modal-title w-100 font-weight-bold">Ajouter Une Nouvelle Certification</h4>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body mx-3">
-                <div class="md-form mb-5">
+            <div className="modal-body mx-3">
+                <div className="md-form mb-5">
                    
                     <label data-error="wrong" data-success="right" for="form32">Nom de la Certification</label>
-                    <input type="text" id="form32" class="form-control validate"/>
+                    <input type="text" id="form32" className="form-control validate"/>
                     
                 </div>
 
-                <div class="md-form">
+                <div className="md-form">
                    
                     <label data-error="wrong" data-success="right" for="form8">Description de la Certification</label>
-                    <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+                    <textarea type="text" id="form8" className="md-textarea form-control" rows="4"></textarea>
                 </div>
 
             </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <button class="btn btn-primary">Enregistrer</button>
+            <div className="modal-footer d-flex justify-content-center">
+                <button className="btn btn-primary">Enregistrer</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="text-center">
-    <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalRegisterForm">Ajouter Une Certification</a>
+<div className="text-center">
+    <a href="" className="btn btn-primary" data-toggle="modal" data-target="#modalRegisterForm">Ajouter Une Certification</a>
 </div>
 
 

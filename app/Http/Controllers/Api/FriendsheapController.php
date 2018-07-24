@@ -25,7 +25,7 @@ class FriendsheapController extends Controller
      */
     public function DemandeFriend(Request $request){
         $user= User::find($request->friend_id);
-        $user->notify(new FriendSheapNotification(Auth::user()));
+       // $user->notify(new FriendSheapNotification(Auth::user()));
         return response()->json(['message'=>'succes'],200);
     }
 
@@ -34,7 +34,7 @@ class FriendsheapController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function DemandeTraited(Request $request){
-      $user=User::find(Auth::user());
+      $user=Auth::user();
       $user->friends()->attach($request->friend_id);
         return response()->json(['message'=>'succes'],200);
     }
