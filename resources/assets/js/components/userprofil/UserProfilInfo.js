@@ -5,6 +5,7 @@ import Formation from './Formation'
 import Competence from './Competence'
 import Certification from './Certification'
 import CentreInteret from './CentreInteret'
+import Parametre from './Parametre'
 
 export default class SideBarGauche extends Component {
     render() {
@@ -18,6 +19,7 @@ export default class SideBarGauche extends Component {
                             <a className="nav-item nav-link" href="#p2" data-toggle="tab">Compétence</a>
                             <a className="nav-item nav-link" href="#p3" data-toggle="tab">Certification</a>
                             <a className="nav-item nav-link" href="#p4" data-toggle="tab">Centre d'Interet</a>
+                            <a className="nav-item nav-link" href="#p5" data-toggle="tab">Paramettres</a>
                         </nav>
                         <div className="tab-content">
                             <div className="tab-pane fade show active" id="p1">
@@ -126,6 +128,13 @@ export default class SideBarGauche extends Component {
 
                                 <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed">
                                     <CentreInteret/>
+                                </div>
+
+                            </div>
+                            <div className="tab-pane fade" id="p5">Liste de vos Centres D'Interets
+
+                                <div className="col-12 nopadding fixed">
+                                    <Parametre/>
                                 </div>
 
                             </div>
