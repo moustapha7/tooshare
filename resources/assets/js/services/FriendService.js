@@ -1,17 +1,15 @@
 import decode from 'jwt-decode';
+import AuthService from './AuthService';
 export default class FriendService {
     // Initializing important variables
     constructor(domain) {
         this.domain = domain || 'http://localhost:8000/api' // API server domain
-        this.fetch = this.fetch.bind(this) // React binding stuff
-        this.login = this.login.bind(this)
-        this.getProfile = this.getProfile.bind(this)
-        this.getUserinfo = this.getUserinfo.bind(this)
+        this.Auth= new AuthService();
     }
 
     DemandeFriend(data) {
         // Get a token from api server using the fetch api
-        return this.fetch(`${this.domain}/DemandeFriend`, {
+        return this.Auth.fetch(`${this.domain}/DemandeFriend`, {
             method: 'POST',
             body:data
         }).then(res => {
@@ -20,15 +18,15 @@ export default class FriendService {
     }
     DemandeTraited(data) {
         // Get a token from api server using the fetch api
-        return this.fetch(`${this.domain}/DemandeTraited`, {
+        return this.Auth.fetch(`${this.domain}/DemandeTraited`, {
             method: 'POST',
             body:data
         }).then(res => {
-            return Promise.resolve(res.data);
+            return Promise.resolve(res);
         })
     }
     Follow(){
-        return this.fetch(`${this.domain}/follow`, {
+        return this.Auth.fetch(`${this.domain}/follow`, {
             method: 'GET',
         }).then(res => {
             return Promise.resolve(res);
@@ -37,7 +35,7 @@ export default class FriendService {
     }
     DeleteFriendSheap(data) {
         // Get a token from api server using the fetch api
-        return this.fetch(`${this.domain}/DeleteFriendSheap`, {
+        return this.Auth.fetch(`${this.domain}/DeleteFriendSheap`, {
             method: 'POST',
             body:data
         }).then(res => {

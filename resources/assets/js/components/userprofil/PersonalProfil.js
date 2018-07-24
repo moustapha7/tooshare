@@ -4,7 +4,6 @@ import Header from '../Header';
 import SideBarGauche from '../home/SideBarGauche'
 import UserProfilInfo from './UserProfilInfo'
 import Barner from './Barner'
-
 import AuthService from "../../services/AuthService";
 
 class PersonalProfil extends Component {
@@ -27,12 +26,11 @@ class PersonalProfil extends Component {
                 alert("Resolver "+ err);
             })
         }
+
     }
 
     render(){
-        if (this.state.user) {
-            console.log("Home "+ this.state.user.email);
-        }
+
         return (
             <div className="user-profil">
                 <Header link="logout"/>
@@ -44,7 +42,7 @@ class PersonalProfil extends Component {
                     </div>
                     <div className="row">
                         <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed">
-                            <SideBarGauche/>
+                            <SideBarGauche User={this.state.user}/>
                         </div>
                         <div className="col-lg-9 col-sm-9 col-md-9 col-xs-12 nopadding ">
                             <UserProfilInfo />
