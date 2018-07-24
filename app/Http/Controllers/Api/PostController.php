@@ -94,8 +94,6 @@ class PostController extends Controller
 
             }
         }
-
-
          return response()->json($post->with('user')->with('files')->with('users_liked')->get()->where('id',$post->id));
     }
 
@@ -180,12 +178,9 @@ class PostController extends Controller
             if($user->id!=Auth::user()->id){
                 $user->notify(new PostCommentedNotification($post,Auth::user()));
             }
-
-
         }
         $post->user->notify(new PostCommentedNotification($post,Auth::user()));
         //ensuite notifier l'utilisateur proprietaire du post que son post viens d'etre commnter expeter par lui meme
-
         return response()->json(['message'=>'succes'],200);
 
     }

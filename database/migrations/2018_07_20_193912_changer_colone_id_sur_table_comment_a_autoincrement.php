@@ -20,7 +20,6 @@ class ChangerColoneIdSurTableCommentAAutoincrement extends Migration
             $table->increments('id');
         });
     }
-
     /**
      * Reverse the migrations.
      *

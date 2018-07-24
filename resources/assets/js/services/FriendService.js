@@ -9,7 +9,7 @@ export default class FriendService {
 
     DemandeFriend(data) {
         // Get a token from api server using the fetch api
-        return this.Auth.fetch(`${this.domain}/DemandeFriend`, {
+        return this.Auth.fetchformdata(`${this.domain}/DemandeFriend`, {
             method: 'POST',
             body:data
         }).then(res => {
@@ -18,7 +18,7 @@ export default class FriendService {
     }
     DemandeTraited(data) {
         // Get a token from api server using the fetch api
-        return this.Auth.fetch(`${this.domain}/DemandeTraited`, {
+        return this.Auth.fetchformdata(`${this.domain}/DemandeTraited`, {
             method: 'POST',
             body:data
         }).then(res => {

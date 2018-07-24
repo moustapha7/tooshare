@@ -805,6 +805,26 @@ var AuthService = function () {
             });
         })
     }, {
+        key: 'fetchformdata',
+        value: function fetchformdata(url, options) {
+            // performs api calls sending the required authentication headers
+            var headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data'
+
+                // Setting Authorization header
+                // Authorization: Bearer xxxxxxx.xxxxxxxx.xxxxxx
+            };if (this.loggedIn()) {
+                headers['Authorization'] = 'Bearer ' + this.getToken();
+            }
+
+            return fetch(url, _extends({
+                headers: headers
+            }, options)).then(this._checkStatus).then(function (response) {
+                return response.json();
+            });
+        }
+    }, {
         key: '_checkStatus',
         value: function _checkStatus(response) {
             // raises an error in case response status is not a success
@@ -3703,7 +3723,7 @@ var SideBarGauche = function (_Component) {
                                 { className: 'username' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* Link */],
-                                    { to: '/home', className: '' },
+                                    { to: linkto, className: '' },
                                     this.props.User.first_name,
                                     ' ',
                                     this.props.User.last_name,
@@ -69873,14 +69893,30 @@ var UsersRegistered = function (_Component) {
         key: 'handleFriend',
         value: function handleFriend(friend) {
             event.preventDefault();
+            /* var formdata= new FormData();
+             formdata.append('friend_id',friend.id);
+             formdata.append('user_id',this.state.user.id);
+             alert("FID : "+ friend.id);
+             this.Friend.DemandeTraited(formdata).then(res=>{
+                console.log("Friends data requeste : "+res.message);
+             }).catch(err=>{
+                 alert("Resolver"+ err);
+             })
+                 */
             var formdata = new FormData();
             formdata.append('friend_id', friend.id);
             formdata.append('user_id', this.state.user.id);
-            alert("FID : " + friend.id);
-            this.Friend.DemandeTraited(formdata).then(function (res) {
-                console.log("Friends data requeste : " + res);
+
+            var config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.Auth.getToken(),
+                    'Content-Type': 'multipart/form-data'
+                }
+            };
+            axios.post('/api/DemandeTraited', formdata, config).then(function (response) {
+                console.log("Friends data requeste : " + response);
             }).catch(function (err) {
-                alert("Resolver" + err);
+                console.log(err);
             });
         }
     }, {
@@ -70116,7 +70152,7 @@ var FriendService = function () {
         key: 'DemandeFriend',
         value: function DemandeFriend(data) {
             // Get a token from api server using the fetch api
-            return this.Auth.fetch(this.domain + '/DemandeFriend', {
+            return this.Auth.fetchformdata(this.domain + '/DemandeFriend', {
                 method: 'POST',
                 body: data
             }).then(function (res) {
@@ -70127,7 +70163,7 @@ var FriendService = function () {
         key: 'DemandeTraited',
         value: function DemandeTraited(data) {
             // Get a token from api server using the fetch api
-            return this.Auth.fetch(this.domain + '/DemandeTraited', {
+            return this.Auth.fetchformdata(this.domain + '/DemandeTraited', {
                 method: 'POST',
                 body: data
             }).then(function (res) {
