@@ -53,8 +53,8 @@ export default class SideBarGauche extends Component {
                             <li><a href=""><i className="fa fa-university"></i> Ma bibliotheque</a></li>
                             <li><a href=""><i className="fa fa-briefcase"></i> Offres d'emploi</a></li>
                             <li><a href=""><i className="fa fa-cog"></i> Mes Amis</a></li>
-                            <li><a href=""><i className="fa fa-cog"></i> Mon CV</a></li>
-                            <li><a href=""><i className="fa fa-cog"></i> Paramettre</a></li>
+                            <li><Link to="/profil" className="fa fa-cog"> Mon CV</Link></li>
+                            <li><Link to="/parametre"className="fa fa-cog"> Parametres</Link></li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mes Structures</a>
                                 <div className="dropdown-menu">

@@ -6,6 +6,14 @@ export default class UserService {
         this.domain = domain || 'http://localhost:8000/api' // API server domain
         this.Auth= new AuthService();
     }
+    modifparamGen(data){
+        return this.Auth.fetch(`${this.domain}/modifparamgenUser`, {
+            method: 'POST',
+            body:data
+        }).then(res => {
+            return Promise.resolve(res.data);
+        })
+    }
 
     uploadImage(data) {
         // Get a token from api server using the fetch api
