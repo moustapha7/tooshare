@@ -133,9 +133,9 @@ export default class TimeLine extends Component {
                     </div>
                     <div className="card-body">
                         <p className="card-text">{post.content}</p>
-                       {post.files.map((file)=>
+                       {post.files.map((file,j)=>
                           
-                          <div className="container">
+                          <div className="" key={j}>
                             <img src={'http://localhost:8000/posts/'+file.file_Resize_name}/>
                           </div>
                     )} 

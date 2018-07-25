@@ -495,6 +495,26 @@ var AuthService = function () {
             });
         })
     }, {
+        key: 'fetchformdata',
+        value: function fetchformdata(url, options) {
+            // performs api calls sending the required authentication headers
+            var headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data'
+
+                // Setting Authorization header
+                // Authorization: Bearer xxxxxxx.xxxxxxxx.xxxxxx
+            };if (this.loggedIn()) {
+                headers['Authorization'] = 'Bearer ' + this.getToken();
+            }
+
+            return fetch(url, _extends({
+                headers: headers
+            }, options)).then(this._checkStatus).then(function (response) {
+                return response.json();
+            });
+        }
+    }, {
         key: '_checkStatus',
         value: function _checkStatus(response) {
             // raises an error in case response status is not a success
@@ -19081,6 +19101,7 @@ var TimeLine = function (_Component) {
         _this.state = {
             data: [],
             content: ''
+
         };
 
         _this.Auth = new __WEBPACK_IMPORTED_MODULE_3__services_AuthService__["a" /* default */]();
@@ -19134,7 +19155,6 @@ var TimeLine = function (_Component) {
                     'Content-Type': 'multipart/form-data'
                 }
             };
-
             axios.post('/api/likedPost', formdata, config).then(function (response) {
                 console.log(response);
             }).catch(function (err) {
@@ -19236,10 +19256,10 @@ var TimeLine = function (_Component) {
                                 { className: 'card-text' },
                                 post.content
                             ),
-                            post.files.map(function (file) {
+                            post.files.map(function (file, j) {
                                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
-                                    { className: 'container' },
+                                    { className: '', key: j },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'http://localhost:8000/posts/' + file.file_Resize_name })
                                 );
                             })
@@ -67637,6 +67657,8 @@ module.exports = typeof window !== 'undefined' && window.atob && window.atob.bin
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_AuthService__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__TimeLine__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__images_default_jpg__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__images_default_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__images_default_jpg__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -67646,6 +67668,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -67662,33 +67685,54 @@ var PostForm = function (_Component) {
 
         _this.state = {
             file: null,
-            content: ''
+            content: '',
+            addClass: false,
+            image: __WEBPACK_IMPORTED_MODULE_4__images_default_jpg___default.a,
+            asImage: false
         };
         _this.Auth = new __WEBPACK_IMPORTED_MODULE_2__services_AuthService__["a" /* default */]();
         _this.handleChange = _this.handleChange.bind(_this);
         _this.handleSubmit = _this.handleSubmit.bind(_this);
-        _this.handleShowMediatoshare = _this.handleShowMediatoshare.bind(_this);
 
-        _this.mystyle = ['mediatoshare'];
         return _this;
     }
 
     _createClass(PostForm, [{
-        key: 'handleShowMediatoshare',
-        value: function handleShowMediatoshare(event) {
+        key: 'toggle',
+        value: function toggle(event) {
             event.preventDefault();
-            this.mystyle.push('show');
-            //  alert(this.mystyle);
+            this.setState({ addClass: !this.state.addClass });
         }
     }, {
         key: 'handleChange',
         value: function handleChange(event) {
+            var _this2 = this;
+
             // this.setState({login: event.target.value});
             var target = event.target;
             var value = target.value;
             var name = target.name;
             this.setState(_defineProperty({}, name, value));
+            // console.log("Image detail : Value ="+ value + " Name = "+ name )
+
+            if (event.target.files && event.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    _this2.setState({ image: e.target.result });
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            }
         }
+        /* onImageChange(event) {
+             if (event.target.files && event.target.files[0]) {
+                 let reader = new FileReader();
+                 reader.onload = (e) => {
+                     this.setState({image: e.target.result});
+                 };
+                 reader.readAsDataURL(event.target.files[0]);
+             }
+         }*/
+
     }, {
         key: 'handleSubmit',
         value: function handleSubmit(event) {
@@ -67725,6 +67769,10 @@ var PostForm = function (_Component) {
         key: 'render',
         value: function render() {
             var user = this.props.User;
+            var mystyle = ['mediatoshare'];
+            if (this.state.addClass) {
+                mystyle.push('show card card-body nopadding');
+            }
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -67752,7 +67800,7 @@ var PostForm = function (_Component) {
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'a',
-                                    { href: '' },
+                                    { href: '#', onClick: this.toggle.bind(this) },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-upload' })
                                 )
                             ),
@@ -67761,7 +67809,7 @@ var PostForm = function (_Component) {
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'a',
-                                    { href: '', onClick: this.handleShowMediatoshare },
+                                    { href: '#', onClick: this.toggle.bind(this) },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-camera' })
                                 )
                             ),
@@ -67770,16 +67818,16 @@ var PostForm = function (_Component) {
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'a',
-                                    { href: '' },
+                                    { href: '#', onClick: this.toggle.bind(this) },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker' })
                                 )
                             )
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: this.mystyle.join(' ') },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { htmlFor: 'file', className: 'medialabel' }),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'file', type: 'file', name: 'file', onChange: this.handleChange, multiple: true })
+                            { className: mystyle.join(' ') },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { htmlFor: 'file', className: 'medialabel', style: { backgroundImage: 'url(' + this.state.image + ')' } }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'file', type: 'file', name: 'file', onChange: this.handleChange.bind(this), multiple: true })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
@@ -69141,6 +69189,7 @@ var PersonalProfil = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Competence__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Certification__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__CentreInteret__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Parametre__ = __webpack_require__(202);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -70161,7 +70210,7 @@ var FriendService = function () {
         key: 'DemandeFriend',
         value: function DemandeFriend(data) {
             // Get a token from api server using the fetch api
-            return this.Auth.fetch(this.domain + '/DemandeFriend', {
+            return this.Auth.fetchformdata(this.domain + '/DemandeFriend', {
                 method: 'POST',
                 body: data
             }).then(function (res) {
@@ -70172,7 +70221,7 @@ var FriendService = function () {
         key: 'DemandeTraited',
         value: function DemandeTraited(data) {
             // Get a token from api server using the fetch api
-            return this.Auth.fetch(this.domain + '/DemandeTraited', {
+            return this.Auth.fetchformdata(this.domain + '/DemandeTraited', {
                 method: 'POST',
                 body: data
             }).then(function (res) {
@@ -70331,8 +70380,6 @@ var UserParametre = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_barnerProfil_jpg__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_barnerProfil_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__images_barnerProfil_jpg__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -70939,6 +70986,282 @@ var Infoprive = function (_Component) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_simple_react_validator__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_simple_react_validator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_simple_react_validator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_country_region_selector__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_country_region_selector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_country_region_selector__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+var Parametre = function (_Component) {
+    _inherits(Parametre, _Component);
+
+    function Parametre(props) {
+        _classCallCheck(this, Parametre);
+
+        var _this = _possibleConstructorReturn(this, (Parametre.__proto__ || Object.getPrototypeOf(Parametre)).call(this, props));
+
+        _this.state = {
+            first_name: '',
+            last_name: '',
+            email: '',
+            phone: '',
+            password: '',
+            gender: '',
+            birthday: '',
+            country: '',
+            city: '',
+            password_confirmation: ''
+        };
+        _this.validator = new __WEBPACK_IMPORTED_MODULE_1_simple_react_validator___default.a();
+        // this.Auth=new AuthService();
+        //this.handleSubmit = this.handleSubmit.bind(this);
+        _this.handleChange = _this.handleChange.bind(_this);
+        return _this;
+    }
+
+    _createClass(Parametre, [{
+        key: 'selectCountry',
+        value: function selectCountry(val) {
+            this.setState({ country: val });
+        }
+    }, {
+        key: 'selectRegion',
+        value: function selectRegion(val) {
+            this.setState({ city: val });
+        }
+    }, {
+        key: 'handleChange',
+        value: function handleChange(event) {
+            // this.setState({login: event.target.value});
+            var target = event.target;
+            var value = target.value;
+            var name = target.name;
+            this.setState(_defineProperty({}, name, value));
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var _state = this.state,
+                country = _state.country,
+                city = _state.city;
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'container' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'row' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'col-md-8 col-md-offset-2' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'panel panel-default' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'h1',
+                                null,
+                                '  '
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'h1',
+                                null,
+                                'Parameter'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'form',
+                                null,
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'form-row' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'form-group col-md-6' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'for': 'first_name' },
+                                            'Prenom'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', 'class': 'form-control', id: 'first_Name' })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'form-group col-md-6' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'for': 'last_name' },
+                                            'Nom'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'test', 'class': 'form-control', id: 'last_name' })
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'form-row' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'form-group col-md-6' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'for': 'phone' },
+                                            'Telephone'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'phone', 'class': 'form-control', id: 'phone' })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { 'class': 'form-group col-md-6' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'for': 'inputEmail4' },
+                                            'Email'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'email', 'class': 'form-control', id: 'inputEmail4' })
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'col-md-6' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'form-group' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'label',
+                                                { 'for': 'birthday' },
+                                                'Date de Naissance'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'birthday', type: 'date', className: 'form-control', ref: 'birthday', name: 'birthday', required: true, autoFocus: true, placeholder: 'Date de naissence', onChange: this.handleChange }),
+                                            this.validator.message('birthday', this.state.birthday, 'required', 'text-danger')
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'col-md-6' },
+                                        ' ',
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'form-group' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'label',
+                                                { 'for': 'gender' },
+                                                'Genre'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'select',
+                                                { name: 'gender', id: 'gender', className: 'form-control', onChange: this.handleChange },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'option',
+                                                    { value: 'female' },
+                                                    'female'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'option',
+                                                    { value: 'male' },
+                                                    'male'
+                                                )
+                                            ),
+                                            this.validator.message('gender', this.state.gender, 'required|in:male,female', 'text-danger')
+                                        )
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'row form-group' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'col-md-6' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'for': 'country' },
+                                            'Pays'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_country_region_selector__["CountryDropdown"], {
+                                            classes: 'form-control',
+                                            value: country,
+                                            onChange: function onChange(val) {
+                                                return _this2.selectCountry(val);
+                                            } }),
+                                        this.validator.message('country', this.state.country, 'required', 'text-danger')
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'col-md-6' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { 'for': 'city' },
+                                            'R\xE9gion'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_country_region_selector__["RegionDropdown"], {
+                                            classes: 'form-control',
+                                            country: country,
+                                            value: city,
+                                            onChange: function onChange(val) {
+                                                return _this2.selectRegion(val);
+                                            } }),
+                                        this.validator.message('city', this.state.city, 'required', 'text-danger')
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { 'class': 'form-group' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'label',
+                                        { 'for': 'inputAddress' },
+                                        'Addresse'
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', 'class': 'form-control', id: 'inputAddress' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'button',
+                                    { type: 'submit', 'class': 'btn btn-primary' },
+                                    'Enregistrer'
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Parametre;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (Parametre);
+
+/***/ }),
+/* 203 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/default.jpg?52216c484aec8c0c928a349cf3d46f53";
 
 /***/ })
 /******/ ]);

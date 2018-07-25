@@ -10,8 +10,6 @@ export default class SideBarGauche extends Component {
         this.Auth=new AuthService();
 
     }
-
-
     render() {
         const userID = null;
         if(this.props.User){
@@ -64,8 +62,6 @@ export default class SideBarGauche extends Component {
                             </li>
                             <button type="button" className="btn btn-info">Gerer vos Structures</button>
                         </ul>
-
-
 
                     </div>
 

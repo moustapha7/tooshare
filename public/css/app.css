@@ -10678,10 +10678,11 @@ footer.page-footer {
 .mediatoshare .medialabel {
   height: 100px;
   width: 20%;
-  border: 1px solid gray;
+  border: 1px solid gainsboro;
+  background-size: contain;
 }
 
-.mediatoshare.show {
+.show {
   opacity: 1;
   visibility: visible;
   height: 100px;
