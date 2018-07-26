@@ -13,20 +13,23 @@ export default class PostForm extends Component {
             content:'',
             addClass: false,
             image: defaulteFile,
-            asImage: false
+            addPostClass: false
         };
         this.Auth=new AuthService();
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
-
     }
-
     toggle(event) {
         event.preventDefault();
         this.setState({addClass: !this.state.addClass});
+        if(!this.state.addPostClass){
+            this.setState({addPostClass: !this.state.addPostClass});
+        }
     }
-
+    togglePost(event) {
+        event.preventDefault();
+        this.setState({addPostClass: !this.state.addPostClass});
+    }
     handleChange(event) {
         // this.setState({login: event.target.value});
         const target = event.target;
@@ -45,15 +48,7 @@ export default class PostForm extends Component {
             reader.readAsDataURL(event.target.files[0]);
         }
     }
-   /* onImageChange(event) {
-        if (event.target.files && event.target.files[0]) {
-            let reader = new FileReader();
-            reader.onload = (e) => {
-                this.setState({image: e.target.result});
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
-    }*/
+
     handleSubmit(event) {
         event.preventDefault();
         const data={
@@ -90,13 +85,17 @@ export default class PostForm extends Component {
     render() {
         const user=this.props.User
         let mystyle = ['mediatoshare'];
+        let postformstyle = ['card card-body bg-faded'];
         if(this.state.addClass) {
-            mystyle.push('show card card-body nopadding');
+            mystyle.push('show-media card card-body nopadding post-form');
+        }
+        if(this.state.addPostClass) {
+            postformstyle.push(' post-formIn');
         }
         return (
             <div>
-            <div className="card card-body bg-faded">
-                <form className="form-horizontal"  role="form" encType="multipart/form-data" method="POST" onSubmit={this.handleSubmit}>
+            <div className={postformstyle.join(' ')}>
+                <form className="form-horizontal"  role="form" encType="multipart/form-data" method="POST" onSubmit={this.handleSubmit} >
                     <h5>Quoi de Neuf a partager ?</h5>
                     <button className="btn bg-tooshare pull-right btnpartager" type="submit">Partager</button>
                     <ul className="list-inline">
@@ -106,11 +105,10 @@ export default class PostForm extends Component {
                     </ul>
                     <div className={mystyle.join(' ')}>
                         <label htmlFor="file" className="medialabel" style={{backgroundImage: 'url('+ this.state.image +')'}}></label>
-
                         <input className="form-control" id="file" type="file" name="file" onChange={this.handleChange.bind(this)} multiple />
                     </div>
                     <div className="form-group" >
-                        <textarea className="form-control" placeholder="Mettez a jour votre statut" name="content" onChange={this.handleChange}></textarea>
+                        <textarea className="form-control " placeholder="Mettez a jour votre statut" name="content" onChange={this.handleChange} onClick={this.togglePost.bind(this)}></textarea>
                     </div>
                 </form>
             </div>

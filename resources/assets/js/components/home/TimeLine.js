@@ -124,19 +124,18 @@ export default class TimeLine extends Component {
                                         <span>
                                             <a href="#" className="">
                                                 <img src={defaultUser} alt="Avatar" width={45} className="useravatar"/>
-                                                <span className="username">{post.user.first_name+" "+post.user.last_name}</span>
+                                                <div className="username">{post.user.first_name+" "+post.user.last_name} <br /><span className="usernameprofil">Etuidant</span><br /><span className="publishdate">{post.created_at}</span></div>
                                             </a>
                                         </span>
                             <span className="pull-right"><i className="fa fa-cogs"></i></span>
                         </div>
-
                     </div>
-                    <div className="card-body">
+                    <div className="card-body postcontenu">
                         <p className="card-text">{post.content}</p>
                        {post.files.map((file,j)=>
                           
-                          <div className="" key={j}>
-                            <img src={'http://localhost:8000/posts/'+file.file_Resize_name}/>
+                          <div className="post-image" key={j}>
+                            <img src={'http://localhost:8000/posts/'+file.file_Resize_name} />
                           </div>
                     )} 
                     
