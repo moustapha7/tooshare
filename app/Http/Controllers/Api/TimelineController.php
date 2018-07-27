@@ -30,7 +30,22 @@ class TimelineController extends Controller
                 $post->timeline()->associate(Auth::user()->timeline)->save();
             }
         }
-        return response()->json(Auth::user()->timeline->posts()->with('files')->with('users_liked')->with('comments')->with('user')->where('timeline_id',Auth::user()->timeline->id)->orderBy('created_at', 'desc')->get(),200);
+        $merged = null;
+        $timelineUser = Auth::user()->timeline->posts()->with('files')->with('users_liked')->with('comments')->with('user')->where('timeline_id',Auth::user()->timeline->id)->orderBy('created_at', 'desc')->get();
+        foreach (Auth::user()->friends as $ami){
+            $time = $ami->timeline->posts()->with('files')->with('users_liked')->with('comments')->with('user')->where('timeline_id',$ami->timeline->id)->orderBy('created_at', 'desc')->get();
+            $merged = $timelineUser->merge($time);
+        }
+        if( $merged != null){
+            $result = $merged->all();
+           /* $result = $result->flatMap(function ($values) {
+                return $values->timeline;
+            });*/
+            return response()->json($result,200);
+        }else{
+            return response()->json($timelineUser,200);
+        }
+
 
     }
 }

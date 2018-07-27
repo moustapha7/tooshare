@@ -57,4 +57,9 @@ class Post extends Model
    public function timeline(){
         return $this->belongsTo('App\Timeline','timeline_id');
    }
+
+  /*  public function getCreatedAtAttribute($value) {
+        return Carbon::createFromFormat('Y-m-d h:i:s', $value)->diffForHumans();
+    }
+  */
 }
