@@ -3,6 +3,7 @@ import { Router, Route, Link } from 'react-router';
 import defaultUser from '../../../../images/defaultuserimage.png'
 import AuthService from '../../services/AuthService';
 import AgrationRx from './AgrationRx'
+import Moment from 'react-moment';
 export default class TimeLine extends Component {
 
     constructor() {
@@ -124,7 +125,7 @@ export default class TimeLine extends Component {
                                         <span>
                                             <a href="#" className="">
                                                 <img src={defaultUser} alt="Avatar" width={45} className="useravatar"/>
-                                                <div className="username">{post.user.first_name+" "+post.user.last_name} <br /><span className="usernameprofil">Etuidant</span><br /><span className="publishdate">{post.created_at}</span></div>
+                                                <div className="username">{post.user.first_name+" "+post.user.last_name} <br /><span className="usernameprofil">Etuidant</span><br /><span className="publishdate"><Moment fromNow ago>{post.created_at}</Moment></span></div>
                                             </a>
                                         </span>
                             <span className="pull-right"><i className="fa fa-cogs"></i></span>
