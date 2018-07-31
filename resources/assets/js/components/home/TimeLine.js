@@ -45,8 +45,8 @@ export default class TimeLine extends Component {
         this.setState({content: event.target.value});
     }
 
-    handleliked_post(post){
-      event.preventDefault();
+    handleliked_post(post,event){
+        event.preventDefault();
       var formdata= new FormData();
       formdata.append('post_id',post.id);
     
@@ -58,7 +58,7 @@ export default class TimeLine extends Component {
     }
          axios.post('/api/likedPost',formdata,config).then(response=>{
             console.log(response);
-        
+             this.loadCommentsFromServer();
         }).catch(err=>{
             console.log(err);
         })
@@ -68,7 +68,7 @@ export default class TimeLine extends Component {
 
     handleKeyPress(post,event){
 
-        event.preventDefault;
+        event.preventDefault();
 
         if(event.key == 'Enter'){
             var formdata= new FormData();
@@ -87,11 +87,7 @@ export default class TimeLine extends Component {
                 }).catch(err=>{
                     console.log(err);
                 })
-
         }
-        
-    
-     
       }
 
     handleCommented_post(post)
@@ -144,8 +140,8 @@ export default class TimeLine extends Component {
                     <div className="card-foote">
                         <ul className="list-inline-post undecorate">
                             <li><a href="#" onClick={this.handleliked_post.bind(this,post)} >{post.users_liked.length} <i className="fa fa-heart coeur"></i></a></li>
-                            <li><a href="">{post.comments.length} <i className="fa fa-comment-dots"></i></a></li>
-                            <li><a href="">0 <i className="fa fa-share-alt-square"></i></a></li>
+                            <li><a href="#">{post.comments.length} <i className="fa fa-comment-dots"></i></a></li>
+                            <li><a href="#">0 <i className="fa fa-share-alt-square"></i></a></li>
                         </ul>
                         <div className="commentaire">
 
