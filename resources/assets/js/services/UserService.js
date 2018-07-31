@@ -13,6 +13,7 @@ export default class UserService {
         }).then(res => {
             return Promise.resolve(res.data);
         })
+        
     }
 
     uploadImage(data) {

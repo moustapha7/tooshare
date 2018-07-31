@@ -3679,13 +3679,18 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_AuthService__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__images_default_jpg__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__images_default_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__images_default_jpg__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -3701,28 +3706,40 @@ var SideBarGauche = function (_Component) {
         var _this = _possibleConstructorReturn(this, (SideBarGauche.__proto__ || Object.getPrototypeOf(SideBarGauche)).call(this, props));
 
         _this.state = {
-            selectedFile: null
+            file: null,
+            image: __WEBPACK_IMPORTED_MODULE_4__images_default_jpg___default.a
 
         };
         _this.Auth = new __WEBPACK_IMPORTED_MODULE_3__services_AuthService__["a" /* default */]();
-        _this.fileChangedHandler = _this.fileChangedHandler.bind(_this);
+        _this.handleChange = _this.handleChange.bind(_this);
 
         return _this;
     }
 
     _createClass(SideBarGauche, [{
-        key: 'fileChangedHandler',
-        value: function fileChangedHandler(event) {
-            this.setState({ selectedFile: event.target.files[0] });
-        }
-    }, {
-        key: 'uploadHandler',
-        value: function uploadHandler() {
-            console.log(this.state.selectedFile);
+        key: 'handleChange',
+        value: function handleChange(event) {
+            var _this2 = this;
+
+            // this.setState({login: event.target.value});
+            var target = event.target;
+            var value = target.value;
+            var name = target.name;
+            this.setState(_defineProperty({}, name, value));
+            // console.log("Image detail : Value ="+ value + " Name = "+ name )
+
+            if (event.target.files && event.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    _this2.setState({ image: e.target.result });
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            }
         }
     }, {
         key: 'render',
         value: function render() {
+            var mystyle = ['mediatoshare'];
             var userID = null;
             if (this.props.User) {
                 var user = this.props.User;
@@ -3766,11 +3783,11 @@ var SideBarGauche = function (_Component) {
                                 { to: linkto, className: '' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default.a, alt: 'Avatar', width: 70, className: 'useravatar' })
                             ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'file', onChange: this.fileChangedHandler }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'button',
-                                { onClick: this.uploadHandler },
-                                'update picture!'
+                                'div',
+                                { className: mystyle },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { htmlFor: 'file', className: 'medialabel', style: { backgroundImage: 'url(' + this.state.image + ')' } }),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'file', type: 'file', name: 'file', onChange: this.handleChange.bind(this), multiple: true })
                             )
                         )
                     ),

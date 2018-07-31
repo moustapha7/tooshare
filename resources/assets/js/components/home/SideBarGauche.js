@@ -2,30 +2,45 @@ import React, { Component } from 'react';
 import { Router, Route, Link } from 'react-router';
 import defaultUser from '../../../../images/defaultuserimage.png';
 import AuthService from "../../services/AuthService";
+import defaulteFile from '../../../../images/default.jpg'
 
 export default class SideBarGauche extends Component {
 
     constructor(props) {
         super(props)
         this.state={
-           selectedFile: null
+            file:null,
+            image: defaulteFile,
 
         }
         this.Auth=new AuthService();
-        this.fileChangedHandler = this.fileChangedHandler.bind(this);
+        this.handleChange = this.handleChange.bind(this);
 
     }
+    handleChange(event) {
+        // this.setState({login: event.target.value});
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        });
+       // console.log("Image detail : Value ="+ value + " Name = "+ name )
+
+        if (event.target.files && event.target.files[0]) {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                this.setState({image: e.target.result});
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    }
  
-    fileChangedHandler(event) {
-        this.setState({selectedFile: event.target.files[0]})
-      }
-      
-      uploadHandler() { 
-        console.log(this.state.selectedFile)
-      }
+  
 
 
     render() {
+       let mystyle = ['mediatoshare'];
         const userID = null;
         if(this.props.User){
             const user=this.props.User
@@ -49,8 +64,10 @@ export default class SideBarGauche extends Component {
                             <img src={defaultUser} alt="Avatar" width={70} className="useravatar"/>
                         </Link>
 
-                        <input type="file" onChange={this.fileChangedHandler} />
-                        <button onClick={this.uploadHandler}>update picture!</button>
+                         <div className={mystyle}>
+                        <label htmlFor="file" className="medialabel" style={{backgroundImage: 'url('+ this.state.image +')'}}></label>
+                        <input className="form-control" id="file" type="file" name="file" onChange={this.handleChange.bind(this)} multiple />
+                    </div>
                     </div>
                 </div>
                 <div className="row bordertop">
