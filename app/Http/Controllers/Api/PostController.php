@@ -34,7 +34,6 @@ class PostController extends Controller
     public function index(){
         return response()->json(Auth::user()->posts,200);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -140,13 +139,18 @@ class PostController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function LikePost(Request $request){
-
         $post=Post::find($request->post_id);
         $user_id=Auth::user()->id;
-        $post->users_liked()->sync($user_id);
-        //notified the user posted the post
+        $post->users_liked()->syncWithoutDetaching($user_id);
+      //  $post->users_liked()->attach($user_id);
+      /*  if(!post->users_liked()->contains($user_id)) {
+            $post->users_liked()->attach($user_id);
+        }else{
+            $post->users_liked()->sync($user_id);
+        }
+      */     //notified the user posted the post
        if(Auth::user()->id!=$post->user_id){
-        $post->user->notify(new PostLikedNotification($post,Auth::user()));
+       // $post->user->notify(new PostLikedNotification($post,Auth::user()));
        } 
      
         return response()->json(['message'=>'succes'],200);

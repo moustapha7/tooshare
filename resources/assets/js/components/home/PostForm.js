@@ -3,6 +3,7 @@ import { Router, Route, Link } from 'react-router';
 import AuthService from "../../services/AuthService";
 import TimeLine from './TimeLine'
 import defaulteFile from '../../../../images/default.jpg'
+import EmojiPicker from 'emoji-picker-react';
 
 export default class PostForm extends Component {
 
