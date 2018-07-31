@@ -36,15 +36,33 @@ export default class UsersRegistered extends Component {
     }
     handleFriend(friend){
         event.preventDefault();
-        var formdata= new FormData();
+       /* var formdata= new FormData();
         formdata.append('friend_id',friend.id);
         formdata.append('user_id',this.state.user.id);
         alert("FID : "+ friend.id);
         this.Friend.DemandeTraited(formdata).then(res=>{
-           console.log("Friends data requeste : "+res);
+           console.log("Friends data requeste : "+res.message);
         }).catch(err=>{
             alert("Resolver"+ err);
         })
+            */
+        var formdata= new FormData();
+        formdata.append('friend_id',friend.id);
+        formdata.append('user_id',this.state.user.id);
+
+        const config= {
+            headers: {
+                'Authorization': 'Bearer ' + this.Auth.getToken(),
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+        axios.post('/api/DemandeTraited',formdata,config).then(response=>{
+            console.log("Friends data requeste : "+response);
+
+        }).catch(err=>{
+            console.log(err);
+        })
+
     }
     render() {
         return (

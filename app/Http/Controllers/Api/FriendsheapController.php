@@ -34,9 +34,14 @@ class FriendsheapController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function DemandeTraited(Request $request){
-      $user=Auth::user();
-      $user->friends()->attach($request->friend_id);
-        return response()->json(['message'=>'succes'],200);
+      $user=User::find(Auth::user()->id);
+      // $freind=User::find($request->friend_id);
+      if($user->friends()->attach($request->friend_id)){
+          return response()->json(['message'=>'succes'.$user],200);
+      }else{
+          return response()->json(['message'=>'erreur'.$request->friend_id],201);
+      }
+
     }
 
     /**

@@ -10,6 +10,7 @@ import Index from './components/Index';
 import HomeChat from './components/chat/HomeChat';
 import PersonalProfil from './components/userprofil/PersonalProfil';
 import UsersRegistered from './components/usersregistered/UsersRegistered';
+import UserParametre from './components/Parametre/UserParametre';
 
 render(
     <Router history={browserHistory}>
@@ -19,6 +20,7 @@ render(
             <Route path='/chat' component={HomeChat}/>
             <Route path='/profil/:userid/:mode' component={PersonalProfil}/>
             <Route path='/allUsers' component={UsersRegistered}/>
+            <Route path='/parametre' component={UserParametre}/>
         </Switch>
     </Router>,
     document.getElementById('tooshareapp')

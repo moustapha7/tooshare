@@ -27,6 +27,7 @@ export default class AuthService {
            // console.log(res);
             this.state.data=res;
             return Promise.resolve(res.data);
+
         })
     }
 
@@ -119,6 +120,27 @@ export default class AuthService {
         const headers = {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
+        }
+
+        // Setting Authorization header
+        // Authorization: Bearer xxxxxxx.xxxxxxxx.xxxxxx
+        if (this.loggedIn()) {
+            headers['Authorization'] = 'Bearer ' + this.getToken()
+        }
+
+        return fetch(url, {
+            headers,
+            ...options
+        })
+            .then(this._checkStatus)
+            .then(response => response.json())
+    }
+
+    fetchformdata(url, options){
+        // performs api calls sending the required authentication headers
+        const headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'multipart/form-data'
         }
 
         // Setting Authorization header

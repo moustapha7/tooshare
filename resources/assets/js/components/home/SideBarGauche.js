@@ -10,8 +10,6 @@ export default class SideBarGauche extends Component {
         this.Auth=new AuthService();
 
     }
-
-
     render() {
         const userID = null;
         if(this.props.User){
@@ -27,7 +25,7 @@ export default class SideBarGauche extends Component {
                 <div className="row">
                     <div className="col-lg-9 col-sm-9 col-md-9 col-xs-9 undecorated">
                         <span className="username">
-                            <Link to="/home" className="">{this.props.User.first_name} {this.props.User.last_name} <br /> Etudiant 23 ans</Link>
+                            <Link to={linkto} className="">{this.props.User.first_name} {this.props.User.last_name} <br /> Etudiant 23 ans</Link>
 
                         </span>
                     </div>
@@ -53,8 +51,8 @@ export default class SideBarGauche extends Component {
                             <li><a href=""><i className="fa fa-university"></i> Ma bibliotheque</a></li>
                             <li><a href=""><i className="fa fa-briefcase"></i> Offres d'emploi</a></li>
                             <li><a href=""><i className="fa fa-cog"></i> Mes Amis</a></li>
-                            <li><a href=""><i className="fa fa-cog"></i> Mon CV</a></li>
-                            <li><a href=""><i className="fa fa-cog"></i> Paramettre</a></li>
+                            <li><Link to="/profil" className="fa fa-cog"> Mon CV</Link></li>
+                            <li><Link to="/parametre"className="fa fa-cog"> Parametres</Link></li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mes Structures</a>
                                 <div className="dropdown-menu">
@@ -64,8 +62,6 @@ export default class SideBarGauche extends Component {
                             </li>
                             <button type="button" className="btn btn-info">Gerer vos Structures</button>
                         </ul>
-
-
 
                     </div>
 
