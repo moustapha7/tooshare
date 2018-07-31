@@ -53,7 +53,23 @@ export default class PublicInfoGeneral extends Component {
                     <div className="col-12">
                         <div className="panel panel-default"> 
                         <h1>  </h1>
-                        <h2>Profil de Abdou AKIM AIDARA</h2>
+                        <h2></h2>
+
+
+
+<div class="card">
+  <a class="btn btn-primary"> <h3 >Profil de Abdou AKIM AIDARA</h3></a>
+    <div class="card-body">
+   <div class="table-wrapper-scroll-y">
+
+ <p>lorem20 </p>
+</div>
+    </div>
+</div>
+
+
+
+
 
 
 <div class="card">
@@ -238,7 +254,7 @@ export default class PublicInfoGeneral extends Component {
 </div>
     </div>
 </div>
-        
+       
                         </div>
                     </div>
                 </div>
