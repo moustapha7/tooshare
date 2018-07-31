@@ -3681,35 +3681,24 @@ var SideBarGauche = function (_Component) {
         var _this = _possibleConstructorReturn(this, (SideBarGauche.__proto__ || Object.getPrototypeOf(SideBarGauche)).call(this, props));
 
         _this.state = {
-            image: '',
-            sucess: false,
-            error: false,
-            imagePreviewUrl: false
+            selectedFile: null
+
         };
-        _this.fileUpload = _this.fileUpload.bind(_this);
-        _this.onChange = _this.onChange.bind(_this);
+        _this.Auth = new __WEBPACK_IMPORTED_MODULE_3__services_AuthService__["a" /* default */]();
+        _this.fileChangedHandler = _this.fileChangedHandler.bind(_this);
+
         return _this;
     }
 
     _createClass(SideBarGauche, [{
-        key: 'onChange',
-        value: function onChange(e) {
-            var files = e.target.files || e.dataTransfer.files;
-            if (!files.length) return;
-            this.createImage(files[0]);
+        key: 'fileChangedHandler',
+        value: function fileChangedHandler(event) {
+            this.setState({ selectedFile: event.target.files[0] });
         }
     }, {
-        key: 'createImage',
-        value: function createImage(file) {
-            var _this2 = this;
-
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                _this2.setState({
-                    image: e.target.result
-                });
-            };
-            reader.readAsDataURL(file);
+        key: 'uploadHandler',
+        value: function uploadHandler() {
+            console.log(this.state.selectedFile);
         }
     }, {
         key: 'render',
@@ -3757,17 +3746,12 @@ var SideBarGauche = function (_Component) {
                                 { to: linkto, className: '' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default.a, alt: 'Avatar', width: 70, className: 'useravatar' })
                             ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'file', onChange: this.fileChangedHandler }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'h1',
-                                null,
-                                'Insert Material'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'label',
-                                { className: 'label_imagem_artigo' },
-                                ' Imagem do artigo: '
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input_imagem_artigo', type: 'file', onChange: this.onChange })
+                                'button',
+                                { onClick: this.uploadHandler },
+                                'update picture!'
+                            )
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
