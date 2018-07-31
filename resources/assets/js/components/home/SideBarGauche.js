@@ -41,7 +41,53 @@ export default class SideBarGauche extends Component {
                     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Certif. <br /> 2</div>
                     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Vue <br /> 10</div>
                     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Autres <br /> 0</div>
-                    <button type="button" className="btn btn-info">Devenir Professeur</button>
+                </div>
+
+                <div>
+
+                    <div className="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div className="modal-dialog" role="document">
+        <div className="modal-content">
+            <div className="modal-header text-center">
+                <h4 className="modal-title w-100 font-weight-bold">Formulaire D'application</h4>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div className="modal-body mx-3">
+                <div className="md-form mb-2">
+                   
+                    <label data-error="wrong" data-success="right" for="form32">Quelle Matière souhaiteriez-vous partager?</label>
+                    <input type="text" id="form32" className="form-control validate"/>
+                    
+                </div>
+
+                <div className="md-form mb-2">
+                   
+                   <label data-error="wrong" data-success="right" for="form32">partager votre CV  :  </label>
+                   <input type="file" name="nom" />
+
+                   
+               </div>
+
+                <div className="md-form">
+                   
+                    <label data-error="wrong" data-success="right" for="form8">Quelles sont vos motivations</label>
+                    <textarea type="text" id="form8" className="md-textarea form-control" rows="4"></textarea>
+                </div>
+
+            </div>
+            <div className="modal-footer d-flex justify-content-center">
+                <button className="btn btn-primary">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div className="text-center">
+    <a href="" className="btn btn-primary" data-toggle="modal" data-target="#modalRegisterForm">Devenir Professeur</a>
+</div>
+
                 </div>
 
             </div>
@@ -62,7 +108,7 @@ export default class SideBarGauche extends Component {
                                     <a className="dropdown-item" href="#">Universites</a>
                                 </div>
                             </li>
-                            <button type="button" className="btn btn-info">Gerer vos Structures</button>
+                            <button type="button" className="btn btn-primary">Gerer vos Structures</button>
                         </ul>
 
 

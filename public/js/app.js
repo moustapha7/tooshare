@@ -3758,11 +3758,92 @@ var SideBarGauche = function (_Component) {
                             'Autres ',
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
                             ' 0'
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'modal fade', id: 'modalRegisterForm', tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel', 'aria-hidden': 'true' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'modal-dialog', role: 'document' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'modal-content' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'modal-header text-center' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'h4',
+                                            { className: 'modal-title w-100 font-weight-bold' },
+                                            'Formulaire D\'application'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'button',
+                                            { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'span',
+                                                { 'aria-hidden': 'true' },
+                                                '\xD7'
+                                            )
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'modal-body mx-3' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'md-form mb-2' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'label',
+                                                { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form32' },
+                                                'Quelle Mati\xE8re souhaiteriez-vous partager?'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'form32', className: 'form-control validate' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'md-form mb-2' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'label',
+                                                { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form32' },
+                                                'partager votre CV  :  '
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'file', name: 'nom' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'md-form' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'label',
+                                                { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form8' },
+                                                'Quelles sont vos motivations'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { type: 'text', id: 'form8', className: 'md-textarea form-control', rows: '4' })
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'modal-footer d-flex justify-content-center' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'button',
+                                            { className: 'btn btn-primary' },
+                                            'Enregistrer'
+                                        )
+                                    )
+                                )
+                            )
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'button',
-                            { type: 'button', className: 'btn btn-info' },
-                            'Devenir Professeur'
+                            'div',
+                            { className: 'text-center' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'a',
+                                { href: '', className: 'btn btn-primary', 'data-toggle': 'modal', 'data-target': '#modalRegisterForm' },
+                                'Devenir Professeur'
+                            )
                         )
                     )
                 ),
@@ -3860,7 +3941,7 @@ var SideBarGauche = function (_Component) {
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'button',
-                                { type: 'button', className: 'btn btn-info' },
+                                { type: 'button', className: 'btn btn-primary' },
                                 'Gerer vos Structures'
                             )
                         )
