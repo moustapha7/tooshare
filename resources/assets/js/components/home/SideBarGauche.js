@@ -7,10 +7,30 @@ export default class SideBarGauche extends Component {
 
     constructor(props) {
         super(props)
-        this.Auth=new AuthService();
-
-    }
-
+        this.state ={
+            image: '',
+            sucess: false,
+            error: false,
+            imagePreviewUrl: false
+            }
+            this.fileUpload = this.fileUpload.bind(this)
+            this.onChange = this.onChange.bind(this);
+            }
+            onChange(e) {
+                let files = e.target.files || e.dataTransfer.files;
+                if (!files.length)
+                return;
+                this.createImage(files[0]);
+                }
+            createImage(file) {
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                this.setState({
+                    image: e.target.result
+                     })
+                     };
+                     reader.readAsDataURL(file);
+               }
 
     render() {
         const userID = null;
@@ -35,6 +55,10 @@ export default class SideBarGauche extends Component {
                         <Link to={linkto} className="">
                             <img src={defaultUser} alt="Avatar" width={70} className="useravatar"/>
                         </Link>
+<h1>Insert Material</h1>
+<label className="label_imagem_artigo"> Imagem do artigo: </label>
+<input className="input_imagem_artigo" type="file"  onChange={this.onChange} />
+
                     </div>
                 </div>
                 <div className="row bordertop">

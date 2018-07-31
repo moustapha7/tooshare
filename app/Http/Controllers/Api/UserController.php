@@ -24,6 +24,7 @@ class UserController extends Controller
 
     public function updateParamGen(Request $request) {
         $user = User::where('id', $request->id)->first();
+        //$user=Auth::user();
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->phone = $request->phone;

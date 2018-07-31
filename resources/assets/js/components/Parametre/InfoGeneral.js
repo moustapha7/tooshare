@@ -14,17 +14,15 @@ export default class InfoGeneral extends Component {
             last_name: '',
             email : '',
             phone :'',
-            password: '',
             gender:'',
             birthday :'',
             country:'',
             city:'',
-            password_confirmation: '',
         }
         this.validator = new SimpleReactValidator();
-        // this.Auth=new AuthService();
+        //this.Auth=new AuthService();
         this.Auth=new UserService();
-        //this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -51,6 +49,7 @@ export default class InfoGeneral extends Component {
 
         if( this.validator.allValid() ){
             const user = {
+                id: this.state.user_id,
                 first_name : this.state.first_name,
                 last_name: this.state.last_name,
                 email: this.state.email,
@@ -64,6 +63,7 @@ export default class InfoGeneral extends Component {
 
             this.Auth.modifparamGen(user).then(response=>{
                 this.props.router.push("home",response);
+                alert(response);
             }).catch(err=>{
                 alert(err);
             })
@@ -85,7 +85,7 @@ export default class InfoGeneral extends Component {
         if(this.props.User){
             const user=this.props.User
            // this.state.setState({user_id:this.props.User.id})
-            this.userID = this.props.User.id;
+           this.state.user_id = this.props.User.id;
             console.log("oh",user)
         }
         const { country, city } = this.state;
@@ -101,12 +101,12 @@ export default class InfoGeneral extends Component {
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                     <label for="first_name">Prenom</label>
-                                    <input type="text" class="form-control" id="first_Name" value={this.props.User.first_name} />
+                                    <input type="text" class="form-control" id="first_Name" defaultValue={this.props.User.first_name} />
                                     </div>
                                
                                     <div class="form-group col-md-6">
                                     <label for="last_name">Nom</label>
-                                    <input type="test" class="form-control" id="last_name" value={this.props.User.last_name}  />
+                                    <input type="test" class="form-control" id="last_name" defaultValue={this.props.User.last_name}  />
                                     </div>
                                 </div>
                                     
@@ -114,11 +114,11 @@ export default class InfoGeneral extends Component {
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                     <label for="phone">Telephone</label>
-                                    <input type="phone" class="form-control" id="phone" value={this.props.User.phone} />
+                                    <input type="phone" class="form-control" id="phone" defaultValue={this.props.User.phone} />
                                     </div>
                                     <div class="form-group col-md-6">
                                     <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail4" value={this.props.User.email} />
+                                    <input type="email" class="form-control" id="inputEmail4" defaultValue={this.props.User.email} />
                                     </div>
                                     
                                 
@@ -128,7 +128,7 @@ export default class InfoGeneral extends Component {
                                                         <div className="col-md-6">
                                                             <div className="form-group">
                                                             <label for="birthday">Date de Naissance</label>
-                                                            <input id="birthday" type="date" className="form-control" ref="birthday" name="birthday"  required autoFocus value={this.props.User.birthday} onChange={this.handleChange}/>
+                                                            <input id="birthday" type="date" className="form-control" ref="birthday" name="birthday"  required autoFocus defaultValue={this.props.User.birthday} onChange={this.handleChange}/>
                                                             {this.validator.message('birthday', this.state.birthday, 'required', 'text-danger')}
                                                         </div>
                                                         </div>
