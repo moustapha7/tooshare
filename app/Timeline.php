@@ -26,7 +26,6 @@ class Timeline extends Model
         'deleted_at',
     ];
 
-
     public function posts()
     {
         return $this->hasMany('App\Post');
@@ -38,10 +37,10 @@ class Timeline extends Model
     }
 
     public function DayTimline(){
-           /* foreach($this->user()->followers){
+         /*   foreach($this->user()->allFriends as $freids){
 
-            }*/
-
+            }
+        */
     }
 
 

@@ -40,7 +40,7 @@ export default class SideBarGauche extends Component {
                 <div className="row">
                     <div className="col-lg-9 col-sm-9 col-md-9 col-xs-9 undecorated">
                         <span className="username">
-                            <Link to="/home" className="">{this.props.User.first_name} {this.props.User.last_name} <br /> Etudiant 23 ans</Link>
+                            <Link to={linkto} className="">{this.props.User.first_name} {this.props.User.last_name} <br /> Etudiant 23 ans</Link>
 
                         </span>
                     </div>
@@ -80,8 +80,6 @@ export default class SideBarGauche extends Component {
                             </li>
                             <button type="button" className="btn btn-info">Gerer vos Structures</button>
                         </ul>
-
-
 
                     </div>
 

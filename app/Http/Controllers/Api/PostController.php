@@ -34,7 +34,6 @@ class PostController extends Controller
     public function index(){
         return response()->json(Auth::user()->posts,200);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -47,18 +46,13 @@ class PostController extends Controller
          $post=new Post($request->all());
          $post->user()->associate(Auth::user())->save();
         if($request->hasFile('file')){
-
             $files = $request->file('file');
-
             if (!is_array($files)) {
                 $files = [$files];
             }
-
             if (!is_dir($this->photos_path)) {
                 mkdir($this->photos_path, 0777);
             }
-
-
             for ($i = 0; $i < count($files); $i++) {
                 $file = $files[$i];
                 if(in_array($file->getClientOriginalExtension(),$this->videos_extensions)||in_array($file->getClientOriginalExtension(),$this->audio_extensions)){
@@ -67,35 +61,29 @@ class PostController extends Controller
                     $upload = new File();
                     $upload->original_name = basename($file->getClientOriginalName());
                     $upload->file_name = $save_name;
-                    $upload->save();
-                    $upload->posts()->sync($post->id)->save();
+                   // $upload->save();
+                    $upload->user()->associate(Auth::user())->save();
+                    $upload->posts()->sync([$post->id]);
                 }else{
                     $name = sha1(date('YmdHis') . str_random(30));
                     $save_name = $name . '.' . $file->getClientOriginalExtension();
                     $resize_name = $name . str_random(2) . '.' . $file->getClientOriginalExtension();
-
                     Image::make($file)
                         ->resize(250, null, function ($constraints) {
                             $constraints->aspectRatio();
                         })
                         ->save($this->photos_path . '/' . $resize_name);
-
                     $file->move($this->photos_path, $save_name);
-
                     $upload = new File();
                     $upload->file_name = $save_name;
                     $upload->file_Resize_name = $resize_name;
                     $upload->original_name = basename($file->getClientOriginalName());
-                    $upload->save();
-                    $upload->posts()->sync($post->id);
+                   // $upload->save();
+                    $upload->user()->associate(Auth::user())->save();
+                    $upload->posts()->sync([$post->id]);
                 }
-
-
-
             }
         }
-
-
          return response()->json($post->with('user')->with('files')->with('users_liked')->get()->where('id',$post->id));
     }
 
@@ -151,13 +139,18 @@ class PostController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function LikePost(Request $request){
-
         $post=Post::find($request->post_id);
         $user_id=Auth::user()->id;
-        $post->users_liked()->sync($user_id);
-        //notified the user posted the post
+        $post->users_liked()->syncWithoutDetaching($user_id);
+      //  $post->users_liked()->attach($user_id);
+      /*  if(!post->users_liked()->contains($user_id)) {
+            $post->users_liked()->attach($user_id);
+        }else{
+            $post->users_liked()->sync($user_id);
+        }
+      */     //notified the user posted the post
        if(Auth::user()->id!=$post->user_id){
-        $post->user->notify(new PostLikedNotification($post,Auth::user()));
+       // $post->user->notify(new PostLikedNotification($post,Auth::user()));
        } 
      
         return response()->json(['message'=>'succes'],200);
@@ -180,12 +173,9 @@ class PostController extends Controller
             if($user->id!=Auth::user()->id){
                 $user->notify(new PostCommentedNotification($post,Auth::user()));
             }
-
-
         }
         $post->user->notify(new PostCommentedNotification($post,Auth::user()));
         //ensuite notifier l'utilisateur proprietaire du post que son post viens d'etre commnter expeter par lui meme
-
         return response()->json(['message'=>'succes'],200);
 
     }

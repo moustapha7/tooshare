@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class File extends Model
 {
-    public $fillable=['file_name','original_name','file_Resize_name'];
+    public $fillable=['file_name','original_name','file_Resize_name','user_id'];
 
     public function posts(){
-        return $this->belongsToMany(Post::class,'file_post','file_id','post_id');
+        return $this->belongsToMany('App\Post','file_post','file_id','post_id');
     }
 
     public function user(){
-      return  $this->belongsTo(User::class);
+      return  $this->belongsTo('App\User','user_id');
     }
 }
