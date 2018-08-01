@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangerColoneIdSurTableCommentAAutoincrement extends Migration
+class CreateCategorieFormationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,14 @@ class ChangerColoneIdSurTableCommentAAutoincrement extends Migration
      * @return void
      */
     public function up()
-    {   /*
-        Schema::table('comments', function (Blueprint $table) {
-           $table->dropColumn('id');
-        });
-        Schema::table('comments', function (Blueprint $table) {
+    {
+        Schema::create('categorie__formations', function (Blueprint $table) {
             $table->increments('id');
-        });*/
+            $table->string('name');
+            $table->timestamps();
+        });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -27,8 +27,6 @@ class ChangerColoneIdSurTableCommentAAutoincrement extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('categorie__formations');
     }
 }

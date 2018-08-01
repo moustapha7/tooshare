@@ -307,7 +307,6 @@ export default class SideBarGauche extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
 
         );
     }
