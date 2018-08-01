@@ -11,9 +11,11 @@ import HomeChat from './components/chat/HomeChat';
 import PersonalProfil from './components/userprofil/PersonalProfil';
 import UsersRegistered from './components/usersregistered/UsersRegistered';
 import UserParametre from './components/Parametre/UserParametre';
+import PublicUserParametre from './components/publicUser/PublicUserParametre';
 
 render(
     <Router history={browserHistory}>
+
         <Switch>
             <Route  path='/' component={Index}/>
             <Route exact path='/home' component={Home}/>
@@ -21,6 +23,7 @@ render(
             <Route path='/profil/:userid/:mode' component={PersonalProfil}/>
             <Route path='/allUsers' component={UsersRegistered}/>
             <Route path='/parametre' component={UserParametre}/>
+            <Route path='/publicUser' component={PublicUserParametre}/>
         </Switch>
     </Router>,
     document.getElementById('tooshareapp')
