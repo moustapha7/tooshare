@@ -84,6 +84,9 @@ export default class SideBarGauche extends Component {
     </div>
 </div>
 
+
+
+
 <div className="text-center">
     <a href="" className="btn btn-primary" data-toggle="modal" data-target="#modalRegisterForm">Devenir Professeur</a>
 </div>
