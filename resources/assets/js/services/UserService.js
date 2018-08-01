@@ -7,6 +7,7 @@ export default class UserService {
         this.Auth= new AuthService();
     }
     modifparamGen(data){
+        console.log(data);
         return this.Auth.fetch(`${this.domain}/modifparamgenUser`, {
             method: 'POST',
             body:data
