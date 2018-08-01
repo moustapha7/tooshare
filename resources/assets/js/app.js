@@ -12,6 +12,10 @@ import PersonalProfil from './components/userprofil/PersonalProfil';
 import UsersRegistered from './components/usersregistered/UsersRegistered';
 import UserParametre from './components/Parametre/UserParametre';
 import PublicUserParametre from './components/publicUser/PublicUserParametre';
+import CreationUniversite from './components/universite/CreationUniversite';
+import CreationEntreprise from './components/entreprise/CreationEntreprise';
+import PublicUniversitePublication from './components/universite/publicUniversite/PublicUniversitePublication';
+import PublicEntreprisePublication from './components/entreprise/publicEntreprise/PublicEntreprisePublication';
 
 render(
     <Router history={browserHistory}>
@@ -24,6 +28,10 @@ render(
             <Route path='/allUsers' component={UsersRegistered}/>
             <Route path='/parametre' component={UserParametre}/>
             <Route path='/publicUser' component={PublicUserParametre}/>
+            <Route path='/universite' component={CreationUniversite}/>
+            <Route path='/entreprise' component={CreationEntreprise}/>
+            <Route path='/publicUniversite' component={PublicUniversitePublication}/>
+            <Route path='/publicEntreprise' component={PublicEntreprisePublication}/>
         </Switch>
     </Router>,
     document.getElementById('tooshareapp')

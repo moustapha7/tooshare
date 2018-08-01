@@ -57,15 +57,7 @@ export default class PublicInfoGeneral extends Component {
 
 
 
-<div class="card">
-  <a class="btn btn-primary"> <h3 >Profil de Abdou AKIM AIDARA</h3></a>
-    <div class="card-body">
-   <div class="table-wrapper-scroll-y">
 
- <p>lorem20 </p>
-</div>
-    </div>
-</div>
 
 
 
