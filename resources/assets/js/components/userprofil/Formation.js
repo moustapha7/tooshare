@@ -1,11 +1,65 @@
 import React, { Component } from 'react';
 import { Router, Route, Link } from 'react-router';
+import CvService from '../../services/CvService';
 
-export default class SideBarDroit extends Component {
+export default class Formation extends Component {
+    constructor(props) {
+
+        super(props);
+       this.Cv=new CvService();
+        this.state = {
+            user_id:'',
+            categorie_id:'',
+            formation_id :'',
+            datedebut: '',
+            datefin: '',
+            lieu : '',
+            categories :{},
+            formations:{},
+        }
+        this.handleSubmit = this.handleSubmit.bind(this);
+       this.handleChange = this.handleChange.bind(this);
+    }
+   
+    componentWillMount(){
+        console.log("formation");
+            this.Cv.getAllCategories.then(res=>{
+                this.setState({categories: res});
+                console.log("formation",this.state.categories);
+            }).catch(err=>{
+                alert("Resolver "+ err);
+            })
+        
+    } 
+    componentWillUnmount () {
+        ths.setState({categories: null});
+        }
+    
+    handleChange(event) {
+       // this.setState({login: event.target.value});
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        });
+    }
+    handleSubmit(event) {
+        // this.setState({login: event.target.value});
+    }
     render() {
+     /* let categories = this.props.state.categories;
+        let optionItems = categories.map((categorie) =>
+                <option key={categorie.id}>{categorie.name}</option>
+            );  <div>
+             <select>
+             <option>1</option>
+               {optionItems}
+             </select>
+         </div>*/
         return (
             <div >
-            
+               
             <div>
 <div className="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div className="modal-dialog" role="document">
@@ -19,6 +73,17 @@ export default class SideBarDroit extends Component {
             <div className="modal-body mx-3">
                 <div className="md-form mb-5">
                 <form role="form">
+                <div class="form-group">
+                        <label for="sel3">Test:</label>
+                        <select class="form-control" id="sel3">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                        
+                    </div>
+              
                     <div class="form-group">
                         <label for="sel1">Type de Formation:</label>
                         <select class="form-control" id="sel1">
