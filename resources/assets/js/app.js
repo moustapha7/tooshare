@@ -16,6 +16,8 @@ import CreationUniversite from './components/universite/CreationUniversite';
 import CreationEntreprise from './components/entreprise/CreationEntreprise';
 import PublicUniversitePublication from './components/universite/publicUniversite/PublicUniversitePublication';
 import PublicEntreprisePublication from './components/entreprise/publicEntreprise/PublicEntreprisePublication';
+import PriveEntreprisePublication from './components/entreprise/priveEntreprise/PriveEntreprisePublication';
+import PriveUniversitePublication from './components/universite/priveUniversite/PriveUniversitePublication';
 
 render(
     <Router history={browserHistory}>
@@ -32,6 +34,8 @@ render(
             <Route path='/entreprise' component={CreationEntreprise}/>
             <Route path='/publicUniversite' component={PublicUniversitePublication}/>
             <Route path='/publicEntreprise' component={PublicEntreprisePublication}/>
+            <Route path='/priveEntreprise' component={PriveEntreprisePublication}/>
+            <Route path='/priveUniversite' component={PriveUniversitePublication}/>
         </Switch>
     </Router>,
     document.getElementById('tooshareapp')

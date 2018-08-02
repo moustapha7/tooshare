@@ -9,9 +9,6 @@ export default class PublicEntrepriseTimeLine extends Component {
                  <div class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title text-center">Offre d'Emploi</h5>
-                    <p class="card-text">With tional content.</p>
-                    <p class="card-text">With tional content.</p>
-                    <p class="card-text">With tional content.</p>
             </div>
 
              </div>
