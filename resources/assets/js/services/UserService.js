@@ -5,12 +5,13 @@ export default class UserService {
     constructor(domain) {
         this.domain = domain || 'http://localhost:8000/api' // API server domain
         this.Auth= new AuthService();
+        this.modifparamGen = this.modifparamGen.bind(this)
+      
     }
-    modifparamGen(data){
-        console.log(data);
+    modifparamGen(user){
         return this.Auth.fetch(`${this.domain}/modifparamgenUser`, {
             method: 'POST',
-            body:data
+            body: JSON.stringify(user)
         }).then(res => {
             return Promise.resolve(res.data);
         })
@@ -21,7 +22,7 @@ export default class UserService {
         // Get a token from api server using the fetch api
         return this.Auth.fetch(`${this.domain}/upload`, {
             method: 'POST',
-            body:data
+            body:JSON.stringify(data)
         }).then(res => {
             return Promise.resolve(res.data);
         })
@@ -30,7 +31,7 @@ export default class UserService {
         // Get a token from api server using the fetch api
         return this.Auth.fetch(`${this.domain}/DeleteImage`, {
             method: 'POST',
-            body:data
+            body:JSON.stringify(data)
         }).then(res => {
             return Promise.resolve(res.data);
         })
@@ -47,7 +48,7 @@ export default class UserService {
         // Get a token from api server using the fetch api
         return this.Auth.fetch(`${this.domain}/markUserNotificationasRead`, {
             method: 'POST',
-            body:data
+            body:JSON.stringify(data)
         }).then(res => {
             return Promise.resolve(res.data);
         })

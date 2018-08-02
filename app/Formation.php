@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Formation extends Model
 {
-    public $fillable=['name'];
+    public $fillable=['name','description'];
+
+    public function categorie_Formations()
+    {
+        return $this->belongsTo(Categorie_Formation::class);
+    }
+
     public function users(){
         return $this->belongsToMany(User::class,'formation_user','user_id','formation_id');
     }
