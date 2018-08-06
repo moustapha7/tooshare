@@ -36,7 +36,7 @@ Route::post('savePost','Api\PostController@store');
 Route::post('sharePost','Api\PostController@SharePost');
 Route::post('reportedPost','Api\PostController@ReportedPost');
 
-Route::get('AllCategorie','Api\CvController@findAllCategorie');
+Route::post('AllCategorie','Api\CvController@findAllCategorie');
 Route::post('CategorieAllFormations','Api\CvController@findAllFormationByCategorie');
 
 Route::post('register', 'Api\AuthController@register');

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Router, Route, Link } from 'react-router';
 import CvService from '../../services/CvService';
+import AuthService from '../../services/AuthService';
 
 export default class Formation extends Component {
     constructor(props) {
 
         super(props);
        this.Cv=new CvService();
+       this.Auth= new AuthService();
         this.state = {
             user_id:'',
             categorie_id:'',
@@ -14,21 +16,37 @@ export default class Formation extends Component {
             datedebut: '',
             datefin: '',
             lieu : '',
-            categories :{},
+            categories :[
+                {id: 1, name: "INFORMATIQUE", created_at: null, updated_at: null}
+                ,
+                {id: 2, name: "MANAGEMENT", created_at: null, updated_at: null}
+              ,
+                {id: 3, name: "QUALITÉ - ORGANISATION", created_at: null, updated_at: null}
+               ,
+                {id: 4, name: "TRANSPORT LOGISTIQUE", created_at: null, updated_at: null},
+                {id: 5, name: "COMPTABILITÉ GESTION", created_at: null, updated_at: null}],
             formations:{},
         }
         this.handleSubmit = this.handleSubmit.bind(this);
        this.handleChange = this.handleChange.bind(this);
     }
-   
+  
     componentWillMount(){
         console.log("formation");
-            this.Cv.getAllCategories.then(res=>{
+         /* this.Cv.getAllCategories.then(res=>{
+              console.log(res);
                 this.setState({categories: res});
-                console.log("formation",this.state.categories);
+                console.log("formation"+this.state.categories);
             }).catch(err=>{
-                alert("Resolver "+ err);
+               Console.log("Resolver "+ err);
             })
+            */
+           // console.log(this.Cv.loadCommentsFromServer());
+            console.log("ok");
+           // console.log(this.Cv.getAllCategories());
+          //  this.setState({categories: this.Cv.getAllCategories()});
+            console.log("test");
+            console.log(this.state.categories)
         
     } 
     componentWillUnmount () {
@@ -48,15 +66,13 @@ export default class Formation extends Component {
         // this.setState({login: event.target.value});
     }
     render() {
-     /* let categories = this.props.state.categories;
-        let optionItems = categories.map((categorie) =>
-                <option key={categorie.id}>{categorie.name}</option>
-            );  <div>
-             <select>
-             <option>1</option>
-               {optionItems}
-             </select>
-         </div>*/
+     let categories = this.state.categories;
+      let optionItems;
+      optionItems =(
+            categories.forEach(element => {
+             <option value={element.id}>{element.name}</option>;
+            })); 
+            console.log(optionItems)         
         return (
             <div >
                
@@ -73,13 +89,19 @@ export default class Formation extends Component {
             <div className="modal-body mx-3">
                 <div className="md-form mb-5">
                 <form role="form">
+                <div>
+                <label >CAT:</label>
+                <select>{this.state.categories.map(element => {
+             <option value={element.id}>{element.name}</option>
+            })}</select>
+                </div>
                 <div class="form-group">
                         <label for="sel3">Test:</label>
                         <select class="form-control" id="sel3">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
+                        {optionItems}
+                        <option value="1">"Okkkkk"</option>
+                        <option>1</option>
+                        <option>2</option>
                         </select>
                         
                     </div>
@@ -157,7 +179,6 @@ export default class Formation extends Component {
         );
     }
 }
-
 
 
 
