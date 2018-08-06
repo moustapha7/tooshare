@@ -72,7 +72,7 @@ export default class Formation extends Component {
             categories.forEach(element => {
              <option value={element.id}>{element.name}</option>;
             })); 
-            console.log(optionItems)         
+            console.log(optionItems )         
         return (
             <div >
                
