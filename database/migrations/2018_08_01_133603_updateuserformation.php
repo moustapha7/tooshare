@@ -13,7 +13,7 @@ class Updateuserformation extends Migration
      */
     public function up()
     {
-        *///modif User-Formation
+        ///modif User-Formation
         Schema::table('formation_user',function (Blueprint $table){
             $table->string('lieu');
             $table->date('datedebut')->nullable();
