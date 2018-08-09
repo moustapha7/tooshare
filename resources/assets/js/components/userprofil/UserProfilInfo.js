@@ -6,8 +6,30 @@ import Competence from './Competence'
 import Certification from './Certification'
 import CentreInteret from './CentreInteret'
 import Parametre from './Parametre'
+import AuthService from '../../services/AuthService';
 
-export default class SideBarGauche extends Component {
+export default class UserProfilInfo extends Component {
+    constructor(props) {
+        super(props)
+        this.Auth=new AuthService();
+        this.state = {
+            user: {}
+        }
+    }
+    componentWillMount(){
+        if(this.Auth.loggedIn()){
+            // this.props.router.push("/");
+            this.Auth.getUserinfo().then(res=>{
+                this.setState({user: res});
+                console.log("Home "+ res.phone);
+            }).catch(err=>{
+                alert("Resolver "+ err);
+            })
+        }
+    }
+    componentWillUnmount () {
+        this.state.user = null;
+        }
     render() {
         return (
             <div>
@@ -81,7 +103,7 @@ export default class SideBarGauche extends Component {
                                 </div>
                             </div>
                                 <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed">
-                                    <Formation/>
+                                    <Formation User={this.state.user}/>
                                 </div>
                             </div>
                             <div className="tab-pane fade" id="p2">Liste de vos Compétences

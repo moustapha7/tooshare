@@ -86195,6 +86195,7 @@ var PersonalProfil = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Certification__ = __webpack_require__(319);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__CentreInteret__ = __webpack_require__(320);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Parametre__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_AuthService__ = __webpack_require__(6);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -86212,16 +86213,43 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var SideBarGauche = function (_Component) {
-    _inherits(SideBarGauche, _Component);
 
-    function SideBarGauche() {
-        _classCallCheck(this, SideBarGauche);
+var UserProfilInfo = function (_Component) {
+    _inherits(UserProfilInfo, _Component);
 
-        return _possibleConstructorReturn(this, (SideBarGauche.__proto__ || Object.getPrototypeOf(SideBarGauche)).apply(this, arguments));
+    function UserProfilInfo(props) {
+        _classCallCheck(this, UserProfilInfo);
+
+        var _this = _possibleConstructorReturn(this, (UserProfilInfo.__proto__ || Object.getPrototypeOf(UserProfilInfo)).call(this, props));
+
+        _this.Auth = new __WEBPACK_IMPORTED_MODULE_8__services_AuthService__["a" /* default */]();
+        _this.state = {
+            user: {}
+        };
+        return _this;
     }
 
-    _createClass(SideBarGauche, [{
+    _createClass(UserProfilInfo, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            if (this.Auth.loggedIn()) {
+                // this.props.router.push("/");
+                this.Auth.getUserinfo().then(function (res) {
+                    _this2.setState({ user: res });
+                    console.log("Home " + res.phone);
+                }).catch(function (err) {
+                    alert("Resolver " + err);
+                });
+            }
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            this.state.user = null;
+        }
+    }, {
         key: 'render',
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -86404,7 +86432,7 @@ var SideBarGauche = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Formation__["a" /* default */], null)
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Formation__["a" /* default */], { User: this.state.user })
                             )
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -86795,10 +86823,10 @@ var SideBarGauche = function (_Component) {
         }
     }]);
 
-    return SideBarGauche;
+    return UserProfilInfo;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (SideBarGauche);
+/* harmony default export */ __webpack_exports__["a"] = (UserProfilInfo);
 
 /***/ }),
 /* 316 */
@@ -86842,26 +86870,29 @@ var Formation = function (_Component) {
             datedebut: '',
             datefin: '',
             lieu: '',
-            categories: [{ id: 1, name: "INFORMATIQUE", created_at: null, updated_at: null }, { id: 2, name: "MANAGEMENT", created_at: null, updated_at: null }, { id: 3, name: "QUALITÉ - ORGANISATION", created_at: null, updated_at: null }, { id: 4, name: "TRANSPORT LOGISTIQUE", created_at: null, updated_at: null }, { id: 5, name: "COMPTABILITÉ GESTION", created_at: null, updated_at: null }],
-            formations: {}
+            categories: [],
+            formations: []
         };
         _this.handleSubmit = _this.handleSubmit.bind(_this);
         _this.handleChange = _this.handleChange.bind(_this);
+        _this.selectTypeFormation = _this.selectTypeFormation.bind(_this);
+        _this.selectFormation = _this.selectFormation.bind(_this);
         return _this;
     }
 
     _createClass(Formation, [{
         key: 'componentWillMount',
         value: function componentWillMount() {
+            var _this2 = this;
+
             console.log("formation");
-            /* this.Cv.getAllCategories.then(res=>{
-                 console.log(res);
-                   this.setState({categories: res});
-                   console.log("formation"+this.state.categories);
-               }).catch(err=>{
-                  Console.log("Resolver "+ err);
-               })
-               */
+            this.Cv.getAllCategories().then(function (res) {
+                _this2.setState({ categories: res });
+                console.log("formation" + _this2.state.categories);
+            }).catch(function (err) {
+                Console.log("Resolver " + err);
+            });
+
             // console.log(this.Cv.loadCommentsFromServer());
             console.log("ok");
             // console.log(this.Cv.getAllCategories());
@@ -86884,23 +86915,50 @@ var Formation = function (_Component) {
             this.setState(_defineProperty({}, name, value));
         }
     }, {
+        key: 'selectTypeFormation',
+        value: function selectTypeFormation(event) {
+            var _this3 = this;
+
+            this.setState({ categorie_id: event.target.value });
+            this.Cv.getAllFormationByCategories(event.target.value).then(function (res) {
+                _this3.setState({ formations: res });
+            }).catch(function (err) {
+                Console.log("Resolver " + err);
+            });
+        }
+    }, {
+        key: 'selectFormation',
+        value: function selectFormation(event) {
+            this.setState({ formation_id: event.target.value });
+            console.log(this.state.formation_id);
+        }
+    }, {
         key: 'handleSubmit',
         value: function handleSubmit(event) {
-            // this.setState({login: event.target.value});
+            var _this4 = this;
+
+            event.preventDefault();
+            alert("ok");
+            this.setState({ user_id: this.props.User.id });
+
+            var userformation = {
+                formation_id: this.state.formation_id,
+                user_id: this.state.user_id,
+                lieu: this.state.lieu,
+                datedebut: this.state.datedebut,
+                datefin: this.state.datefin
+            };
+
+            this.Cv.AjoutUserFormation(userformation).then(function (response) {
+                _this4.props.router.push("home", response);
+                alert(response);
+            }).catch(function (err) {
+                alert(err);
+            });
         }
     }, {
         key: 'render',
         value: function render() {
-            var categories = this.state.categories;
-            var optionItems = void 0;
-            optionItems = categories.forEach(function (element) {
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'option',
-                    { value: element.id },
-                    element.name
-                );
-            });
-            console.log(optionItems);
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -86942,56 +87000,7 @@ var Formation = function (_Component) {
                                         { className: 'md-form mb-5' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'form',
-                                            { role: 'form' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                null,
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'label',
-                                                    null,
-                                                    'CAT:'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'select',
-                                                    null,
-                                                    this.state.categories.map(function (element) {
-                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                            'option',
-                                                            { value: element.id },
-                                                            element.name
-                                                        );
-                                                    })
-                                                )
-                                            ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                { 'class': 'form-group' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'label',
-                                                    { 'for': 'sel3' },
-                                                    'Test:'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'select',
-                                                    { 'class': 'form-control', id: 'sel3' },
-                                                    optionItems,
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'option',
-                                                        { value: '1' },
-                                                        '"Okkkkk"'
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'option',
-                                                        null,
-                                                        '1'
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'option',
-                                                        null,
-                                                        '2'
-                                                    )
-                                                )
-                                            ),
+                                            { role: 'form', method: 'POST', onSubmit: this.handleSubmit },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'div',
                                                 { 'class': 'form-group' },
@@ -87002,27 +87011,14 @@ var Formation = function (_Component) {
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'select',
-                                                    { 'class': 'form-control', id: 'sel1' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'option',
-                                                        null,
-                                                        '1'
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'option',
-                                                        null,
-                                                        '2'
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'option',
-                                                        null,
-                                                        '3'
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'option',
-                                                        null,
-                                                        '4'
-                                                    )
+                                                    { 'class': 'form-control', id: 'sel1', onChange: this.selectTypeFormation },
+                                                    this.state.categories.map(function (cat) {
+                                                        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'option',
+                                                            { value: cat.id },
+                                                            cat.name
+                                                        );
+                                                    })
                                                 )
                                             ),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -87030,83 +87026,70 @@ var Formation = function (_Component) {
                                                 { 'class': 'form-group' },
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'label',
-                                                    { 'for': 'sel1' },
+                                                    { 'for': 'sel2' },
                                                     'Formation:'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'select',
-                                                    { 'class': 'form-control', id: 'sel1' },
+                                                    { 'class': 'form-control', id: 'sel2', onChange: this.selectFormation },
+                                                    this.state.formations.map(function (formation) {
+                                                        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'option',
+                                                            { value: formation.id },
+                                                            formation.name
+                                                        );
+                                                    })
+                                                )
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'col-md-6' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'form-group' },
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'option',
-                                                        null,
-                                                        '1'
+                                                        'label',
+                                                        { 'for': 'birthday' },
+                                                        'Date de debut'
                                                     ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'datedebut', type: 'date', className: 'form-control', ref: 'datedebut', name: 'datedebut', required: true, autoFocus: true, placeholder: 'Date de debut', onChange: this.handleChange })
+                                                )
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'col-md-6' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'div',
+                                                    { className: 'form-group' },
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'option',
-                                                        null,
-                                                        '2'
+                                                        'label',
+                                                        { 'for': 'birthday' },
+                                                        'Date de fin'
                                                     ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'option',
-                                                        null,
-                                                        '3'
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'option',
-                                                        null,
-                                                        '4'
-                                                    )
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'datefin', type: 'date', className: 'form-control', ref: 'datefin', name: 'datefin', required: true, autoFocus: true, placeholder: 'Date de fin', onChange: this.handleChange })
+                                                )
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { 'class': 'form-group col-md-6' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'label',
+                                                    { 'for': 'lieu' },
+                                                    'Lieu'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', 'class': 'form-control', id: 'lieu', ref: 'lieu', name: 'lieu', required: true, autoFocus: true, onchange: this.handleChange })
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'div',
+                                                { className: 'modal-footer d-flex justify-content-center' },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'button',
+                                                    { type: 'submit', className: 'btn btn-primary' },
+                                                    'Enregister',
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-paper-plane-o ml-1' })
                                                 )
                                             )
                                         )
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'div',
-                                        { className: 'col-md-6' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'div',
-                                            { className: 'form-group' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'label',
-                                                { 'for': 'birthday' },
-                                                'Date de debut'
-                                            ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'date_debut', type: 'date', className: 'form-control', ref: 'date_debut', name: 'date_debut', required: true, autoFocus: true, placeholder: 'Date de debut', onChange: this.handleChange })
-                                        )
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'div',
-                                        { className: 'col-md-6' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'div',
-                                            { className: 'form-group' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'label',
-                                                { 'for': 'birthday' },
-                                                'Date de fin'
-                                            ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'date_debut', type: 'date', className: 'form-control', ref: 'date_debut', name: 'date_debut', required: true, autoFocus: true, placeholder: 'Date de debut', onChange: this.handleChange })
-                                        )
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'div',
-                                        { className: 'md-form' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'label',
-                                            { 'data-error': 'wrong', 'data-success': 'right', 'for': 'form32' },
-                                            'Lieu'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', id: 'form32', className: 'form-control validate' })
-                                    )
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'div',
-                                    { className: 'modal-footer d-flex justify-content-center' },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'button',
-                                        { className: 'btn btn-primary' },
-                                        'Enregister',
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-paper-plane-o ml-1' })
                                     )
                                 )
                             )
@@ -87167,35 +87150,25 @@ var CvService = function () {
             });
         }
     }, {
-        key: 'loadCommentsFromServer',
-        value: function loadCommentsFromServer() {
-            var $this = this;
-            var config = {
-                headers: {
-                    'Authorization': 'Bearer' + this.Auth.getToken()
-                }
-            };
-            axios.get('/api/AllCategorie', config).then(function (response) {
-                /* $this.setState({
-                     data : response.data
-                 })*/
-                console.log(response);
-                // Promise.resolve(response.data);
-                return response.data;
-            }).catch(function (err) {
-                console.log(err);
+        key: 'AjoutUserFormation',
+        value: function AjoutUserFormation(userformation) {
+            return this.Auth.fetch(this.domain + '/AjoutFormationUser', {
+                method: 'POST',
+                body: JSON.stringify(userformation)
+            }).then(function (res) {
+                return Promise.resolve(res.data);
             });
         }
     }, {
         key: 'getAllFormationByCategories',
         value: function getAllFormationByCategories(idcategorie) {
-            return this.Auth.fetch(this.domain + '/CategorieAllFormations', {
-                method: 'POST',
-                body: JSON.stringify({
-                    idcategorie: idcategorie
-                })
+            console.log(idcategorie);
+            return this.Auth.fetch(this.domain + '/CategorieAllFormations?idcategorie=' + idcategorie, {
+                method: 'POST'
+                //data: JSON.stringify(idcategorie)
             }).then(function (res) {
-                return Promise.resolve(res.data);
+                console.log("cvservicefor " + Promise.resolve(res));
+                return Promise.resolve(res);
             });
         }
     }]);

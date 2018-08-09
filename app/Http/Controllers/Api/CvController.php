@@ -18,12 +18,23 @@ class CvController extends Controller
          return response()->json($categories, 201); 
      } 
      public function findAllFormationByCategorie(Request $request) { 
-        // $user = User::where('id', $request->id)->first(); 
-       // $user 'd)-        // $user = User::where('id', $request->id)->first(); 
-         //$user=Auth::user(); 
-         $categorie=Categorie_Formation::find( $request->id); 
-         $formations=$categorie->formations(); 
+         $idcat=$request->get('idcategorie');
+         $categorie=Categorie_Formation::find($idcat); 
+         $formations=Formation::where('categorie_id',$categorie->id)->get();
+        //$formations=$categorie->formations->get();
   
          return response()->json($formations, 201); 
      } 
+     public function AjoutFormationUser(Request $request){
+        $formation=Formation::find($request->formation_id);
+        // $freind=User::find($request->friend_id);
+   $formation->users()->attach(Auth::user()->id,[
+            "lieu"=>$request->lieu,
+            "datedebut"=>$request->datedebut,
+            "datefin"=>$request->datefin
+        ]);
+            return response()->json(['message'=>'succes'.$formation],200);
+       
+  
+      }
 } 
