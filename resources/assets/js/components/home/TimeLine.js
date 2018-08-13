@@ -17,7 +17,6 @@ export default class TimeLine extends Component {
         this.Auth= new AuthService();
         this.handleliked_post=this.handleliked_post.bind(this);
         this.handleChangeComment=this.handleChangeComment.bind(this);
-        this.handleCommented_post=this.handleCommented_post.bind(this);
         this.handleKeyPress=this.handleKeyPress.bind(this);
         this.loadCommentsFromServer=this.loadCommentsFromServer.bind(this);
     }
@@ -68,7 +67,7 @@ export default class TimeLine extends Component {
 
     handleKeyPress(post,event){
 
-        event.preventDefault();
+       // event.preventDefault();
 
         if(event.key == 'Enter'){
             var formdata= new FormData();
@@ -77,32 +76,18 @@ export default class TimeLine extends Component {
     
             const config= {
                 headers: {
-                          'Authorization': 'Bearer ' + this.Auth.getToken(),
-                          'Content-Type': 'multipart/form-data'
+                    'Authorization': 'Bearer ' + this.Auth.getToken(),
+                    'Content-Type': 'multipart/form-data'
                 }
             }
-                 axios.post('/api/CommentedPost',formdata,config).then(response=>{
-                    console.log(response);
+            axios.post('/api/CommentedPost',formdata,config).then(response=>{
                 
-                }).catch(err=>{
-                    console.log(err);
-                })
+            }).catch(err=>{
+                console.log(err);
+            })
+            event.target.value = "";
         }
       }
-
-    handleCommented_post(post)
-    {
-        
-        event.preventDefault();
-      console.log(post);
-      
-        const comment={
-            content : this.state.content
-        }
-        e.preventDefault();
-        console.log(comment);
-      
-    }
 
 
     render() {
@@ -144,23 +129,24 @@ export default class TimeLine extends Component {
                             <li><a href="#">0 <i className="fa fa-share-alt-square"></i></a></li>
                         </ul>
                         <div className="commentaire">
-
-                            <div className="contenucommentaire">
-                                {post.comments.map((comment)=>
+                        {post.comments.map((comment,i)=>
+                            <div className="">
+                            <div className="contenucommentaire userposthearder" key={i}>
                                     <span>
                                     <img src={defaultUser} alt="Avatar" width={35} className="useravatar"/>
-                                        <span className="username">{comment.user.first_name+" "+comment.user.last_name}  <span>{comment.content}</span></span>
-
-                                    </span>
-
-                                    )}
-
+                                        <span className="username">{comment.user.first_name+" "+comment.user.last_name}</span><br /> <span>{comment.content}</span>
+                                    </span>         
                             </div>
+                             <hr />
+                             </div>
+                            )}
+                            <div>
+                            <br />
                             <span>
-                                                <img src={defaultUser} alt="Avatar" width={35} className="useravatar"/>
-                                                <input type="text"  name="content" onKeyPress={this.handleKeyPress.bind(this,post)}   onChange={this.handleChangeComment}  className="form-control"placeholder="Commentaire" />
-                                            </span>
-                        
+                                <img src={defaultUser} alt="Avatar" width={35} className="useravatar"/>
+                                <input type="text"  name="content" onKeyPress={this.handleKeyPress.bind(this,post)}   onChange={this.handleChangeComment}  className="form-control" placeholder="Commentaire" />
+                            </span>
+                            </div>
                         </div>
                     </div>
 

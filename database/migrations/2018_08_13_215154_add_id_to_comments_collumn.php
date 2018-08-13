@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangerColoneIdSurTableCommentAAutoincrement extends Migration
+class AddIdToCommentsCollumn extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,13 @@ class ChangerColoneIdSurTableCommentAAutoincrement extends Migration
      * @return void
      */
     public function up()
-    {   /*
+    {
         Schema::table('comments', function (Blueprint $table) {
-           $table->dropColumn('id');
-        });
-        Schema::table('comments', function (Blueprint $table) {
+            //
             $table->increments('id');
-        });*/
+        });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -27,5 +26,8 @@ class ChangerColoneIdSurTableCommentAAutoincrement extends Migration
      */
     public function down()
     {
+        Schema::table('comments', function (Blueprint $table) {
+            //
+        });
     }
 }
