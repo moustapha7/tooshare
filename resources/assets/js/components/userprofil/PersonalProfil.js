@@ -34,7 +34,7 @@ class PersonalProfil extends Component {
     }
 
     render(){
-
+        /// console.log("Parametres :"+ this.props.match.params.userid);
         return (
             <div className="user-profil">
                 <Header link="logout"/>

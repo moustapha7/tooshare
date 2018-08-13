@@ -57,7 +57,7 @@ return [
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
+            'port' => env('DB_PORT', '3610'),
             'database' => env('DB_DATABASE', 'tooshare'),
             'username' => env('DB_USERNAME', 'tooshare'),
             'password' => env('DB_PASSWORD', 'tooshare'),

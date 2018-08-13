@@ -12,15 +12,14 @@ class ChangerColoneIdSurTableCommentAAutoincrement extends Migration
      * @return void
      */
     public function up()
-    {
+    {   /*
         Schema::table('comments', function (Blueprint $table) {
            $table->dropColumn('id');
         });
         Schema::table('comments', function (Blueprint $table) {
             $table->increments('id');
-        });
+        });*/
     }
-
     /**
      * Reverse the migrations.
      *

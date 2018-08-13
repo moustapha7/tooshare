@@ -36,6 +36,9 @@ Route::post('savePost','Api\PostController@store');
 Route::post('sharePost','Api\PostController@SharePost');
 Route::post('reportedPost','Api\PostController@ReportedPost');
 
+Route::post('AllCategorie','Api\CvController@findAllCategorie');
+Route::post('CategorieAllFormations','Api\CvController@findAllFormationByCategorie');
+Route::post('AjoutFormationUser','Api\CvController@AjoutFormationUser');
 Route::post('register', 'Api\AuthController@register');
 Route::post('login', 'Api\AuthController@login');
 Route::get('users',function (){

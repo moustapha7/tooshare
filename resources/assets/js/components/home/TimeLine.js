@@ -3,13 +3,15 @@ import { Router, Route, Link } from 'react-router';
 import defaultUser from '../../../../images/defaultuserimage.png'
 import AuthService from '../../services/AuthService';
 import AgrationRx from './AgrationRx'
+import Moment from 'react-moment';
 export default class TimeLine extends Component {
 
     constructor() {
         super();
         this.state={
             data: [],
-            content : ''
+            content : '',
+
         }
 
         this.Auth= new AuthService();
@@ -43,8 +45,8 @@ export default class TimeLine extends Component {
         this.setState({content: event.target.value});
     }
 
-    handleliked_post(post){
-      event.preventDefault();
+    handleliked_post(post,event){
+        event.preventDefault();
       var formdata= new FormData();
       formdata.append('post_id',post.id);
     
@@ -54,12 +56,9 @@ export default class TimeLine extends Component {
                   'Content-Type': 'multipart/form-data'
         }
     }
-
-    
-   
          axios.post('/api/likedPost',formdata,config).then(response=>{
             console.log(response);
-        
+             this.loadCommentsFromServer();
         }).catch(err=>{
             console.log(err);
         })
@@ -67,10 +66,9 @@ export default class TimeLine extends Component {
 
     }
 
-  
     handleKeyPress(post,event){
 
-        event.preventDefault;
+        event.preventDefault();
 
         if(event.key == 'Enter'){
             var formdata= new FormData();
@@ -89,11 +87,7 @@ export default class TimeLine extends Component {
                 }).catch(err=>{
                     console.log(err);
                 })
-
         }
-        
-    
-     
       }
 
     handleCommented_post(post)
@@ -127,19 +121,18 @@ export default class TimeLine extends Component {
                                         <span>
                                             <a href="#" className="">
                                                 <img src={defaultUser} alt="Avatar" width={45} className="useravatar"/>
-                                                <span className="username">{post.user.first_name+" "+post.user.last_name}</span>
+                                                <div className="username">{post.user.first_name+" "+post.user.last_name} <br /><span className="usernameprofil">Etuidant</span><br /><span className="publishdate"><Moment fromNow ago>{post.created_at}</Moment></span></div>
                                             </a>
                                         </span>
                             <span className="pull-right"><i className="fa fa-cogs"></i></span>
                         </div>
-
                     </div>
-                    <div className="card-body">
+                    <div className="card-body postcontenu">
                         <p className="card-text">{post.content}</p>
-                       {post.files.map((file)=>
+                       {post.files.map((file,j)=>
                           
-                          <div className="container">
-                            <img src={'http://localhost:8000/posts/'+file.file_Resize_name}/>
+                          <div className="post-image" key={j}>
+                            <img src={'http://localhost:8000/posts/'+file.file_Resize_name} />
                           </div>
                     )} 
                     
@@ -147,8 +140,8 @@ export default class TimeLine extends Component {
                     <div className="card-foote">
                         <ul className="list-inline-post undecorate">
                             <li><a href="#" onClick={this.handleliked_post.bind(this,post)} >{post.users_liked.length} <i className="fa fa-heart coeur"></i></a></li>
-                            <li><a href="">{post.comments.length} <i className="fa fa-comment-dots"></i></a></li>
-                            <li><a href="">0 <i className="fa fa-share-alt-square"></i></a></li>
+                            <li><a href="#">{post.comments.length} <i className="fa fa-comment-dots"></i></a></li>
+                            <li><a href="#">0 <i className="fa fa-share-alt-square"></i></a></li>
                         </ul>
                         <div className="commentaire">
 

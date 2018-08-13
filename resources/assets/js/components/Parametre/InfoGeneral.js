@@ -14,17 +14,15 @@ export default class InfoGeneral extends Component {
             last_name: '',
             email : '',
             phone :'',
-            password: '',
             gender:'',
             birthday :'',
             country:'',
             city:'',
-            password_confirmation: '',
         }
         this.validator = new SimpleReactValidator();
-        // this.Auth=new AuthService();
+        //this.Auth=new AuthService();
         this.Auth=new UserService();
-        //this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -48,9 +46,9 @@ export default class InfoGeneral extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-
         if( this.validator.allValid() ){
             const user = {
+                id: this.state.user_id,
                 first_name : this.state.first_name,
                 last_name: this.state.last_name,
                 email: this.state.email,
@@ -64,6 +62,7 @@ export default class InfoGeneral extends Component {
 
             this.Auth.modifparamGen(user).then(response=>{
                 this.props.router.push("home",response);
+                alert(response);
             }).catch(err=>{
                 alert(err);
             })
@@ -85,10 +84,37 @@ export default class InfoGeneral extends Component {
         if(this.props.User){
             const user=this.props.User
            // this.state.setState({user_id:this.props.User.id})
-            this.userID = this.props.User.id;
+           this.state.user_id = this.props.User.id;
             console.log("oh",user)
         }
         const { country, city } = this.state;
+        let genderUser;
+        if (this.props.User.gender=="female") {
+            genderUser= (
+                <div className="col-md-6"> <div className="form-group">
+                 <label for="gender">Genre</label>
+                    <select name="gender" id="gender" className="form-control" onChange={this.handleChange}>
+            
+                     <option value="female" selected>female</option>
+                     <option value="male" >male</option>
+                                                                
+                   </select>
+                     {this.validator.message('gender', this.state.gender,'required|in:male,female', 'text-danger')}
+                </div></div>
+          )
+        } else {
+            genderUser= (
+                <div className="col-md-6"> <div className="form-group">
+                 <label for="gender">Genre</label>
+                    <select name="gender" id="gender" className="form-control" onChange={this.handleChange}>
+            
+                     <option value="female" >female</option>
+                     <option value="male" selected>male</option>
+                                                                
+                   </select>
+                     {this.validator.message('gender', this.state.gender,'required|in:male,female', 'text-danger')}
+                </div></div>)
+        }
         return (
             <div className="container">
                 <div className="row">
@@ -101,12 +127,12 @@ export default class InfoGeneral extends Component {
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                     <label for="first_name">Prenom</label>
-                                    <input type="text" class="form-control" id="first_Name" value={this.props.User.first_name} />
+                                    <input type="text" class="form-control" id="first_Name" defaultValue={this.props.User.first_name} ref="first_name" name="first_name"  required autoFocus  onBlur={this.handleChange}/>
                                     </div>
                                
                                     <div class="form-group col-md-6">
                                     <label for="last_name">Nom</label>
-                                    <input type="test" class="form-control" id="last_name" value={this.props.User.last_name}  />
+                                    <input type="test" class="form-control" id="last_name" defaultValue={this.props.User.last_name} ref="last_name" name="last_name"  required   onBlur={this.handleChange} />
                                     </div>
                                 </div>
                                     
@@ -114,11 +140,11 @@ export default class InfoGeneral extends Component {
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                     <label for="phone">Telephone</label>
-                                    <input type="phone" class="form-control" id="phone" value={this.props.User.phone} />
+                                    <input type="phone" class="form-control" id="phone" defaultValue={this.props.User.phone} ref="phone" name="phone"  required   onBlur={this.handleChange} />
                                     </div>
                                     <div class="form-group col-md-6">
                                     <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail4" value={this.props.User.email} />
+                                    <input type="email" class="form-control" id="inputEmail4" defaultValue={this.props.User.email} ref="email" name="email"   onBlur={this.handleChange}/>
                                     </div>
                                     
                                 
@@ -128,20 +154,12 @@ export default class InfoGeneral extends Component {
                                                         <div className="col-md-6">
                                                             <div className="form-group">
                                                             <label for="birthday">Date de Naissance</label>
-                                                            <input id="birthday" type="date" className="form-control" ref="birthday" name="birthday"  required autoFocus value={this.props.User.birthday} onChange={this.handleChange}/>
+                                                            <input id="birthday" type="date" className="form-control" ref="birthday" name="birthday"  required autoFocus defaultValue={this.props.User.birthday} onChange={this.handleChange}/>
                                                             {this.validator.message('birthday', this.state.birthday, 'required', 'text-danger')}
                                                         </div>
                                                         </div>
 
-                                                        <div className="col-md-6"> <div className="form-group">
-                                                        <label for="gender">Genre</label>
-                                                            <select name="gender" id="gender" className="form-control" onChange={this.handleChange}>
-                                                                
-                                                                <option value="female">female</option>
-                                                                <option value="male">male</option>
-                                                            </select>
-                                                            {this.validator.message('gender', this.state.gender,'required|in:male,female', 'text-danger')}
-                                                        </div></div>
+                                                        {genderUser}
 
                                                     </div>
 
@@ -155,9 +173,8 @@ export default class InfoGeneral extends Component {
                                                            <label for="country">Pays</label>
                                                                <CountryDropdown
                                                                    classes="form-control"
-                                                                   defaultOptionLabel={this.props.User.country}
+                                                                  // defaultOptionLabel={this.props.User.country}
                                                                    value={country}
-                                                                 
                                                                    onChange={(val) => this.selectCountry(val)} />
                                                                {this.validator.message('country', this.state.country,'required', 'text-danger')}
                                                            </div>
@@ -166,8 +183,8 @@ export default class InfoGeneral extends Component {
                                                                <RegionDropdown
                                                                    classes="form-control"
                                                                    country={country}
-                                                                   //value={city}
-                                                                  value={this.props.User.city}
+                                                                   value={city}
+                                                                  //defaultvalue={this.props.User.city}
                                                                    onChange={(val) => this.selectRegion(val)}  />
                                                                {this.validator.message('city', this.state.city,'required', 'text-danger')}
                                                            </div>
