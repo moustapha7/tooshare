@@ -130,8 +130,8 @@ export default class TimeLine extends Component {
                         </ul>
                         <div className="commentaire">
                         {post.comments.map((comment,i)=>
-                            <div className="">
-                            <div className="contenucommentaire userposthearder" key={i}>
+                            <div className="" key={i}>
+                            <div className="contenucommentaire userposthearder" >
                                     <span>
                                     <img src={defaultUser} alt="Avatar" width={35} className="useravatar"/>
                                         <span className="username">{comment.user.first_name+" "+comment.user.last_name}</span><br /> <span>{comment.content}</span>

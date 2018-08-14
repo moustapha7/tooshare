@@ -36205,10 +36205,10 @@ var TimeLine = function (_Component) {
                                 post.comments.map(function (comment, i) {
                                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
-                                        { className: '' },
+                                        { className: '', key: i },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'div',
-                                            { className: 'contenucommentaire userposthearder', key: i },
+                                            { className: 'contenucommentaire userposthearder' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'span',
                                                 null,
@@ -86243,7 +86243,8 @@ var UserProfilInfo = function (_Component) {
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            this.state.user = null;
+            // this.state.user = null;
+            this.setState({ user: null });
         }
     }, {
         key: 'render',
@@ -86381,14 +86382,18 @@ var UserProfilInfo = function (_Component) {
                                                         'JEE - PHP - LARAVEL- ANGULAR'
                                                     ),
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'a',
-                                                        { 'class': 'btn btn-success', href: '' },
-                                                        'Update'
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'a',
-                                                        { 'class': 'btn btn-danger', href: '' },
-                                                        'Delete'
+                                                        'td',
+                                                        { colSpan: '2' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { className: 'btn btn-success', href: '' },
+                                                            'Update'
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { className: 'btn btn-danger', href: '' },
+                                                            'Delete'
+                                                        )
                                                     )
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -86410,14 +86415,18 @@ var UserProfilInfo = function (_Component) {
                                                         'MYSQL - SQLSERVER - POSTGRES'
                                                     ),
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'a',
-                                                        { 'class': 'btn btn-success', href: '' },
-                                                        'Update'
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'a',
-                                                        { 'class': 'btn btn-danger', href: '' },
-                                                        'Delete'
+                                                        'td',
+                                                        { colSpan: '2' },
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { className: 'btn btn-success', href: '' },
+                                                            'Update'
+                                                        ),
+                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                            'a',
+                                                            { className: 'btn btn-danger', href: '' },
+                                                            'Delete'
+                                                        )
                                                     )
                                                 )
                                             )
@@ -86506,14 +86515,18 @@ var UserProfilInfo = function (_Component) {
                                                     'Angular 5, React Native'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-success', href: '' },
-                                                    'Update'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-danger', href: '' },
-                                                    'Delete'
+                                                    'td',
+                                                    { colSpan: '2' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
                                                 )
                                             ),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -86535,14 +86548,18 @@ var UserProfilInfo = function (_Component) {
                                                     'LARAVEL'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-success', href: '' },
-                                                    'Update'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-danger', href: '' },
-                                                    'Delete'
+                                                    'td',
+                                                    { colSpan: '2' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
                                                 )
                                             )
                                         )
@@ -86630,14 +86647,18 @@ var UserProfilInfo = function (_Component) {
                                                     'Assurance qualit\xE9  et  Controle qualit\xE9'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-success', href: '' },
-                                                    'Update'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-danger', href: '' },
-                                                    'Delete'
+                                                    'td',
+                                                    { colSpan: '2' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
                                                 )
                                             ),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -86659,14 +86680,18 @@ var UserProfilInfo = function (_Component) {
                                                     'Cat\xE9gorie B1'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-success', href: '' },
-                                                    'Update'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-danger', href: '' },
-                                                    'Delete'
+                                                    'td',
+                                                    { colSpan: '2' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
                                                 )
                                             )
                                         )
@@ -86754,14 +86779,18 @@ var UserProfilInfo = function (_Component) {
                                                     'Vice Pr\xE9sident du Syndicat des travaileur de helix'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-success', href: '' },
-                                                    'Update'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-danger', href: '' },
-                                                    'Delete'
+                                                    'td',
+                                                    { colSpan: '2' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
                                                 )
                                             ),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -86783,14 +86812,18 @@ var UserProfilInfo = function (_Component) {
                                                     'Pr\xE9sident des jeune de Mermoz'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-success', href: '' },
-                                                    'Update'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'a',
-                                                    { 'class': 'btn btn-danger', href: '' },
-                                                    'Delete'
+                                                    'td',
+                                                    { colSpan: '2' },
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-success', href: '' },
+                                                        'Update'
+                                                    ),
+                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                        'a',
+                                                        { className: 'btn btn-danger', href: '' },
+                                                        'Delete'
+                                                    )
                                                 )
                                             )
                                         )
@@ -86807,11 +86840,7 @@ var UserProfilInfo = function (_Component) {
                             'div',
                             { className: 'tab-pane fade', id: 'p5' },
                             'Liste de vos Centres D\'Interets',
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'div',
-                                { className: 'col-12 nopadding fixed' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Parametre__["a" /* default */], null)
-                            )
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-12 nopadding fixed' })
                         )
                     )
                 )
@@ -86999,7 +87028,7 @@ var Formation = function (_Component) {
                                             { role: 'form', method: 'POST', onSubmit: this.handleSubmit },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'div',
-                                                { 'class': 'form-group' },
+                                                { className: 'form-group' },
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'label',
                                                     { 'for': 'sel1' },
@@ -87007,7 +87036,7 @@ var Formation = function (_Component) {
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'select',
-                                                    { 'class': 'form-control', id: 'sel1', onChange: this.selectTypeFormation },
+                                                    { className: 'form-control', id: 'sel1', onChange: this.selectTypeFormation },
                                                     this.state.categories.map(function (cat) {
                                                         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'option',
@@ -87019,7 +87048,7 @@ var Formation = function (_Component) {
                                             ),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'div',
-                                                { 'class': 'form-group' },
+                                                { className: 'form-group' },
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'label',
                                                     { 'for': 'sel2' },
@@ -87027,7 +87056,7 @@ var Formation = function (_Component) {
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'select',
-                                                    { 'class': 'form-control', id: 'sel2', onChange: this.selectFormation },
+                                                    { className: 'form-control', id: 'sel2', onChange: this.selectFormation },
                                                     this.state.formations.map(function (formation) {
                                                         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'option',
@@ -87067,13 +87096,13 @@ var Formation = function (_Component) {
                                             ),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'div',
-                                                { 'class': 'form-group col-md-6' },
+                                                { className: 'form-group col-md-6' },
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'label',
                                                     { 'for': 'lieu' },
                                                     'Lieu'
                                                 ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', 'class': 'form-control', id: 'lieu', ref: 'lieu', name: 'lieu', required: true, autoFocus: true, onchange: this.handleChange })
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', id: 'lieu', ref: 'lieu', name: 'lieu', required: true, autoFocus: true, onChange: this.handleChange })
                                             ),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'div',
@@ -87732,7 +87761,7 @@ var Parametre = function (_Component) {
     return Parametre;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Parametre);
+/* unused harmony default export */ var _unused_webpack_default_export = (Parametre);
 
 /***/ }),
 /* 321 */

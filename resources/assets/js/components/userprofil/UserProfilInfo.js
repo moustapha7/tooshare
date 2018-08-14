@@ -28,7 +28,8 @@ export default class UserProfilInfo extends Component {
         }
     }
     componentWillUnmount () {
-        this.state.user = null;
+       // this.state.user = null;
+       this.setState({user: null});
         }
     render() {
         return (
@@ -82,9 +83,10 @@ export default class UserProfilInfo extends Component {
                                                     </th>
                                                     <td>Informatique</td>
                                                     <td>JEE - PHP - LARAVEL- ANGULAR</td>
-                                                    <a class="btn btn-success" href="">Update</a>
-                                                  <a class="btn btn-danger" href="">Delete</a>
-
+                                                    <td colSpan="2">
+                    <a className="btn btn-success" href="">Update</a>
+                    <a className="btn btn-danger" href="">Delete</a>
+                </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">
@@ -92,9 +94,10 @@ export default class UserProfilInfo extends Component {
                                                     </th>
                                                     <td>BASE DE DONNEES</td>
                                                     <td>MYSQL - SQLSERVER - POSTGRES</td>
-                                                    <a class="btn btn-success" href="">Update</a>
-                                                    <a class="btn btn-danger" href="">Delete</a>
-
+                                                    <td colSpan="2">
+                    <a className="btn btn-success" href="">Update</a>
+                    <a className="btn btn-danger" href="">Delete</a>
+                </td>
                                                 </tr>
                                                 
                                             </tbody>
@@ -107,10 +110,6 @@ export default class UserProfilInfo extends Component {
                                 </div>
                             </div>
                             <div className="tab-pane fade" id="p2">Liste de vos Compétences
-
-
-
-
                                 <div className="px-4">
 
 <div className="table-wrapper">
@@ -150,8 +149,10 @@ export default class UserProfilInfo extends Component {
                 </th>
                 <td>Front End</td>
                 <td>Angular 5, React Native</td>
-                <a class="btn btn-success" href="">Update</a>
-                <a class="btn btn-danger" href="">Delete</a>
+                <td colSpan="2">
+                    <a className="btn btn-success" href="">Update</a>
+                    <a className="btn btn-danger" href="">Delete</a>
+                </td>
 
             </tr>
             <tr>
@@ -160,8 +161,10 @@ export default class UserProfilInfo extends Component {
                 </th>
                 <td>Back End</td>
                 <td>LARAVEL</td>
-                <a class="btn btn-success" href="">Update</a>
-                <a class="btn btn-danger" href="">Delete</a>
+                <td colSpan="2">
+                    <a className="btn btn-success" href="">Update</a>
+                    <a className="btn btn-danger" href="">Delete</a>
+                </td>
 
             </tr>
             
@@ -223,8 +226,10 @@ export default class UserProfilInfo extends Component {
                 </th>
                 <td>ISO 9001</td>
                 <td>Assurance qualité  et  Controle qualité</td>
-                <a class="btn btn-success" href="">Update</a>
-                <a class="btn btn-danger" href="">Delete</a>
+                <td colSpan="2">
+                    <a className="btn btn-success" href="">Update</a>
+                    <a className="btn btn-danger" href="">Delete</a>
+                </td>
 
                 
             </tr>
@@ -234,8 +239,10 @@ export default class UserProfilInfo extends Component {
                 </th>
                 <td>Certification Office</td>
                 <td>Catégorie B1</td>
-                <a class="btn btn-success" href="">Update</a>
-                <a class="btn btn-danger" href="">Delete</a>
+                <td colSpan="2">
+                    <a className="btn btn-success" href="">Update</a>
+                    <a className="btn btn-danger" href="">Delete</a>
+                </td>
 
             </tr>
             
@@ -285,13 +292,14 @@ export default class UserProfilInfo extends Component {
         <tbody>
             <tr>
                 <th scope="row">
-                   
                     <label className="form-check-label label-table" htmlFor="checkbox1"></label>
                 </th>
                 <td>Mouvement Syndical</td>
                 <td>Vice Président du Syndicat des travaileur de helix</td>
-                <a class="btn btn-success" href="">Update</a>
-                <a class="btn btn-danger" href="">Delete</a>
+                <td colSpan="2">
+                    <a className="btn btn-success" href="">Update</a>
+                    <a className="btn btn-danger" href="">Delete</a>
+                </td>
 
             </tr>
             <tr>
@@ -301,8 +309,10 @@ export default class UserProfilInfo extends Component {
                 </th>
                 <td>Mouvement Associative</td>
                 <td>Président des jeune de Mermoz</td>
-                <a class="btn btn-success" href="">Update</a>
-                <a class="btn btn-danger" href="">Delete</a>
+                <td colSpan="2">
+                    <a className="btn btn-success" href="">Update</a>
+                    <a className="btn btn-danger" href="">Delete</a>
+                </td>
 
             </tr>
             
@@ -322,7 +332,7 @@ export default class UserProfilInfo extends Component {
                             <div className="tab-pane fade" id="p5">Liste de vos Centres D'Interets
 
                                 <div className="col-12 nopadding fixed">
-                                    <Parametre/>
+                                    
                                 </div>
 
                             </div>
