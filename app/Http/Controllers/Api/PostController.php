@@ -19,7 +19,7 @@ use Intervention\Image\Facades\Image;
 class PostController extends Controller
 {
     private $photos_path;
-    private $videos_extensions=['.avi','.flv','.mp4','.mpg','.3gp'];
+    private $videos_extensions=['.avi','.flv','.mp4','.mpg','.3gp','.mp5'];
     private $audio_extensions=['.mp4','.mp3'];
 
     /**
