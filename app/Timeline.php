@@ -37,10 +37,18 @@ class Timeline extends Model
     }
 
     public function DayTimline(){
-         /*   foreach($this->user()->allFriends as $freids){
+        /*   foreach($this->user()->allFriends as $freids){
 
             }
         */
+    }
+
+    public function avatar(){
+        return  $this->belongsTo('App\File');
+    }
+
+    public function cover(){
+        return  $this->belongsTo('App\File');
     }
 
 

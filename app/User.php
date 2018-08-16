@@ -60,7 +60,12 @@ class User extends Authenticatable implements JWTSubject
 
     public function timeline()
     {
-        return $this->belongsTo('App\Timeline','timeline_id')->with('posts');
+        return $this->belongsTo('App\Timeline','timeline_id')->with('user')->with('posts')->with('avatar')->with('cover');
+    }
+
+    public function userInfo()
+    {
+        return $this->belongsTo('App\Timeline','timeline_id')->with('user')->with('avatar')->with('cover');
     }
 
    public function files(){

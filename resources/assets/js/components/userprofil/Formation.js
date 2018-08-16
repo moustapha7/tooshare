@@ -43,7 +43,7 @@ export default class Formation extends Component {
         
     } 
     componentWillUnmount () {
-        ths.setState({categories: null});
+        this.setState({categories: null});
         }
     
     handleChange(event) {

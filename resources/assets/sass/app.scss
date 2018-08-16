@@ -9,6 +9,68 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+.hide{
+   display: none;
+}
+
+.showme{
+  display: block;
+  
+}
+.userAvatarblock{
+  input{
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
+  .medialabel{
+    width: 70px;
+    height: 70px;
+    border: 0px solid gainsboro;
+    background-size: cover;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+  
+}
+.barner{
+  input{
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.costumAvatarBlock{
+ 
+  .costumUseravatar{
+    width: 70px;
+    height: 70px;
+    border: 0px solid gainsboro;
+    background-size: cover;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+  .costumUserpostavatar{
+    width: 45px;
+    height: 45px;
+    border: 0px solid gainsboro;
+    background-size: cover;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+  .costumUsercommenttavatar{
+    width: 35px;
+    height: 35px;
+    border: 0px solid gainsboro;
+    background-size: cover;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+  
+}
+
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -244,8 +306,7 @@ footer.page-footer {
     z-index: -1;
   }
   .medialabel{
-    height: 300px;
-    width: 100%;
+    width: 60px;
     border: 1px solid gainsboro;
     background-size: contain;
   }

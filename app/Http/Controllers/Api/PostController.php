@@ -19,7 +19,7 @@ use Intervention\Image\Facades\Image;
 class PostController extends Controller
 {
     private $photos_path;
-    private $videos_extensions=['.avi','.flv','.mp4','.mpg','.3gp'];
+    private $videos_extensions=['.avi','.flv','.mp4','.mpg','.3gp','.mp5'];
     private $audio_extensions=['.mp4','.mp3'];
 
     /**
@@ -167,7 +167,7 @@ class PostController extends Controller
         $comment->post()->associate($post);
         $comment->user()->associate(Auth::user())->save();
 
-        /*$post->notifications_user()->sync(Auth::user()->id);
+        $post->notifications_user()->sync(Auth::user()->id);
         //notifier les utilisateurs abboner au post dabords
         foreach($post->notifications_user as $user){
             if($user->id!=Auth::user()->id){
@@ -176,7 +176,6 @@ class PostController extends Controller
         }
         $post->user->notify(new PostCommentedNotification($post,Auth::user()));
         //ensuite notifier l'utilisateur proprietaire du post que son post viens d'etre commnter expeter par lui meme
-        */
         return response()->json(['message'=>'succes'],200);
 
     }

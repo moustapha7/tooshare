@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, Link } from 'react-router';
 import defaultUser from '../../../../images/defaultuserimage.png';
 import AuthService from "../../services/AuthService";
-import defaulteFile from '../../../../images/default.jpg'
+import defaulteFile from '../../../../images/default.jpg';
 
 export default class SideBarGauche extends Component {
 
@@ -10,14 +10,14 @@ export default class SideBarGauche extends Component {
         super(props)
         this.state={
             file:null,
-            image: defaulteFile,
+            useravatar: defaultUser,
 
         }
         this.Auth=new AuthService();
         this.handleChange = this.handleChange.bind(this);
 
     }
-    handleChange(event) {
+    handleChange(id,event) {
         // this.setState({login: event.target.value});
         const target = event.target;
         const value = target.value;
@@ -30,24 +30,61 @@ export default class SideBarGauche extends Component {
         if (event.target.files && event.target.files[0]) {
             let reader = new FileReader();
             reader.onload = (e) => {
-                this.setState({image: e.target.result});
+                this.setState({useravatar: e.target.result});
             };
             reader.readAsDataURL(event.target.files[0]);
+
+            this.updateAvatart(id);
         }
     }
- 
-  
 
+    updateAvatart(id) {
+       // alert('Timeline Id: '+ id);
+        const data={
+            file:this.state.file,
+            timline_id:id
+        }
+
+       data.file =document.querySelector('#file');
+        var formdata= new FormData();
+        formdata.append('timline_id',data.timline_id);
+        for ( var pas = 0; pas < data.file.files.length; pas++) {
+            formdata.append('file[]',data.file.files[pas]);
+        }
+        const config= {
+             headers: {
+                'Authorization': 'Bearer ' + this.Auth.getToken(),
+                'Content-Type': 'multipart/form-data'
+             }
+         }
+         axios.post('http://localhost:8000/api/udateAvatar',formdata,config).then(res=>{
+                // alert(res.succes);
+             }).catch(err=>{
+                 console.log(err);
+         })
+    }
+ 
 
     render() {
        let mystyle = ['mediatoshare'];
+       let hide = [''];
+       let showme = ['userAvatarblock hide'];
         const userID = null;
         if(this.props.User){
-            const user=this.props.User
+            const user=this.props.User;
             this.userID = this.props.User.id;
-            console.log("oh",user)
+            console.log("oh",user);
         }
+        if(this.props.UserAvatar){
+            
+        }
+        if(this.props.Editable){
+            hide.push('hide ');
+            showme.push('showme ');
+        }
+
         const linkto = "/profil/" + this.props.User.id + "/edit";
+        const timeline_id =  this.props.User.timeline_id;
         return (
             <div>
             <div className="card card-body bg-faded ">
@@ -56,18 +93,18 @@ export default class SideBarGauche extends Component {
                     <div className="col-lg-9 col-sm-9 col-md-9 col-xs-9 undecorated">
                         <span className="username">
                             <Link to={linkto} className="">{this.props.User.first_name} {this.props.User.last_name} <br /> Etudiant 23 ans</Link>
-
                         </span>
                     </div>
-                    <div className="col-lg-3 col-sm-3 col-md-3 col-xs-3 usersidebarAvatar">
-                        <Link to={linkto} className="">
-                            <img src={defaultUser} alt="Avatar" width={70} className="useravatar"/>
-                        </Link>
+                    <div className="col-lg-3 col-sm-3 col-md-3 col-xs-3 usersidebarAvatar costumAvatarBlock">
 
-                         <div className={mystyle}>
-                        <label htmlFor="file" className="medialabel" style={{backgroundImage: 'url('+ this.state.image +')'}}></label>
-                        <input className="form-control" id="file" type="file" name="file" onChange={this.handleChange.bind(this)} multiple />
-                    </div>
+                        <Link to={linkto} className={hide.join(' ')}>
+                            <span style={!!(this.props.UserAvatar)? {backgroundImage: 'url(http://localhost:8000/avatars/'+ this.props.UserAvatar.file_Resize_name +')'} : {backgroundImage: 'url('+defaultUser+')'}} className="useravatar costumUseravatar"> </span>
+                        </Link>
+                        
+                         <div className={showme.join(' ')} >
+                            <label htmlFor="file" className="medialabel" style={!!(this.props.UserAvatar)? {backgroundImage: 'url(http://localhost:8000/avatars/'+ this.props.UserAvatar.file_Resize_name +')'} : {backgroundImage: 'url('+defaultUser+')'}}></label>
+                            <input className="form-control" id="file" type="file" name="file" onChange={this.handleChange.bind(this,timeline_id)} multiple />
+                        </div>
                     </div>
                 </div>
                 <div className="row bordertop">

@@ -20,8 +20,8 @@ export default class UserProfilInfo extends Component {
         if(this.Auth.loggedIn()){
             // this.props.router.push("/");
             this.Auth.getUserinfo().then(res=>{
-                this.setState({user: res});
-                console.log("Home "+ res.phone);
+                this.setState({user: res.user});
+               // console.log("Home "+ res.phone);
             }).catch(err=>{
                 alert("Resolver "+ err);
             })
