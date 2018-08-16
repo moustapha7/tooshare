@@ -17,33 +17,23 @@ export default class CvService {
         })
 
     }
-    loadCommentsFromServer(){
-        let $this=this;
-        const config= {
-            headers: {
-                'Authorization': 'Bearer' + this.Auth.getToken()
-            }
-        }
-        axios.get('/api/AllCategorie',config).then(response=>{
-           /* $this.setState({
-                data : response.data
-            })*/
-            console.log(response);
-           // Promise.resolve(response.data);
-           return response.data;
-           
-        }).catch(err=>{
-            console.log(err);
-        })
-    }
-    getAllFormationByCategories(idcategorie){
-        return this.Auth.fetch(`${this.domain}/CategorieAllFormations`, {
+    AjoutUserFormation(userformation){
+        return this.Auth.fetch(`${this.domain}/AjoutFormationUser`, {
             method: 'POST',
-            body: JSON.stringify({
-                idcategorie
-            })
+            body: JSON.stringify(userformation)
         }).then(res => {
             return Promise.resolve(res.data);
+        })
+        
+    }
+    getAllFormationByCategories(idcategorie){
+        console.log(idcategorie)
+        return this.Auth.fetch(`${this.domain}/CategorieAllFormations?idcategorie=`+idcategorie, {
+            method: 'POST',
+            //data: JSON.stringify(idcategorie)
+        }).then(res => {
+            console.log("cvservicefor "+Promise.resolve(res));
+            return Promise.resolve(res);
         })
 
     }

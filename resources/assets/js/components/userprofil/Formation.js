@@ -16,31 +16,24 @@ export default class Formation extends Component {
             datedebut: '',
             datefin: '',
             lieu : '',
-            categories :[
-                {id: 1, name: "INFORMATIQUE", created_at: null, updated_at: null}
-                ,
-                {id: 2, name: "MANAGEMENT", created_at: null, updated_at: null}
-              ,
-                {id: 3, name: "QUALITÉ - ORGANISATION", created_at: null, updated_at: null}
-               ,
-                {id: 4, name: "TRANSPORT LOGISTIQUE", created_at: null, updated_at: null},
-                {id: 5, name: "COMPTABILITÉ GESTION", created_at: null, updated_at: null}],
-            formations:{},
+            categories :[],
+            formations:[],
         }
         this.handleSubmit = this.handleSubmit.bind(this);
        this.handleChange = this.handleChange.bind(this);
+       this.selectTypeFormation = this.selectTypeFormation.bind(this);
+       this.selectFormation = this.selectFormation.bind(this);
     }
   
     componentWillMount(){
         console.log("formation");
-         /* this.Cv.getAllCategories.then(res=>{
-              console.log(res);
+         this.Cv.getAllCategories().then(res=>{
                 this.setState({categories: res});
                 console.log("formation"+this.state.categories);
             }).catch(err=>{
                Console.log("Resolver "+ err);
             })
-            */
+            
            // console.log(this.Cv.loadCommentsFromServer());
             console.log("ok");
            // console.log(this.Cv.getAllCategories());
@@ -62,17 +55,46 @@ export default class Formation extends Component {
             [name]: value
         });
     }
-    handleSubmit(event) {
-        // this.setState({login: event.target.value});
+    selectTypeFormation (event) {
+       this.setState({categorie_id: event.target.value});
+        this.Cv.getAllFormationByCategories(event.target.value).then(res=>{
+            this.setState({formations: res});
+        }).catch(err=>{
+           Console.log("Resolver "+ err);
+        })
+
+
     }
-    render() {
-     let categories = this.state.categories;
-      let optionItems;
-      optionItems =(
-            categories.forEach(element => {
-             <option value={element.id}>{element.name}</option>;
-            })); 
-            console.log(optionItems)         
+    
+    selectFormation (event) {
+        this.setState({formation_id: event.target.value});
+        console.log(this.state.formation_id);
+     }
+    handleSubmit(event) {
+        event.preventDefault();
+        alert("ok");
+        this.setState({user_id: this.props.User.id})
+        
+            const userformation = {
+                formation_id: this.state.formation_id,
+                user_id : this.state.user_id,
+                lieu: this.state.lieu,
+                datedebut:this.state.datedebut,
+                datefin:this.state.datefin,
+            };
+
+            this.Cv.AjoutUserFormation(userformation).then(response=>{
+                this.props.router.push("home",response);
+                alert(response);
+            }).catch(err=>{
+                alert(err);
+            })
+
+
+
+     
+    }
+    render() {     
         return (
             <div >
                
@@ -88,75 +110,58 @@ export default class Formation extends Component {
             </div>
             <div className="modal-body mx-3">
                 <div className="md-form mb-5">
-                <form role="form">
-                <div>
-                <label >CAT:</label>
-                <select>{this.state.categories.map(element => {
-             <option value={element.id}>{element.name}</option>
-            })}</select>
-                </div>
-                <div class="form-group">
-                        <label for="sel3">Test:</label>
-                        <select class="form-control" id="sel3">
-                        {optionItems}
-                        <option value="1">"Okkkkk"</option>
-                        <option>1</option>
-                        <option>2</option>
-                        </select>
-                        
-                    </div>
+                <form role="form" method="POST" onSubmit={this.handleSubmit}>
               
                     <div class="form-group">
                         <label for="sel1">Type de Formation:</label>
-                        <select class="form-control" id="sel1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
+                        <select class="form-control" id="sel1"  onChange={this.selectTypeFormation} >
+                        {this.state.categories.map((cat)=>
+                                     <option value={cat.id}>{cat.name}</option>
+
+                                    )}
                         </select>
                         
                     </div>
 
 
                      <div class="form-group">
-                        <label for="sel1">Formation:</label>
-                        <select class="form-control" id="sel1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
+                        <label for="sel2">Formation:</label>
+                        <select class="form-control" id="sel2" onChange={this.selectFormation}>
+                        {this.state.formations.map((formation)=>
+                                     <option value={formation.id}>{formation.name}</option>
+
+                                    )}
                         </select>
                         
                     </div>
+                    <div className="col-md-6">
+                            <div className="form-group">
+                             <label for="birthday">Date de debut</label>
+                                 <input id="datedebut" type="date" className="form-control" ref="datedebut" name="datedebut"  required autoFocus placeholder="Date de debut" onChange={this.handleChange}/>
+                                                          
+                             </div>
+                            </div>
+                            <div className="col-md-6">
+                                <div className="form-group">
+                                    <label for="birthday">Date de fin</label>
+                                    <input id="datefin" type="date" className="form-control" ref="datefin" name="datefin"  required autoFocus placeholder="Date de fin" onChange={this.handleChange}/>
+                                                          
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                    <label for="lieu">Lieu</label>
+                                    <input type="text" class="form-control" id="lieu"  ref="lieu" name="lieu"  required autoFocus  onchange={this.handleChange}/>
+                            </div>
+                            <div className="modal-footer d-flex justify-content-center">
+                <button type="submit" className="btn btn-primary">Enregister<i className="fa fa-paper-plane-o ml-1"></i></button>
+            </div>
                     </form>
                     
                 </div>
-                                                         <div className="col-md-6">
-                                                            <div className="form-group">
-                                                            <label for="birthday">Date de debut</label>
-                                                            <input id="date_debut" type="date" className="form-control" ref="date_debut" name="date_debut"  required autoFocus placeholder="Date de debut" onChange={this.handleChange}/>
-                                                          
-                                                        </div>
-                                                        </div>
-
-
-                                                        <div className="col-md-6">
-                                                            <div className="form-group">
-                                                            <label for="birthday">Date de fin</label>
-                                                            <input id="date_debut" type="date" className="form-control" ref="date_debut" name="date_debut"  required autoFocus placeholder="Date de debut" onChange={this.handleChange}/>
-                                                          
-                                                        </div>
-                                                        </div>
-                <div className="md-form">
-                   
-                    <label data-error="wrong" data-success="right" for="form32">Lieu</label>
-                    <input type="text" id="form32" className="form-control validate"/>
-                </div>
+                                            
 
             </div>
-            <div className="modal-footer d-flex justify-content-center">
-                <button className="btn btn-primary">Enregister<i className="fa fa-paper-plane-o ml-1"></i></button>
-            </div>
+           
         </div>
     </div>
 </div>
