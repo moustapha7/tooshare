@@ -8,7 +8,6 @@ export default class Barner extends Component {
         super(props)
         this.state={
             cover: defaultBarner,
-
         }
         this.Auth=new AuthService();
         this.handleChange = this.handleChange.bind(this);
@@ -26,14 +25,14 @@ export default class Barner extends Component {
         if (event.target.files && event.target.files[0]) {
             let reader = new FileReader();
             reader.onload = (e) => {
-                this.setState({useravatar: e.target.result});
+                this.setState({cover: e.target.result});
             };
             reader.readAsDataURL(event.target.files[0]);
-            this.updateAvatart(id);
+            this.updateCover(id);
         }
     }
 
-    updateAvatart(id) {
+    updateCover(id) {
        // alert('Timeline Id: '+ id);
         const data={
             file:this.state.file,
@@ -52,7 +51,7 @@ export default class Barner extends Component {
                 'Content-Type': 'multipart/form-data'
              }
          }
-         axios.post('http://localhost:8000/api/udateCover',formdata,config).then(res=>{
+         axios.post('http://localhost:8000/api/updateCover',formdata,config).then(res=>{
                 // alert(res.succes);
              }).catch(err=>{
                  console.log(err);

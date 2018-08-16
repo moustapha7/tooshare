@@ -45,8 +45,8 @@ Route::post('login', 'Api\AuthController@login');
 //Route::get('getUserInfo','Api\UserController@getUserInfo');
 
 // TIMELINE 
-Route::post('udateAvatar','Api\TimelineController@UpdateAvatar');
-Route::post('udateCover','Api\TimelineController@udateCover');
+Route::post('updateAvatar','Api\TimelineController@UpdateAvatar');
+Route::post('updateCover','Api\TimelineController@updateCover');
 // END TIMELINE
 
 Route::get('users',function (){

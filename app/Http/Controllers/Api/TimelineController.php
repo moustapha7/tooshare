@@ -91,7 +91,7 @@ class TimelineController extends Controller
             return  response()->json(['succes'=>'Avatar Saved :)'],200);
         }
 
-        public function udateCover(Request $request){
+        public function updateCover(Request $request){
             $timeline=Timeline::find($request->timline_id);
                $photos = $request->file('file');
     

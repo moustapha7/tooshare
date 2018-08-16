@@ -8700,14 +8700,14 @@ var SideBarGauche = function (_Component) {
 
         };
         _this.Auth = new __WEBPACK_IMPORTED_MODULE_3__services_AuthService__["a" /* default */]();
-        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleChangeavatart = _this.handleChangeavatart.bind(_this);
 
         return _this;
     }
 
     _createClass(SideBarGauche, [{
-        key: 'handleChange',
-        value: function handleChange(id, event) {
+        key: 'handleChangeavatart',
+        value: function handleChangeavatart(id, event) {
             var _this2 = this;
 
             // this.setState({login: event.target.value});
@@ -8724,19 +8724,19 @@ var SideBarGauche = function (_Component) {
                 };
                 reader.readAsDataURL(event.target.files[0]);
 
-                this.updateAvatart(id);
+                this.updateAvatar(id);
             }
         }
     }, {
-        key: 'updateAvatart',
-        value: function updateAvatart(id) {
-            // alert('Timeline Id: '+ id);
+        key: 'updateAvatar',
+        value: function updateAvatar(id) {
+            //alert('Udate Avatar Id: '+ id);
             var data = {
                 file: this.state.file,
                 timline_id: id
             };
 
-            data.file = document.querySelector('#file');
+            data.file = document.querySelector('#fileavatar');
             var formdata = new FormData();
             formdata.append('timline_id', data.timline_id);
             for (var pas = 0; pas < data.file.files.length; pas++) {
@@ -8748,7 +8748,7 @@ var SideBarGauche = function (_Component) {
                     'Content-Type': 'multipart/form-data'
                 }
             };
-            axios.post('http://localhost:8000/api/udateAvatar', formdata, config).then(function (res) {
+            axios.post('http://localhost:8000/api/updateAvatar', formdata, config).then(function (res) {
                 // alert(res.succes);
             }).catch(function (err) {
                 console.log(err);
@@ -8817,8 +8817,8 @@ var SideBarGauche = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: showme.join(' ') },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { htmlFor: 'file', className: 'medialabel', style: !!this.props.UserAvatar ? { backgroundImage: 'url(http://localhost:8000/avatars/' + this.props.UserAvatar.file_Resize_name + ')' } : { backgroundImage: 'url(' + __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default.a + ')' } }),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'file', type: 'file', name: 'file', onChange: this.handleChange.bind(this, timeline_id), multiple: true })
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { htmlFor: 'fileavatar', className: 'medialabel', style: !!this.props.UserAvatar ? { backgroundImage: 'url(http://localhost:8000/avatars/' + this.props.UserAvatar.file_Resize_name + ')' } : { backgroundImage: 'url(' + __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default.a + ')' } }),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'fileavatar', type: 'file', name: 'fileavatar', onChange: this.handleChangeavatart.bind(this, timeline_id), multiple: true })
                             )
                         )
                     ),
@@ -87955,7 +87955,6 @@ var Barner = function (_Component) {
 
         _this.state = {
             cover: __WEBPACK_IMPORTED_MODULE_2__images_barnerProfil_jpg___default.a
-
         };
         _this.Auth = new __WEBPACK_IMPORTED_MODULE_3__services_AuthService__["a" /* default */]();
         _this.handleChange = _this.handleChange.bind(_this);
@@ -87977,15 +87976,15 @@ var Barner = function (_Component) {
             if (event.target.files && event.target.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    _this2.setState({ useravatar: e.target.result });
+                    _this2.setState({ cover: e.target.result });
                 };
                 reader.readAsDataURL(event.target.files[0]);
-                this.updateAvatart(id);
+                this.updateCover(id);
             }
         }
     }, {
-        key: 'updateAvatart',
-        value: function updateAvatart(id) {
+        key: 'updateCover',
+        value: function updateCover(id) {
             // alert('Timeline Id: '+ id);
             var data = {
                 file: this.state.file,
@@ -88004,7 +88003,7 @@ var Barner = function (_Component) {
                     'Content-Type': 'multipart/form-data'
                 }
             };
-            axios.post('http://localhost:8000/api/udateCover', formdata, config).then(function (res) {
+            axios.post('http://localhost:8000/api/updateCover', formdata, config).then(function (res) {
                 // alert(res.succes);
             }).catch(function (err) {
                 console.log(err);

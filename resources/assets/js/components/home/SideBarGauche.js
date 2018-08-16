@@ -14,10 +14,11 @@ export default class SideBarGauche extends Component {
 
         }
         this.Auth=new AuthService();
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChangeavatart = this.handleChangeavatart.bind(this);
 
     }
-    handleChange(id,event) {
+    handleChangeavatart(id,event) {
+
         // this.setState({login: event.target.value});
         const target = event.target;
         const value = target.value;
@@ -34,18 +35,18 @@ export default class SideBarGauche extends Component {
             };
             reader.readAsDataURL(event.target.files[0]);
 
-            this.updateAvatart(id);
+            this.updateAvatar(id);
         }
     }
 
-    updateAvatart(id) {
-       // alert('Timeline Id: '+ id);
+    updateAvatar(id) {
+     //alert('Udate Avatar Id: '+ id);
         const data={
             file:this.state.file,
             timline_id:id
         }
 
-       data.file =document.querySelector('#file');
+       data.file =document.querySelector('#fileavatar');
         var formdata= new FormData();
         formdata.append('timline_id',data.timline_id);
         for ( var pas = 0; pas < data.file.files.length; pas++) {
@@ -57,7 +58,7 @@ export default class SideBarGauche extends Component {
                 'Content-Type': 'multipart/form-data'
              }
          }
-         axios.post('http://localhost:8000/api/udateAvatar',formdata,config).then(res=>{
+         axios.post('http://localhost:8000/api/updateAvatar',formdata,config).then(res=>{
                 // alert(res.succes);
              }).catch(err=>{
                  console.log(err);
@@ -102,8 +103,8 @@ export default class SideBarGauche extends Component {
                         </Link>
                         
                          <div className={showme.join(' ')} >
-                            <label htmlFor="file" className="medialabel" style={!!(this.props.UserAvatar)? {backgroundImage: 'url(http://localhost:8000/avatars/'+ this.props.UserAvatar.file_Resize_name +')'} : {backgroundImage: 'url('+defaultUser+')'}}></label>
-                            <input className="form-control" id="file" type="file" name="file" onChange={this.handleChange.bind(this,timeline_id)} multiple />
+                            <label htmlFor="fileavatar" className="medialabel" style={!!(this.props.UserAvatar)? {backgroundImage: 'url(http://localhost:8000/avatars/'+ this.props.UserAvatar.file_Resize_name +')'} : {backgroundImage: 'url('+defaultUser+')'}}></label>
+                            <input className="form-control" id="fileavatar" type="file" name="fileavatar" onChange={this.handleChangeavatart.bind(this,timeline_id)} multiple />
                         </div>
                     </div>
                 </div>
