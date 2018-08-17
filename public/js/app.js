@@ -36045,7 +36045,8 @@ var TimeLine = function (_Component) {
 
         _this.state = {
             data: [],
-            content: ''
+            content: '',
+            loading: true
 
         };
 
@@ -36068,7 +36069,8 @@ var TimeLine = function (_Component) {
             };
             axios.get('/api/timeline', config).then(function (response) {
                 $this.setState({
-                    data: response.data
+                    data: response.data,
+                    loading: false
                 });
                 console.log(response);
             }).catch(function (err) {
@@ -36138,20 +36140,15 @@ var TimeLine = function (_Component) {
 
             var user = this.props.User;
             // const linkto = "/publicUser/" + this.props.User.user.id + "/edit";
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: '' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__AgrationRx__["a" /* default */], null),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: ' espace' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h5',
-                        null,
-                        'Votre fil d\'actualit\xE9'
-                    )
-                ),
-                this.state.data.map(function (post, i) {
+            var data = void 0;
+            if (this.state.loading) {
+                data = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h4',
+                    null,
+                    'Chargement'
+                );
+            } else {
+                data = this.state.data.map(function (post, i) {
                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'card card-body bg-fade espace ', key: i },
@@ -36341,7 +36338,22 @@ var TimeLine = function (_Component) {
                             )
                         )
                     );
-                })
+                });
+            }
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: '' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__AgrationRx__["a" /* default */], null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: ' espace' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h5',
+                        null,
+                        'Votre fil d\'actualit\xE9'
+                    )
+                ),
+                data
             );
         }
     }]);

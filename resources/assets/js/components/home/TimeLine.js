@@ -11,6 +11,7 @@ export default class TimeLine extends Component {
         this.state={
             data: [],
             content : '',
+            loading: true
 
         }
 
@@ -29,7 +30,8 @@ export default class TimeLine extends Component {
         }
         axios.get('/api/timeline',config).then(response=>{
             $this.setState({
-                data : response.data
+                data : response.data,
+                loading: false
             })
             console.log(response);
         }).catch(err=>{
@@ -92,13 +94,11 @@ export default class TimeLine extends Component {
     render() {
         const user=this.props.User
        // const linkto = "/publicUser/" + this.props.User.user.id + "/edit";
-        return (
-            <div className="">
-                <AgrationRx />
-                <div className=" espace">
-                    <h5>Votre fil d'actualité</h5>
-                </div>
-            {this.state.data.map((post,i)=>
+        let data;
+       if (this.state.loading) {
+        data = <h4>Chargement</h4>
+        } else {
+            data =  this.state.data.map((post,i)=>
                 <div className="card card-body bg-fade espace "  key={i}>
 
                     <div className="card-heade">
@@ -163,7 +163,15 @@ export default class TimeLine extends Component {
                 </div>
 
                 
-            )}
+            );
+        }
+        return (
+            <div className="">
+                <AgrationRx />
+                <div className=" espace">
+                    <h5>Votre fil d'actualité</h5>
+                </div>
+                    {data}
             </div>
         );
     }
