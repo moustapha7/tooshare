@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Router, Route, Link } from 'react-router';
-import defaultUser from '../../../../images/defaultuserimage.png'
+import defaultUser from '../../../../images/defaultuserimage.png';
+import loading from '../../../../images/source.gif';
 import AuthService from '../../services/AuthService';
-import AgrationRx from './AgrationRx'
+import AgrationRx from './AgrationRx';
 import Moment from 'react-moment';
+import ReactLoading from 'react-loading';
+const Loading = require('react-loading-animation');
 export default class TimeLine extends Component {
 
     constructor() {
@@ -96,7 +99,7 @@ export default class TimeLine extends Component {
        // const linkto = "/publicUser/" + this.props.User.user.id + "/edit";
         let data;
        if (this.state.loading) {
-        data = <h4>Chargement</h4>
+        data = <Loading />
         } else {
             data =  this.state.data.map((post,i)=>
                 <div className="card card-body bg-fade espace "  key={i}>
