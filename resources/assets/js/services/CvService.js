@@ -18,6 +18,7 @@ export default class CvService {
 
     }
     AjoutUserFormation(userformation){
+       console.log( userformation);
         return this.Auth.fetch(`${this.domain}/AjoutFormationUser`, {
             method: 'POST',
             body: JSON.stringify(userformation)

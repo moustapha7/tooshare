@@ -77,12 +77,12 @@ export default class Formation extends Component {
         
             const userformation = {
                 formation_id: this.state.formation_id,
-                user_id : this.state.user_id,
+                user_id : this.props.User.id,
                 lieu: this.state.lieu,
                 datedebut:this.state.datedebut,
                 datefin:this.state.datefin,
             };
-
+            console.log(userformation);
             this.Cv.AjoutUserFormation(userformation).then(response=>{
                 this.props.router.push("home",response);
                 alert(response);
@@ -150,7 +150,7 @@ export default class Formation extends Component {
                             </div>
                             <div class="form-group col-md-6">
                                     <label for="lieu">Lieu</label>
-                                    <input type="text" class="form-control" id="lieu"  ref="lieu" name="lieu"  required autoFocus  onchange={this.handleChange}/>
+                                    <input type="text" class="form-control" id="lieu"  ref="lieu" name="lieu"  required autoFocus  onMouseLeave={this.handleChange}/>
                             </div>
                             <div className="modal-footer d-flex justify-content-center">
                 <button type="submit" className="btn btn-primary">Enregister<i className="fa fa-paper-plane-o ml-1"></i></button>

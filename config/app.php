@@ -160,7 +160,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+       // Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         //Barryvdh\Debugbar\ServiceProvider::class,
+       // Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+
 
     ],
 
@@ -213,6 +216,8 @@ return [
         //'Form' => Collective\Html\FormFacade::class,
         //'Html' => Collective\Html\HtmlFacade::class,
         //'Image' => Intervention\Image\Facades\Image::class,
+       //'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+       //'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
     ],
 

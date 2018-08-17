@@ -4872,6 +4872,7 @@ var AuthService = function () {
             var _this = this;
 
             // Get a token from api server using the fetch api
+            console.log(email);
             return this.fetch(this.domain + '/login', {
                 method: 'POST',
                 body: JSON.stringify({
@@ -4880,7 +4881,7 @@ var AuthService = function () {
                 })
             }).then(function (res) {
                 _this.setToken(res.access_token); // Setting the token in localStorage
-                // console.log(res);
+                console.log(res);
                 _this.state.data = res;
                 return Promise.resolve(res.data);
             });
@@ -5119,7 +5120,7 @@ var Header = function (_Component) {
 
             event.preventDefault();
             if (this.validator.allValid()) {
-                // alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
+                alert('Email: ' + this.state.login + ' Password: ' + this.state.password);
                 this.Auth.login(this.state.login, this.state.password).then(function (res) {
                     var dataUser = res;
                     _this2.props.router.push("home", dataUser);
@@ -86943,12 +86944,12 @@ var Formation = function (_Component) {
 
             var userformation = {
                 formation_id: this.state.formation_id,
-                user_id: this.state.user_id,
+                user_id: this.props.User.id,
                 lieu: this.state.lieu,
                 datedebut: this.state.datedebut,
                 datefin: this.state.datefin
             };
-
+            console.log(userformation);
             this.Cv.AjoutUserFormation(userformation).then(function (response) {
                 _this4.props.router.push("home", response);
                 alert(response);
@@ -87077,7 +87078,7 @@ var Formation = function (_Component) {
                                                     { 'for': 'lieu' },
                                                     'Lieu'
                                                 ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', 'class': 'form-control', id: 'lieu', ref: 'lieu', name: 'lieu', required: true, autoFocus: true, onchange: this.handleChange })
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', 'class': 'form-control', id: 'lieu', ref: 'lieu', name: 'lieu', required: true, autoFocus: true, onMouseLeave: this.handleChange })
                                             ),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'div',
@@ -87152,6 +87153,7 @@ var CvService = function () {
     }, {
         key: 'AjoutUserFormation',
         value: function AjoutUserFormation(userformation) {
+            console.log(userformation);
             return this.Auth.fetch(this.domain + '/AjoutFormationUser', {
                 method: 'POST',
                 body: JSON.stringify(userformation)

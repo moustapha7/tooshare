@@ -35,7 +35,7 @@ class Header extends Component {
     handleSubmit(event) {
         event.preventDefault();
         if( this.validator.allValid() ){
-           // alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
+            alert('Email: ' + this.state.login+ ' Password: '+ this.state.password);
             this.Auth.login(this.state.login,this.state.password).then(res=>{
                 const dataUser=res;
                 this.props.router.push("home",dataUser);
