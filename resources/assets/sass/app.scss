@@ -9,6 +9,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+.costum-navbar-item .nav-item .nav-link {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
 .hide{
    display: none;
 }
@@ -70,6 +75,15 @@
   
 }
 
+.navbarUseravatar{
+    width: 35px;
+    height: 35px;
+    border: 0px solid gainsboro;
+    background-size: cover;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+
 
 .navbar-laravel {
   background-color: #fff;
@@ -79,7 +93,7 @@
   height: 20px;
 }
 .headerspace{
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 /* Login form */
 .mynavbar-collapse .loginForm a{
@@ -106,6 +120,18 @@
   padding-top: 0px;
   padding-bottom: 0px;
 }
+
+.rechercheForm input{
+  border: 1px solid #fff;
+  color: #008dd4 !important;
+  border-radius: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 25px;
+  background-color: #ffffff;
+  font-size: small;
+}
+
 
 .btn-login {
   background-color: #ffffff;

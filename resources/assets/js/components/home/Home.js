@@ -50,7 +50,7 @@ class Home extends Component {
         return (
             <div className="">
 
-                <Header link="logout"/>
+                <Header link="logout" UserAvatar={!!(this.state.userAvatar)? this.state.userAvatar : ""}/>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding">

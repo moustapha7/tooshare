@@ -10413,6 +10413,11 @@ a.text-dark:focus {
   }
 }
 
+.costum-navbar-item .nav-item .nav-link {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
 .hide {
   display: none;
 }
@@ -10469,6 +10474,15 @@ a.text-dark:focus {
   cursor: pointer;
 }
 
+.navbarUseravatar {
+  width: 35px;
+  height: 35px;
+  border: 0px solid gainsboro;
+  background-size: cover;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -10480,7 +10494,7 @@ a.text-dark:focus {
 }
 
 .headerspace {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 /* Login form */
@@ -10509,6 +10523,17 @@ a.text-dark:focus {
   height: 25px;
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+.rechercheForm input {
+  border: 1px solid #fff;
+  color: #008dd4 !important;
+  border-radius: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 25px;
+  background-color: #ffffff;
+  font-size: small;
 }
 
 .btn-login {

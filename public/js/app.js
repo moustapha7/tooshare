@@ -5184,7 +5184,7 @@ var Header = function (_Component) {
                                 { className: 'collapse navbar-collapse', id: 'navbarSupportedContent' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'ul',
-                                    { className: 'navbar-nav mr-auto' },
+                                    { className: 'navbar-nav mr-auto costum-navbar-item' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'li',
                                         { className: 'nav-item active' },
@@ -5240,7 +5240,7 @@ var Header = function (_Component) {
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'logo',
-                                        { className: 'logo ' },
+                                        { className: 'logo logo-centrer' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             __WEBPACK_IMPORTED_MODULE_2_react_router__["a" /* Link */],
                                             { className: 'logo navbar-brand', to: '/' },
@@ -5282,7 +5282,7 @@ var Header = function (_Component) {
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'form',
-                                    { className: 'form-inline my-2 my-lg-0' },
+                                    { className: 'form-inline my-2 my-lg-0 rechercheForm' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control mr-sm-2', type: 'search', placeholder: 'Recherche', 'aria-label': 'Search' })
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -5291,7 +5291,11 @@ var Header = function (_Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'li',
                                         { className: 'nav-item dropdown user-avata' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_6__images_defaultuserimage_png___default.a, alt: 'Avatar', width: 45, className: 'useravatar' })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'span',
+                                            { style: !!this.props.UserAvatar ? { backgroundImage: 'url(http://localhost:8000/avatars/' + this.props.UserAvatar.file_Resize_name + ')' } : { backgroundImage: 'url(' + __WEBPACK_IMPORTED_MODULE_6__images_defaultuserimage_png___default.a + ')' }, className: 'useravatar navbarUseravatar' },
+                                            ' '
+                                        )
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'li',
@@ -84521,7 +84525,7 @@ var Home = function (_Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: '' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Header__["a" /* default */], { link: 'logout' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Header__["a" /* default */], { link: 'logout', UserAvatar: !!this.state.userAvatar ? this.state.userAvatar : "" }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { className: 'container' },
