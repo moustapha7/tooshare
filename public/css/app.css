@@ -10413,6 +10413,76 @@ a.text-dark:focus {
   }
 }
 
+.costum-navbar-item .nav-item .nav-link {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.hide {
+  display: none;
+}
+
+.showme {
+  display: block;
+}
+
+.userAvatarblock input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.userAvatarblock .medialabel {
+  width: 70px;
+  height: 70px;
+  border: 0px solid gainsboro;
+  background-size: cover;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.barner input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.costumAvatarBlock .costumUseravatar {
+  width: 70px;
+  height: 70px;
+  border: 0px solid gainsboro;
+  background-size: cover;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.costumAvatarBlock .costumUserpostavatar {
+  width: 45px;
+  height: 45px;
+  border: 0px solid gainsboro;
+  background-size: cover;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.costumAvatarBlock .costumUsercommenttavatar {
+  width: 35px;
+  height: 35px;
+  border: 0px solid gainsboro;
+  background-size: cover;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.navbarUseravatar {
+  width: 35px;
+  height: 35px;
+  border: 0px solid gainsboro;
+  background-size: cover;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -10424,7 +10494,7 @@ a.text-dark:focus {
 }
 
 .headerspace {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 /* Login form */
@@ -10455,6 +10525,17 @@ a.text-dark:focus {
   padding-bottom: 0px;
 }
 
+.rechercheForm input {
+  border: 1px solid #fff;
+  color: #008dd4 !important;
+  border-radius: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 25px;
+  background-color: #ffffff;
+  font-size: small;
+}
+
 .btn-login {
   background-color: #ffffff;
   color: #008dd4 !important;
@@ -10463,6 +10544,10 @@ a.text-dark:focus {
 
 .mdperdu {
   font-size: small;
+}
+
+.forminscription {
+  margin-bottom: 230px;
 }
 
 /* End Login Form */
@@ -10676,9 +10761,9 @@ footer.page-footer {
 }
 
 .mediatoshare .medialabel {
-  height: 300px;
   width: 100%;
-  border: 1px solid gainsboro;
+  height: 100%;
+  border: 0px solid gainsboro;
   background-size: contain;
 }
 
@@ -10720,6 +10805,11 @@ footer.page-footer {
 
 .useravatar {
   border-radius: 100%;
+  margin-right: 4px;
+  float: left;
+}
+
+.useravatarrecherche {
   margin-right: 4px;
   float: left;
 }

@@ -4,6 +4,7 @@ import { Router, Route, browserHistory, Link, withRouter } from 'react-router';
 import logo from '../../../images/logo.png'
 import AuthService from "../services/AuthService";
 import SimpleReactValidator from 'simple-react-validator';
+import defaultUser from '../../../images/defaultuserimage.png'
 
 class Header extends Component {
     constructor(props){
@@ -81,7 +82,7 @@ class Header extends Component {
                         </button>
 
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav mr-auto">
+                            <ul className="navbar-nav mr-auto costum-navbar-item">
                                 <li className="nav-item active">
                                     <Link className="nav-link" to="/home"><i className="fa fa-home couleur"></i> <span
                                         className="sr-only">(current)</span></Link>
@@ -97,7 +98,7 @@ class Header extends Component {
                                     <a className="nav-link" href="#"><i className="fa fa-folder-open"></i></a>
                                     <span className="notifications-badge" color="danger" >2</span>
                                 </li>
-                                <logo className="logo ">
+                                <logo className="logo logo-centrer">
                                     <Link className="logo navbar-brand"  to="/"><strong><img src={logo} height="30" width="auto"/> </strong></Link>
                                 </logo>
                                 <li className="nav-item">
@@ -110,25 +111,26 @@ class Header extends Component {
                                     <a className="nav-link" href="#"><i className="fa fa-briefcase"></i></a>
                                 </li>
                             </ul>
-                            <form className="form-inline my-2 my-lg-0">
+                            <form className="form-inline my-2 my-lg-0 rechercheForm">
                                 <input className="form-control mr-sm-2" type="search" placeholder="Recherche"  aria-label="Search"/>
                             </form>
                             <ul className="user-profile navbar-nav ">
-                            <li className="nav-item dropdown user-avatar">
-
+                            <li className="nav-item dropdown user-avata">
+                            <span style={!!(this.props.UserAvatar)? {backgroundImage: 'url(http://localhost:8000/avatars/'+ this.props.UserAvatar.file_Resize_name +')'} : {backgroundImage: 'url('+defaultUser+')'}} className="useravatar navbarUseravatar"> </span>
+                            </li>
+                            <li className="nav-item dropdown user-avata">
+                                
                                 <a className="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a className="dropdown-item" href="#">Mon Compte</a>
                                     <a className="dropdown-item" href="#">Paramettre</a>
                                     <div className="dropdown-divider">Autres</div>
-                                    <a className="dropdown-item" href="#">Deconnexion</a>
+                                    <a className="dropdown-item" href="#" onClick={this.handleLogout.bind(this)}>Deconnexion</a>
                                 </div>
                             </li>
                             </ul>
-                            <button className="btn btn-danger" onClick={this.handleLogout.bind(this)}>Logout</button>
                         </div>
                     </div>
                 </nav>

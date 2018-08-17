@@ -3,6 +3,7 @@ import Header from '../Header';
 import UserServices from '../../services/UserService';
 import AuthService from '../../services/AuthService';
 import FriendService from '../../services/FriendService';
+import defaultUser from '../../../../images/defaultuserimage.png'
 
 export default class UsersRegistered extends Component {
     constructor(props){
@@ -76,31 +77,23 @@ export default class UsersRegistered extends Component {
                                     Liste des Utilisateurs
                                 </div>
                                 <div className="card-body">
-                                    <table className="table-condenced table table-hover mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>Avatar</th>
-                                                <th>Nom</th>
-                                                <th>Prenon</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        {this.state.users.map((user,i)=>
-                                        <tr key={i}>
-                                            <td >{user.phone}</td>
-                                            <td>{user.first_name}</td>
-                                            <td>{user.last_name}</td>
-                                            <td><button className="btn btn-primary" onClick={this.handleFriend.bind(this,user)}>Ajouter</button></td>
-                                        </tr>
-                                        )}
-                                        </tbody>
-                                    </table>
+                                    {this.state.users.map((user,i)=>
+                                    <div>
+                                    <div className="userposthearder">
+                                        <span>
+                                            <div href="#" className=""  key={i}>
+                                                <img src={defaultUser} alt="Avatar" width={50} className="useravatarrecherche"/>
+                                                <div className="username">{user.first_name+" "+user.last_name} <br /><span className="usernameprofil">Etuidant</span></div>
+                                            </div>
+                                        </span>
+                                        <span className="pull-right"><button className="btn btn-primary" onClick={this.handleFriend.bind(this,user)}>Suivre</button></span>
+                                    </div>
+                                        <hr />
+                                    </div>
+                                    )}
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -41,12 +41,21 @@ Route::post('CategorieAllFormations','Api\CvController@findAllFormationByCategor
 Route::post('AjoutFormationUser','Api\CvController@AjoutFormationUser');
 Route::post('register', 'Api\AuthController@register');
 Route::post('login', 'Api\AuthController@login');
+
+//Route::get('getUserInfo','Api\UserController@getUserInfo');
+
+// TIMELINE 
+Route::post('updateAvatar','Api\TimelineController@UpdateAvatar');
+Route::post('updateCover','Api\TimelineController@updateCover');
+// END TIMELINE
+
 Route::get('users',function (){
     return \App\User::all()->jsonSerialize();
 });
 
 Route::group(['prefix' => 'user'], function() {
-    Route::post('/', function() {
+   /* Route::post('/', function() {
         return response()->json(request()->user());
-    });
+    });*/
+    Route::post('/','Api\UserController@getUserInfo');
 });

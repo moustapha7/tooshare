@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Route, Link } from 'react-router';
 import AuthService from "../../services/AuthService";
-import TimeLine from './TimeLine'
-import defaulteFile from '../../../../images/default.jpg'
+import TimeLine from './TimeLine';
+import defaulteFile from '../../../../images/default.jpg';
 import EmojiPicker from 'emoji-picker-react';
 
 export default class PostForm extends Component {
@@ -57,7 +57,7 @@ export default class PostForm extends Component {
             content:this.state.content
         }
 
-       data.file =document.querySelector('#file');
+       data.file =document.querySelector('#mediafile');
         var formdata= new FormData();
 
         formdata.append('content',data.content);
@@ -84,7 +84,7 @@ export default class PostForm extends Component {
     }
 
     render() {
-        const user=this.props.User
+        const user=this.props.User;
         let mystyle = ['mediatoshare'];
         let postformstyle = ['card card-body bg-faded'];
         if(this.state.addClass) {
@@ -105,8 +105,8 @@ export default class PostForm extends Component {
                         <li><a href="#" onClick={this.toggle.bind(this)}><i className="fa fa-map-marker"></i></a></li>
                     </ul>
                     <div className={mystyle.join(' ')}>
-                        <label htmlFor="file" className="medialabel" style={{backgroundImage: 'url('+ this.state.image +')'}}></label>
-                        <input className="form-control" id="file" type="file" name="file" onChange={this.handleChange.bind(this)} multiple />
+                        <label htmlFor="mediafile" className="medialabel" style={{backgroundImage: 'url('+ this.state.image +')'}}></label>
+                        <input className="form-control" id="mediafile" type="file" name="mediafile" onChange={this.handleChange.bind(this)} multiple />
                     </div>
                     <div className="form-group" >
                         <textarea className="form-control " placeholder="Mettez a jour votre statut" name="content" onChange={this.handleChange} onClick={this.togglePost.bind(this)}></textarea>

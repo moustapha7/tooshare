@@ -36,5 +36,6 @@ class CvController extends Controller
             return response()->json(['message'=>'succes'.$formation],200);
        
   
+            
       }
 } 

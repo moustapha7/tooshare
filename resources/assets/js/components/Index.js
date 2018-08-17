@@ -96,21 +96,11 @@ class Welcome extends Component {
         return (
             <div>
                 <Header/>
-                <div className="lheight"></div>
-                <div className="container">
+                <div className="lheight"> </div>
+                <div className="container forminscription">
                     <div className="row">
                         <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                            <Link to="/home"><i className="fa fa-home"></i>Acceuil /</Link>
-                            <Link to="/chat"><i className="fa fa-chat"></i>Messages /</Link>
-                            <Link to="/profil/mode/user"><i className="fa fa-chat"></i>Profil/</Link>
-                            <Link to="/parametre"><i className="fa fa-chat"></i>parametre/</Link>
-                            <Link to="/publicUser"><i className="fa fa-chat"></i>publicUser/</Link>
-                            <Link to="/universite"><i className="fa fa-chat"></i>creationUniversite/</Link>
-                            <Link to="/entreprise"><i className="fa fa-chat"></i>creationEntreprise/</Link>
-                            <Link to="/publicUniversite"><i className="fa fa-chat"></i>publicUniversite/</Link>
-                            <Link to="/publicEntreprise"><i className="fa fa-chat"></i>publicEntreprise/</Link>
-                            <Link to="/priveEntreprise"><i className="fa fa-chat"></i>priveEntreprise/</Link>
-                            <Link to="/priveUniversite"><i className="fa fa-chat"></i>priveUniversite/</Link>
+                            
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                             <p className="h3 text-center mb-4 inscription">Inscription</p>
@@ -204,6 +194,10 @@ class Welcome extends Component {
                                                             <input id="password-confirm" type="password" className="form-control" ref="confirm" name="password_confirmation"  required placeholder="Confirmer Mot de passe" onChange={this.handleChange}/>
                                                         </div>
                                                     </div>
+                                                    <div className="col-md-12 col-md-offset-4">
+                                                    
+                                                        <input type="checkbox" /> J'accepte les conditions d'utilisations
+                                                    </div>
 
                                                     <div className="form-group" align="center">
                                                         <div className="col-md-12 col-md-offset-4">
@@ -212,6 +206,7 @@ class Welcome extends Component {
                                                             </button>
                                                         </div>
                                                     </div>
+                                                    
                                                 </form>
                                             </div>
                                         </div>

@@ -43,7 +43,7 @@ export default class Formation extends Component {
         
     } 
     componentWillUnmount () {
-        ths.setState({categories: null});
+        this.setState({categories: null});
         }
     
     handleChange(event) {
@@ -112,9 +112,9 @@ export default class Formation extends Component {
                 <div className="md-form mb-5">
                 <form role="form" method="POST" onSubmit={this.handleSubmit}>
               
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="sel1">Type de Formation:</label>
-                        <select class="form-control" id="sel1"  onChange={this.selectTypeFormation} >
+                        <select className="form-control" id="sel1"  onChange={this.selectTypeFormation} >
                         {this.state.categories.map((cat)=>
                                      <option value={cat.id}>{cat.name}</option>
 
@@ -124,9 +124,9 @@ export default class Formation extends Component {
                     </div>
 
 
-                     <div class="form-group">
+                     <div className="form-group">
                         <label for="sel2">Formation:</label>
-                        <select class="form-control" id="sel2" onChange={this.selectFormation}>
+                        <select className="form-control" id="sel2" onChange={this.selectFormation}>
                         {this.state.formations.map((formation)=>
                                      <option value={formation.id}>{formation.name}</option>
 
@@ -148,7 +148,7 @@ export default class Formation extends Component {
                                                           
                                 </div>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div className="form-group col-md-6">
                                     <label for="lieu">Lieu</label>
                                     <input type="text" class="form-control" id="lieu"  ref="lieu" name="lieu"  required autoFocus  onMouseLeave={this.handleChange}/>
                             </div>
