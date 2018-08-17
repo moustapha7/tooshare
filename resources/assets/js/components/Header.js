@@ -4,6 +4,7 @@ import { Router, Route, browserHistory, Link, withRouter } from 'react-router';
 import logo from '../../../images/logo.png'
 import AuthService from "../services/AuthService";
 import SimpleReactValidator from 'simple-react-validator';
+import defaultUser from '../../../images/defaultuserimage.png'
 
 class Header extends Component {
     constructor(props){
@@ -114,21 +115,22 @@ class Header extends Component {
                                 <input className="form-control mr-sm-2" type="search" placeholder="Recherche"  aria-label="Search"/>
                             </form>
                             <ul className="user-profile navbar-nav ">
-                            <li className="nav-item dropdown user-avatar">
-
+                            <li className="nav-item dropdown user-avata">
+                            <img src={defaultUser} alt="Avatar" width={45} className="useravatar"/>
+                            </li>
+                            <li className="nav-item dropdown user-avata">
+                                
                                 <a className="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a className="dropdown-item" href="#">Mon Compte</a>
                                     <a className="dropdown-item" href="#">Paramettre</a>
                                     <div className="dropdown-divider">Autres</div>
-                                    <a className="dropdown-item" href="#">Deconnexion</a>
+                                    <a className="dropdown-item" href="#" onClick={this.handleLogout.bind(this)}>Deconnexion</a>
                                 </div>
                             </li>
                             </ul>
-                            <button className="btn btn-danger" onClick={this.handleLogout.bind(this)}>Logout</button>
                         </div>
                     </div>
                 </nav>

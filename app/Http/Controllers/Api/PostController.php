@@ -166,7 +166,6 @@ class PostController extends Controller
         $comment= new Comment($request->all());
         $comment->post()->associate($post);
         $comment->user()->associate(Auth::user())->save();
-
         $post->notifications_user()->sync(Auth::user()->id);
         //notifier les utilisateurs abboner au post dabords
         foreach($post->notifications_user as $user){

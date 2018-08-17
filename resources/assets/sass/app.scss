@@ -117,7 +117,9 @@
   font-size: small;
 }
 
-
+.forminscription{
+  margin-bottom: 230px;
+}
 /* End Login Form */
 
 .footer {
@@ -351,6 +353,10 @@ footer.page-footer {
 }
 .useravatar{
   border-radius: 100%;
+  margin-right: 4px;
+  float: left;
+}
+.useravatarrecherche{
   margin-right: 4px;
   float: left;
 }
