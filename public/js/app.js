@@ -85539,212 +85539,13 @@ var HomeChat = function (_Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'card-header' },
-                                        'Messagerie'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'ul',
-                                        { className: 'list card-body' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            { className: 'clearfix' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg', alt: 'avatar' }),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                { className: 'about' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'name' },
-                                                    'Vincent Porter'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'status' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
-                                                    ' online'
-                                                )
-                                            )
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            { className: 'clearfix' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_02.jpg', alt: 'avatar' }),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                { className: 'about' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'name' },
-                                                    'Aiden Chavez'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'status' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle offline' }),
-                                                    ' left 7 mins ago'
-                                                )
-                                            )
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            { className: 'clearfix' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg', alt: 'avatar' }),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                { className: 'about' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'name' },
-                                                    'Mike Thomas'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'status' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
-                                                    ' online'
-                                                )
-                                            )
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            { className: 'clearfix' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_04.jpg', alt: 'avatar' }),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                { className: 'about' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'name' },
-                                                    'Erica Hughes'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'status' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
-                                                    ' online'
-                                                )
-                                            )
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            { className: 'clearfix' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_05.jpg', alt: 'avatar' }),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                { className: 'about' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'name' },
-                                                    'Ginger Johnston'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'status' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
-                                                    ' online'
-                                                )
-                                            )
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            { className: 'clearfix' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_06.jpg', alt: 'avatar' }),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                { className: 'about' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'name' },
-                                                    'Tracy Carpenter'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'status' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle offline' }),
-                                                    ' left 30 mins ago'
-                                                )
-                                            )
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            { className: 'clearfix' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_07.jpg', alt: 'avatar' }),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                { className: 'about' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'name' },
-                                                    'Christian Kelly'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'status' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle offline' }),
-                                                    ' left 10 hours ago'
-                                                )
-                                            )
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            { className: 'clearfix' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_08.jpg', alt: 'avatar' }),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                { className: 'about' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'name' },
-                                                    'Monica Ward'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'status' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
-                                                    ' online'
-                                                )
-                                            )
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            { className: 'clearfix' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_09.jpg', alt: 'avatar' }),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                { className: 'about' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'name' },
-                                                    'Dean Henry'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'status' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle offline' }),
-                                                    ' offline since Oct 28'
-                                                )
-                                            )
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'li',
-                                            { className: 'clearfix' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_10.jpg', alt: 'avatar' }),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'div',
-                                                { className: 'about' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'name' },
-                                                    'Peyton Mckinney'
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'status' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
-                                                    ' online'
-                                                )
-                                            )
+                                            'h2',
+                                            null,
+                                            'Messagerie'
                                         )
-                                    )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__ChatUserList__["a" /* default */], null)
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
@@ -85752,153 +85553,24 @@ var HomeChat = function (_Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'chat-header clearfix' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg', alt: 'avatar' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_8__images_defaultuserimage_png___default.a, alt: 'avatar', width: 70 }),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'div',
                                             { className: 'chat-about' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'div',
                                                 { className: 'chat-with' },
-                                                'Chat with Vincent Porter'
+                                                'Disccusion avec Samba Lo'
                                             ),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'div',
                                                 { className: 'chat-num-messages' },
-                                                'already 1 902 messages'
+                                                '85 messages'
                                             )
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-star' })
                                     ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'div',
-                                        { className: 'chat-history' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'ul',
-                                            null,
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'li',
-                                                { className: 'clearfix' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'message-data align-right' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'span',
-                                                        { className: 'message-data-time' },
-                                                        '10:10 AM, Today'
-                                                    ),
-                                                    ' \xA0 \xA0',
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'span',
-                                                        { className: 'message-data-name' },
-                                                        'Olia'
-                                                    ),
-                                                    ' ',
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle me' })
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'message other-message float-right' },
-                                                    'Hi Vincent, how are you? How is the project coming along?'
-                                                )
-                                            ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'li',
-                                                null,
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'message-data' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'span',
-                                                        { className: 'message-data-name' },
-                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
-                                                        ' Vincent'
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'span',
-                                                        { className: 'message-data-time' },
-                                                        '10:12 AM, Today'
-                                                    )
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'message my-message' },
-                                                    'Are we meeting today? Project has been already finished and I have results to show you.'
-                                                )
-                                            ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'li',
-                                                { className: 'clearfix' },
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'message-data align-right' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'span',
-                                                        { className: 'message-data-time' },
-                                                        '10:14 AM, Today'
-                                                    ),
-                                                    ' \xA0 \xA0',
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'span',
-                                                        { className: 'message-data-name' },
-                                                        'Olia'
-                                                    ),
-                                                    ' ',
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle me' })
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'message other-message float-right' },
-                                                    'Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last phase of the project?'
-                                                )
-                                            ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'li',
-                                                null,
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'message-data' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'span',
-                                                        { className: 'message-data-name' },
-                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
-                                                        ' Vincent'
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'span',
-                                                        { className: 'message-data-time' },
-                                                        '10:20 AM, Today'
-                                                    )
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'message my-message' },
-                                                    'Actually everything was fine. I\'m very excited to show this to our team.'
-                                                )
-                                            ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                'li',
-                                                null,
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                    'div',
-                                                    { className: 'message-data' },
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'span',
-                                                        { className: 'message-data-name' },
-                                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
-                                                        ' Vincent'
-                                                    ),
-                                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                        'span',
-                                                        { className: 'message-data-time' },
-                                                        '10:31 AM, Today'
-                                                    )
-                                                ),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online', style: { color: '#AED2A6' } }),
-                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online', style: { color: '#DAE9DA' } })
-                                            )
-                                        )
-                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__ChatMessage__["a" /* default */], null),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'chat-message clearfix' },
@@ -85922,7 +85594,7 @@ var HomeChat = function (_Component) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'div',
                                             { className: 'userchatavatar' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg', alt: 'avatar', width: 70, className: 'useravatar' }),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_8__images_defaultuserimage_png___default.a, alt: 'avatar', width: 70, className: 'useravatar' }),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'div',
                                                 { className: 'userinfo' },
@@ -86077,6 +85749,8 @@ var ChatForm = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -86084,6 +85758,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -86103,7 +85778,54 @@ var ChatUserList = function (_Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: '' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'container' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'containe' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'ul',
+                        { className: 'list card-body' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'li',
+                            { className: 'clearfix' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default.a, alt: 'avatar', width: 50 }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'about' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'name' },
+                                    'Samba Lo'
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'status' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                    ' online'
+                                )
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'li',
+                            { className: 'clearfix' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__images_defaultuserimage_png___default.a, alt: 'avatar', width: 50 }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'about' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'name' },
+                                    'Haby Thiam'
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'status' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle offline' }),
+                                    ' left 7 mins ago'
+                                )
+                            )
+                        )
+                    )
+                )
             );
         }
     }]);
@@ -86111,7 +85833,7 @@ var ChatUserList = function (_Component) {
     return ChatUserList;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (ChatUserList);
+/* harmony default export */ __webpack_exports__["a"] = (ChatUserList);
 
 /***/ }),
 /* 313 */
@@ -86147,7 +85869,68 @@ var ChatMessage = function (_Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: '' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'container' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'containe' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'chat-history' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'ul',
+                            null,
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'li',
+                                { className: 'clearfix' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'message-data align-right' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'span',
+                                        { className: 'message-data-time' },
+                                        '10:10 AM, Today'
+                                    ),
+                                    ' \xA0 \xA0',
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'span',
+                                        { className: 'message-data-name' },
+                                        'Moi'
+                                    ),
+                                    ' ',
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle me' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'message other-message float-right' },
+                                    'Salut Samba, comment \xE7a vas cela fait longtemp ?'
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'li',
+                                null,
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'message-data' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'span',
+                                        { className: 'message-data-name' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-circle online' }),
+                                        ' Samba'
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'span',
+                                        { className: 'message-data-time' },
+                                        '10:12 AM, Today'
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'message my-message' },
+                                    'Salu, oui c\'est vrai que \xE7a fait un bye. Moi \xE7a va bien sante bou bakh et toi ?'
+                                )
+                            )
+                        )
+                    )
+                )
             );
         }
     }]);
@@ -86155,7 +85938,7 @@ var ChatMessage = function (_Component) {
     return ChatMessage;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (ChatMessage);
+/* harmony default export */ __webpack_exports__["a"] = (ChatMessage);
 
 /***/ }),
 /* 314 */
