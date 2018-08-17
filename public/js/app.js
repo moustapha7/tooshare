@@ -84724,7 +84724,7 @@ var PostForm = function (_Component) {
                 content: this.state.content
             };
 
-            data.file = document.querySelector('#file');
+            data.file = document.querySelector('#mediafile');
             var formdata = new FormData();
 
             formdata.append('content', data.content);
@@ -84812,8 +84812,8 @@ var PostForm = function (_Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: mystyle.join(' ') },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { htmlFor: 'file', className: 'medialabel', style: { backgroundImage: 'url(' + this.state.image + ')' } }),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'file', type: 'file', name: 'file', onChange: this.handleChange.bind(this), multiple: true })
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('label', { htmlFor: 'mediafile', className: 'medialabel', style: { backgroundImage: 'url(' + this.state.image + ')' } }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'mediafile', type: 'file', name: 'mediafile', onChange: this.handleChange.bind(this), multiple: true })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
