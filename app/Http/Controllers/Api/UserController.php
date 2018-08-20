@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\File;
 use App\User;
+use App\Timeline;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -87,7 +88,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function DestroyImage(Request $request){
-       // $filename = $request->id;
+
+        // $filename = $request->id;
+
         $uploaded_image = File::find($request->id);
 
         if (empty($uploaded_image)) {
@@ -128,10 +131,15 @@ class UserController extends Controller
 
      public function getUserAllFriends(){
          return response()->json(Auth::user()->allFriends,200);
-
      }
 
-   
-
+     public function getUserInfo(){
+        $timeline= Auth::user()->userInfo;
+       /* $user = Auth::user();
+            $merged = $timeline->merge($user);
+            $result = $merged->all();
+        */
+        return response()->json($timeline);
+    }
 
 }

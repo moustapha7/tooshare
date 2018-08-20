@@ -15,7 +15,9 @@ class Home extends Component {
         super(props)
         this.Auth=new AuthService();
         this.state = {
-            user: {}
+            user: {},
+            userAvatar: '',
+            cover: ''
         }
     }
    // componentWillMount(){
@@ -28,8 +30,11 @@ class Home extends Component {
         if(this.Auth.loggedIn()){
             // this.props.router.push("/");
             this.Auth.getUserinfo().then(res=>{
-                this.setState({user: res});
-                console.log("Home "+ res.phone);
+                this.setState({user: res.user});
+                this.setState({userAvatar: res.avatar});
+                this.setState({cover: res.cover});
+                console.log("Home "+ res.user.phone);
+                console.log("TIMELINE "+ res.id);
             }).catch(err=>{
                 alert("Resolver "+ err);
             })
@@ -45,11 +50,11 @@ class Home extends Component {
         return (
             <div className="">
 
-                <Header link="logout"/>
+                <Header link="logout" UserAvatar={!!(this.state.userAvatar)? this.state.userAvatar : ""}/>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding">
-                            <SideBarGauche User={this.state.user}/>
+                            <SideBarGauche User={this.state.user} UserAvatar={!!(this.state.userAvatar)? this.state.userAvatar : ""} UserCover={!!(this.state.cover)? this.state.cover : ""}/>
                         </div>
                         <div className="col-lg-6 col-sm-6 col-md-6 col-xs-12 nopadding">
                             <PostForm User={this.state.user}/>

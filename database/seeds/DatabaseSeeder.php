@@ -11,8 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       // $this->call(Ajout_Categorie_formations::class);
-       $this->call(Ajout_Formation::class);
+      // $this->call(Ajout_Categorie_formations::class);
+      $this->call(Ajout_Formation::class);
         // $this->call(UsersTableSeeder::class);
     }
 }

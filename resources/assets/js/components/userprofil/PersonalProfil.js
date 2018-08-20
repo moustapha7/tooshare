@@ -12,7 +12,9 @@ class PersonalProfil extends Component {
         super(props)
         this.Auth=new AuthService();
         this.state = {
-            user: {}
+            user: {},
+            userAvatar: '',
+            cover: ''
         }
     }
 
@@ -20,9 +22,9 @@ class PersonalProfil extends Component {
         if(this.Auth.loggedIn()){
             // this.props.router.push("/");
             this.Auth.getUserinfo().then(res=>{
-                this.setState({user: res});
-                console.log("Home "+ res.phone);
-                console.log("okkkkkkk ");
+                this.setState({user: res.user});
+                this.setState({userAvatar: res.avatar});
+                this.setState({cover: res.cover});
             }).catch(err=>{
                 alert("Resolver "+ err);
             })
@@ -41,12 +43,12 @@ class PersonalProfil extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 nopadding" >
-                            <Barner />
+                            <Barner  User={this.state.user} UserCover={!!(this.state.cover)? this.state.cover : ""}/>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-lg-3 col-sm-3 col-md-3 col-xs-12 nopadding fixed">
-                            <SideBarGauche User={this.state.user}/>
+                            <SideBarGauche User={this.state.user} Editable="editable" UserAvatar={this.state.userAvatar} />
                         </div>
                         <div className="col-lg-9 col-sm-9 col-md-9 col-xs-12 nopadding ">
                             <UserProfilInfo />

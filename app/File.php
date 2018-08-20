@@ -15,4 +15,14 @@ class File extends Model
     public function user(){
       return  $this->belongsTo('App\User','user_id');
     }
+
+    public function avatar()
+    {
+        return $this->hasOne('App\Timeline', "avatar_id");
+    }
+
+    public function cover()
+    {
+        return $this->hasOne('App\Timeline', "cover_id");
+    }
 }

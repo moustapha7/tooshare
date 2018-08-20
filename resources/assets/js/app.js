@@ -29,7 +29,7 @@ render(
             <Route path='/profil/:userid/:mode' component={PersonalProfil}/>
             <Route path='/allUsers' component={UsersRegistered}/>
             <Route path='/parametre' component={UserParametre}/>
-            <Route path='/publicUser' component={PublicUserParametre}/>
+            <Route path='/publicUser/:userid/:mode' component={PublicUserParametre}/>
             <Route path='/universite' component={CreationUniversite}/>
             <Route path='/entreprise' component={CreationEntreprise}/>
             <Route path='/publicUniversite' component={PublicUniversitePublication}/>

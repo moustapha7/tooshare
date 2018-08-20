@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->integer('id')->unsigned()->index();
             $table->integer('post_id')->unsigned()->index();
             // Foreign key Constraint
-            $table->foreign('id')->references('id')->on('posts')->onDelete('cascade'); // Inheritance Relationship
+            //$table->foreign('id')->references('id')->on('posts')->onDelete('cascade'); // Inheritance Relationship
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
         });
     }
