@@ -16,7 +16,7 @@ class CreateEntreprisesTable extends Migration
         Schema::create('entreprises', function (Blueprint $table) {
            $table->increments('id');
             $table->string('nomEntreprise');
-            $table->string('niea');
+            $table->string('ninea');
             $table->integer('domaine1')->unsigned()->index();
             $table->integer('domaine2')->unsigned()->index()->nullable();
             $table->integer('domaine3')->unsigned()->index()->nullable();

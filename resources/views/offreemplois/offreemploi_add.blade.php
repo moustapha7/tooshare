@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <form action="" method="post" class="col-6 offset-3">
+        <form action="{{ route('offreemploi_add') }}" method="post" class="col-6 offset-3">
             @csrf
             
 

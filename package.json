@@ -18,10 +18,11 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
         "popper.js": "^1.12",
-        "react": "^16.2.0",
+        "react": "^16.4.2",
         "react-dom": "^16.2.0"
     },
     "dependencies": {
+        "download": "^7.1.0",
         "emoji-picker-react": "^2.0.4",
         "jwt-decode": "^2.2.0",
         "moment": "^2.22.2",

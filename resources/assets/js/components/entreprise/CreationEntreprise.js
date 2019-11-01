@@ -12,12 +12,12 @@ export default class CreationEntreprise extends Component {
                 <div className="container">
                    
                     <div class="card ">
-                            <a class="btn btn-primary"> <h3 >Création d'Entreprise</h3></a>
+                            <a class="btn btn-primary"> <h3 >Création Entreprise</h3></a>
                     </div>
                     <form>
                                 <div class="form-row ">
                                     <div class="form-group col-md-6">
-                                    <label for="inputlg">Nom de l'Entreprise</label>
+                                    <label for="inputlg">Nom Entreprise</label>
                                     <input type="text" class="form-control" id="name_entreprise" />
                                     </div>
                                
@@ -56,17 +56,17 @@ export default class CreationEntreprise extends Component {
                                     <input type="text" class="form-control" id="ninea_entreprise" />
                                     </div>
                                     <div class="form-group col-md-6">
-                                    <label for="domaine1">Donmaine d'Activité 1</label>
+                                    <label for="domaine1">Donmaine Activité 1</label>
                                     <input type="text" class="form-control" id="domaine1_entreprise" />
                                     </div>
                                 </div>
                                 <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="domaine2">Donmaine d'Activité 2</label>
+                                    <label for="domaine2">Donmaine Activité 2</label>
                                     <input type="text" class="form-control" id="domaine2_entreprise" />
                                     </div>
                                     <div class="form-group col-md-6">
-                                    <label for="domaine3">Donmaine d'Activité 3</label>
+                                    <label for="domaine3">Donmaine Activité 3</label>
                                     <input type="text" class="form-control" id="domaine3_entreprise" />
                                     </div>
                                 </div>

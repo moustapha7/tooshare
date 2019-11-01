@@ -178,7 +178,7 @@ export default class SideBarGauche extends Component {
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mes Structures</a>
                                 <div className="dropdown-menu">
-                                    <a className="dropdown-item" href="#">Entreprises</a>
+                                    <Link to="/entreprise" className="dropdown-item">My Entreprise</Link>
                                     <a className="dropdown-item" href="#">Universites</a>
                                 </div>
                             </li>

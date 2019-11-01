@@ -12,7 +12,7 @@ class OffreemploisController extends Controller
 {
     //
 	public function __construct(){
-      //  $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index() 
@@ -72,6 +72,7 @@ class OffreemploisController extends Controller
             $offreemploi = Offreemplois::create($request->all());
 
              return redirect()->route('offreemplois') ;
+             return response()->json($offreemploi, 201);
          }
 
         return view('auth.login');      
@@ -98,7 +99,8 @@ class OffreemploisController extends Controller
             $offreemploi->dateExpiration= $request->get('dateExpiration');
             $offreemploi->save();
            
-            return redirect()->route('offreemplois') ;
+            //return redirect()->route('offreemplois') ;
+            return response()->json(['succes'=>'update succesfully'],200);
          }
 
         return view('auth.login');     
@@ -152,6 +154,7 @@ class OffreemploisController extends Controller
             $offreemploi->save();
 
             
+            return response()->json($offreemploi, 201);
              return redirect('offreemplois');
             
           }
@@ -178,7 +181,7 @@ class OffreemploisController extends Controller
             $offreemploi->dateExpiration= Input::get('dateExpiration');
             $offreemploi->save();
 
-            
+            return response()->json($offreemploi, 201);
              return redirect('offreemplois');
         }
 
@@ -193,6 +196,8 @@ class OffreemploisController extends Controller
         {
             $offreemploi = Offreemplois::where('id', $id)->first();
             $offreemploi->forceDelete();
+
+            return response()->json($offreemploi, 201);
             return redirect('offreemplois');
         }
 

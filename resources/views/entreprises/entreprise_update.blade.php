@@ -11,9 +11,9 @@
                 <input type="text" class="form-control" name="nomEntreprise" required="required" >
             </div>
 
-            <label>NIEA</label>
+            <label>NINEA</label>
             <div class="form-group">
-                <input type="text" class="form-control" name="niea" required="required" >
+                <input type="text" class="form-control" name="ninea" required="required" >
             </div>
 
             <label>Domaine 1</label>
